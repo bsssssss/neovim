@@ -28,7 +28,8 @@ return {
 				},
 				editor = {
 					highlight = {
-						color = "IncSearch",
+						-- color = "IncSearch",
+						color = "Cursor",
 						type = "flash",
 						flash = {
 							duration = 100,
@@ -41,7 +42,7 @@ return {
 					auto_toggle_error = true,
 					horizontal = true,
 					direction = "bot",
-					size = 30,
+					size = 10,
 				},
 				documentation = {
 					cmd = "/opt/homebrew/bin/pandoc",

@@ -11,8 +11,27 @@ return {
 		codedark.visual.a.bg = "#D1C39F"
 		codedark.replace.a.bg = "#B0B5A1"
 
+		local function scstatus()
+			if vim.bo.filetype == "supercollider" then
+				stat = vim.fn["scnvim#statusline#server_status"]()
+				stat = stat:gsub("%%", "%%%%")
+				return stat
+			else
+				return ""
+			end
+		end
+
 		lualine.setup({
 			options = { theme = codedark },
+			sections = {
+				lualine_c = {
+					{ "filename" },
+					{ scstatus, color = {
+						fg = "#55DD33",
+						gui = "bold",
+					} },
+				},
+			},
 		})
 	end,
 }
