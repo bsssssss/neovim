@@ -31,8 +31,10 @@ vim.cmd("filetype plugin on")
 
 require("options")
 
-require("keymaps")
-
 require("lazy-bootstrap")
 
 require("lazy-plugins")
+
+require("keymaps")
+
+vim.cmd.colorscheme("rose-pine")

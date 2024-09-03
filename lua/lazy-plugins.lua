@@ -10,8 +10,7 @@
 
 require("lazy").setup({
 
-	require("colorschemes.arctic"),
-	require("colorschemes.base16"),
+	require("colorschemes.rosepine"),
 
 	require("kickstart/plugins/gitsigns"),
 	require("kickstart/plugins/which-key"),

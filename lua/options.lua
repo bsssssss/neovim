@@ -4,7 +4,7 @@
 --  For more options, you can see `:help option-list`
 vim.opt.termguicolors = true
 -- Make line numbers default
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 

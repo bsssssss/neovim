@@ -43,6 +43,11 @@ vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+y')
 
+vim.keymap.set("n", "<leader>x", "<cmd> Explore <CR>", { desc = "Netrw: E[X]plore" })
+
+vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Dap: Add [B]reakpoint at current line" })
+vim.keymap.set("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Dap: Start or [R]esume the debugger" })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -103,5 +108,58 @@ vim.api.nvim_create_autocmd("FileType", {
 		print("Scheme file detected ! <leader>e to send to max")
 	end,
 })
+
+local telescope = require("telescope")
+local dap = require("dap")
+local dapui = require("dapui")
+local remap = require("remap")
+local nnoremap = remap.nnoremap
+
+-- Start
+nnoremap("<F9>", function()
+	dap.continue()
+	dapui.open()
+end)
+-- Exit
+nnoremap("<F7>", function()
+	dap.terminate()
+	dapui.close()
+	vim.cmd("sleep 50ms")
+	dap.repl.close()
+end)
+-- Restart
+nnoremap("<F21>", function()
+	dap.terminate()
+	vim.cmd("sleep 50ms")
+	dap.repl.close()
+	dap.continue()
+end) -- Shift F9
+nnoremap("<leader>B", function()
+	dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end)
+nnoremap("<F8>", function()
+	dap.toggle_breakpoint()
+end)
+nnoremap("<F20>", function()
+	dap.clear_breakpoints()
+end) -- SHIFT+F8
+nnoremap("<F10>", function()
+	dap.step_over()
+end)
+nnoremap("<leader>rc", function()
+	dap.run_to_cursor()
+end)
+nnoremap("<F11>", function()
+	dap.step_into()
+end)
+nnoremap("<F12>", function()
+	dap.step_out()
+end)
+nnoremap("<leader>dp", function()
+	dap.pause()
+end)
+nnoremap("<leader>dtc", function()
+	telescope.extensions.dap.commands({})
+end)
 
 -- vim: ts=2 sts=2 sw=2 et
