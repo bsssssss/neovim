@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- [[ Scheme for Max ]]
 --
 local function set_scm_keymaps()
-	local path = "~/projects/nvim-s4m/sendtomax/"
+	local path = "~/Code/projects/nvim-s4m/sendtomax/"
 	local venv_activate = "source " .. path .. "venv/bin/activate && "
 	local command = venv_activate .. "python3 " .. path .. "/sendtomax.py"
 
