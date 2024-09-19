@@ -1,3 +1,0 @@
-return {
-	"kovisoft/paredit",
-}
