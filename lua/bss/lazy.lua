@@ -19,6 +19,5 @@ require("lazy").setup({
 	spec = {
 		{ import = "bss.plugins" },
 	},
-	install = { colorscheme = { "habamax" } },
 	checker = { enabled = true },
 })

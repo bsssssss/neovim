@@ -2,9 +2,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*",
 	callback = function()
 		if vim.bo.filetype == "neo-tree" then
-			vim.wo.fillchars = "eob: "
 			vim.opt.signcolumn = "no"
 		end
+		vim.wo.fillchars = "eob: "
 	end,
 })
 
@@ -21,9 +21,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
 	pattern = { "gitcommit", "markdown", "md" },
 	callback = function()
-		print("markdown!")
 		vim.opt_local.textwidth = 80
 		vim.opt_local.wrap = true
+		vim.api.nvim_set_option_value("linebreak", true, { filetype = "markdown" })
 		vim.opt_local.spell = true
 		vim.opt_local.tabstop = 2
 		vim.opt_local.softtabstop = 2
