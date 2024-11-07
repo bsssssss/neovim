@@ -36,7 +36,7 @@ opt.updatetime = 100
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-opt.timeoutlen = 100
+opt.timeoutlen = 500
 
 opt.undodir = vim.fn.expand("~/.undodir")
 opt.undofile = true
