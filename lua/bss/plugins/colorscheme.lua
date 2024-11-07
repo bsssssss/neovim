@@ -5,18 +5,24 @@ return {
 	priority = 1000,
 	config = function()
 		require("rose-pine").setup({
+
+      extend_background_behind_borders = true,
+
 			styles = {
 				bold = true,
 				italic = true,
+        transparency = true,
 			},
+
 			highlight_groups = {
+
 				CurSearch = { fg = "base", bg = "leaf", inherit = false },
 				Search = { fg = "Normal", bg = "leaf", blend = 25, inherit = false },
 
 				CursorLine = { bg = "highlight_low" },
 
-				NormalFloat = { bg = "none" },
-				FloatBorder = { bg = "none" },
+				NormalFloat = { bg = "base" },
+				FloatBorder = { bg = "base" },
 
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeResultsNormal = { fg = "subtle", bg = "none" },

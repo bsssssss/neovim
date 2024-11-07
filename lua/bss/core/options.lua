@@ -42,3 +42,6 @@ opt.undodir = vim.fn.expand("~/.undodir")
 opt.undofile = true
 
 opt.swapfile = false
+
+vim.api.nvim_set_hl(0, "NormalFloat", {ctermbg = none})
+vim.api.nvim_set_hl(0, "FloatBorder", {ctermbg = none})

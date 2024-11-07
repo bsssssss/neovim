@@ -20,4 +20,7 @@ require("lazy").setup({
 		{ import = "bss.plugins" },
 	},
 	checker = { enabled = true },
+	change_detection = {
+		notify = false,
+	},
 })
