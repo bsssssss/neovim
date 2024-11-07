@@ -20,6 +20,9 @@ return {
 				Search = { fg = "Normal", bg = "leaf", blend = 25, inherit = false },
 
 				CursorLine = { bg = "highlight_low" },
+				CursorLineNr = { fg = "muted" },
+				LineNr = { fg = "highlight_med"},
+				Visual = { bg = "iris", blend = 10},
 
 				NormalFloat = { bg = "base" },
 				FloatBorder = { bg = "base" },

@@ -15,6 +15,14 @@ return {
 			},
 		}
 
+		local rec_mode = function()
+			local mode = require("noice").api.status.mode.get()
+			if mode:match("^%-%-.*%-%-$") then
+				return ""
+			end
+			return tostring(mode)
+		end
+
 		require("lualine").setup({
 			options = {
 				section_separators = { left = "", right = "" },
@@ -34,17 +42,15 @@ return {
 				},
 				lualine_c = {
 					{ "filename", color = { fg = palette.muted } },
-				},
-
-				lualine_x = {},
-				lualine_y = {
 					{
-						---@diagnostic disable-next-line: undefined-field
-						require("noice").api.status.mode.get,
+						rec_mode,
 						---@diagnostic disable-next-line: undefined-field
 						cond = require("noice").api.status.mode.has,
 					},
 				},
+
+				lualine_x = {},
+				lualine_y = {},
 				lualine_z = {
 					{ "filetype", icon = { align = "right" } },
 					"encoding",
