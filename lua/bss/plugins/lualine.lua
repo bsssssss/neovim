@@ -30,7 +30,7 @@ return {
 				component_separators = { left = "⟩", right = "" },
 				theme = theme,
 				disabled_filetypes = {
-					-- "neo-tree",
+					"neo-tree",
 				},
 			},
 
@@ -39,7 +39,7 @@ return {
 				lualine_b = {
 					{ "branch", color = { fg = palette.iris } },
 					"diff",
-					"diagnostics",
+					{ "diagnostics", draw_empty = true},
 				},
 				lualine_c = {
 					{ "filename", color = { fg = palette.muted } },
@@ -47,6 +47,7 @@ return {
 						rec_mode,
 						---@diagnostic disable-next-line: undefined-field
 						cond = require("noice").api.status.mode.has,
+            color = {fg = palette.gold},
 					},
 				},
 

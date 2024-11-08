@@ -16,7 +16,7 @@ return {
 			cmdline = {
 				enabled = true,
 				view = "cmdline",
-        opts = {},
+				opts = {},
 			},
 
 			lsp = {
