@@ -16,6 +16,7 @@ return {
 		}
 
 		local rec_mode = function()
+			---@diagnostic disable-next-line: undefined-field
 			local mode = require("noice").api.status.mode.get()
 			if mode:match("^%-%-.*%-%-$") then
 				return ""
@@ -29,7 +30,7 @@ return {
 				component_separators = { left = "⟩", right = "" },
 				theme = theme,
 				disabled_filetypes = {
-					"neo-tree",
+					-- "neo-tree",
 				},
 			},
 

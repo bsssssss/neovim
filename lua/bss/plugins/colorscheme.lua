@@ -40,6 +40,8 @@ return {
         NeoTreeRootName = {fg = "iris"},
         NeoTreeWinSeparator = {fg = "highlight_high"},
 
+        WinSeparator = {fg = "highlight_high"},
+
         MiniIndentscopeSymbol = {fg = "highlight_high"},
 
 				["@keyword.exception.java"] = { fg = "#8985D4" },
