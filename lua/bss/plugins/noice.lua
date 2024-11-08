@@ -10,22 +10,13 @@ return {
 	config = function()
 		require("noice").setup({
 
-			routes = {
-				{
-					filter = {
-						event = "notify",
-						find = "No information available",
-					},
-					opts = { skip = true },
-				},
+			messages = {
+				view = "mini",
 			},
-
 			cmdline = {
+				enabled = true,
 				view = "cmdline",
-			},
-
-			hover = {
-				silent = true,
+        opts = {},
 			},
 
 			lsp = {
@@ -36,11 +27,35 @@ return {
 					["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 				},
 			},
+			hover = {
+				enabled = true,
+				view = nil, -- when nil, use defaults from documentation
+				---@type NoiceViewOptions
+				opts = {}, -- merged with defaults from documentation
+			},
+
+			routes = {
+				{
+					filter = {
+						event = "msg_show",
+						find = "(mini.align)",
+					},
+					view = "mini",
+				},
+				{
+					filter = {
+						event = "notify",
+						find = "No information available",
+					},
+					opts = { skip = true },
+				},
+			},
 
 			presets = {
 				bottom_search = true, -- use a classic bottom cmdline for search
 				long_message_to_split = true, -- long messages will be sent to a split
 				lsp_doc_border = true, -- add a border to hover docs and signature help
+				command_palette = true,
 			},
 		})
 	end,
