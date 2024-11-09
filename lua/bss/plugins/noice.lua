@@ -11,7 +11,7 @@ return {
 		require("noice").setup({
 
 			messages = {
-				view = "mini",
+				-- view = "mini",
 			},
 			cmdline = {
 				enabled = true,

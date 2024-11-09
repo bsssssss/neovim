@@ -4,11 +4,7 @@ return {
 	lazy = false,
 	priority = 1000,
 	config = function()
-		local colors = {
-			gr = "#6ABDAD",
-		}
 		require("rose-pine").setup({
-
 			extend_background_behind_borders = false,
 
 			styles = {
@@ -16,36 +12,35 @@ return {
 				italic = true,
 				transparency = false,
 			},
-
 			groups = {
 				git_add = "leaf",
 			},
-
 			palette = {
 				moon = {
 					gold = "#E6C46E",
 					-- gold = "#A7C995",
 					text = "#D5D5DB",
+					-- prune = "#8985D4",
+					prune = "#7874C2",
+          -- mint = "#93CC93",
+          mint = "#ACE697",
 				},
 			},
-
 			highlight_groups = {
 
-				CurSearch = { fg = "base", bg = "iris", inherit = false },
-				Search = { fg = "Normal", bg = "iris", blend = 25, inherit = false },
-
+				CurSearch = { fg = "base", bg = "leaf", inherit = false },
+				Search = { fg = "Normal", bg = "leaf", blend = 50, inherit = false },
 				Comment = { fg = "highlight_high" },
-
-				-- MsgArea = { bg = "base" },
-
 				CursorLine = { bg = "highlight_low" },
-				-- CursorLineNr = { fg = "muted" },
 				LineNr = { fg = "highlight_med" },
 				Visual = { bg = "highlight_med", blend = 66 },
-
 				NormalFloat = { bg = "none" },
 				FloatBorder = { bg = "none" },
 				WinSeparator = { fg = "highlight_high" },
+
+				NoiceVirtualText = { fg = "leaf" },
+        NotifyInfoBorder = {fg = "muted"},
+        NotifyINFOTitle = {fg = "muted"},
 
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeResultsNormal = { fg = "subtle", bg = "none" },
@@ -61,23 +56,24 @@ return {
 
 				MiniIndentscopeSymbol = { fg = "highlight_high" },
 
-				["@keyword.exception.java"] = { fg = "#8985D4" },
-				["@keyword.conditional.java"] = { fg = "#8985D4" },
+				-- String = { fg = "mint" },
 
+				["@tag.html"] = { fg = "pine" },
+				["@keyword.conditional"] = { fg = "prune" },
+				["@keyword.repeat"] = { fg = "prune" },
+				["@keyword.exception.java"] = { fg = "prune" },
+				["@keyword.conditional.java"] = { fg = "prune" },
 				["@lsp.type.modifier.java"] = { fg = "pine" },
 				["@type.builtin.java"] = { fg = "pine" },
 				["@lsp.type.class.java"] = { fg = "leaf" },
-
-				["@constructor.lua"] = { fg = "leaf" },
-
-				["@tag.html"] = { fg = "pine" },
-
+				["@keyword.java"] = { fg = "prune" },
+				-- ["@constructor.lua"] = { fg = "prune" },
 				["@variable.builtin.supercollider"] = { fg = "leaf" },
 				["@constant.builtin.supercollider"] = { fg = "love" },
 				["@function.method.call.supercollider"] = { fg = "foam" },
 				["@string.special.symbol.supercollider"] = { fg = "gold" },
-				["@keyword.conditional.supercollider"] = { fg = "#8985D4" },
-				["@keyword.supercollider"] = { fg = "#8985D4" },
+				["@keyword.conditional.supercollider"] = { fg = "prune" },
+				["@keyword.supercollider"] = { fg = "prune" },
 				["@type.supercollider"] = { fg = "pine" },
 				["@number.supercollider"] = { fg = "iris" },
 				["@number.float.supercollider"] = { fg = "iris" },

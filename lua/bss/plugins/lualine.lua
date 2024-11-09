@@ -39,15 +39,15 @@ return {
 				lualine_b = {
 					{ "branch", color = { fg = palette.iris } },
 					"diff",
-					{ "diagnostics", draw_empty = true},
+					{ "diagnostics", draw_empty = true },
 				},
 				lualine_c = {
-					{ "filename", color = { fg = palette.muted } },
+					{ "filename", color = { fg = palette.text } },
 					{
 						rec_mode,
 						---@diagnostic disable-next-line: undefined-field
 						cond = require("noice").api.status.mode.has,
-            color = {fg = palette.gold},
+						color = { fg = palette.gold },
 					},
 				},
 
@@ -57,6 +57,18 @@ return {
 					{ "filetype", icon = { align = "right" } },
 					"encoding",
 				},
+			},
+			inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+				lualine_c = {
+					{ "filename", color = { fg = palette.muted, bg = palette.base } },
+				},
+        lualine_x = {
+          {"location"},
+        },
+        lualine_y = {},
+        lualine_z = {},
 			},
 		})
 	end,

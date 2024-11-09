@@ -1,5 +1,19 @@
 return {
 	{
+		"mrhh69/nvim-kitty",
+		config = function()
+			vim.filetype.add({
+				filename = {
+					["kitty.conf"] = "kitty",
+				},
+				pattern = {
+					[".*%.[sS]"] = "asm6502",
+					[".*/kitty/.*%.conf"] = "kitty",
+				},
+			})
+		end,
+	},
+	{
 		"knubie/vim-kitty-navigator",
 		config = function()
 			vim.g.kitty_navigator_no_mappings = 1
