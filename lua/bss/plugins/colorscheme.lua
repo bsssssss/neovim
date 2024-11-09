@@ -29,7 +29,7 @@ return {
 			highlight_groups = {
 
 				CurSearch = { fg = "base", bg = "leaf", inherit = false },
-				Search = { fg = "Normal", bg = "leaf", blend = 50, inherit = false },
+				Search = { fg = "text", bg = "leaf", blend = 50, inherit = false },
 				Comment = { fg = "highlight_high" },
 				CursorLine = { bg = "highlight_low" },
 				LineNr = { fg = "highlight_med" },
@@ -39,8 +39,8 @@ return {
 				WinSeparator = { fg = "highlight_high" },
 
 				NoiceVirtualText = { fg = "leaf" },
-        NotifyInfoBorder = {fg = "muted"},
-        NotifyINFOTitle = {fg = "muted"},
+        NotifyINFOBorder = {fg = "muted", bg = "base"},
+        NotifyINFOTitle = {fg = "text"},
 
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeResultsNormal = { fg = "subtle", bg = "none" },
@@ -56,9 +56,9 @@ return {
 
 				MiniIndentscopeSymbol = { fg = "highlight_high" },
 
-				-- String = { fg = "mint" },
-
 				["@tag.html"] = { fg = "pine" },
+				["@tag.css"] = { fg = "pine" },
+				["@tag.attribute.html"] = { fg = "leaf" },
 				["@keyword.conditional"] = { fg = "prune" },
 				["@keyword.repeat"] = { fg = "prune" },
 				["@keyword.exception.java"] = { fg = "prune" },
@@ -67,7 +67,6 @@ return {
 				["@type.builtin.java"] = { fg = "pine" },
 				["@lsp.type.class.java"] = { fg = "leaf" },
 				["@keyword.java"] = { fg = "prune" },
-				-- ["@constructor.lua"] = { fg = "prune" },
 				["@variable.builtin.supercollider"] = { fg = "leaf" },
 				["@constant.builtin.supercollider"] = { fg = "love" },
 				["@function.method.call.supercollider"] = { fg = "foam" },
