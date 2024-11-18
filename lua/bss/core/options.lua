@@ -43,3 +43,5 @@ opt.undofile = true
 
 opt.swapfile = false
 opt.laststatus = 2
+
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

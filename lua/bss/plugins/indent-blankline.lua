@@ -1,7 +1,7 @@
 return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
-    enabled = false,
+		enabled = false,
 		opts = {
 			indent = {
 				char = "│",
@@ -32,7 +32,10 @@ return {
 		opts = {
 			-- symbol = "▏",
 			symbol = "│",
-			options = { try_as_border = true },
+			options = {
+				try_as_border = true,
+				border = "top",
+			},
 		},
 		init = function()
 			vim.api.nvim_create_autocmd("FileType", {

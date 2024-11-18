@@ -18,9 +18,16 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "bss.plugins" },
+		{ import = "bss.plugins.lsp" },
 	},
+
+	install = { colorscheme = { "rose-pine-moon" } },
 	checker = { enabled = true },
 	change_detection = {
 		notify = false,
+	},
+	ui = {
+		border = "single",
+		backdrop = 100,
 	},
 })

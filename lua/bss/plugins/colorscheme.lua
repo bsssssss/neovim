@@ -18,19 +18,18 @@ return {
 			palette = {
 				moon = {
 					gold = "#E6C46E",
-					-- gold = "#A7C995",
 					text = "#D5D5DB",
-					-- prune = "#8985D4",
-					prune = "#7874C2",
-          -- mint = "#93CC93",
-          mint = "#ACE697",
+					prune = "#717BC7",
+					mint = "#ACE697",
+					sand = "#D1C9AD",
+					lagoon = "#75A6C7",
 				},
 			},
 			highlight_groups = {
 
 				CurSearch = { fg = "base", bg = "leaf", inherit = false },
 				Search = { fg = "text", bg = "leaf", blend = 50, inherit = false },
-				Comment = { fg = "highlight_high" },
+				Comment = { fg = "muted" },
 				CursorLine = { bg = "highlight_low" },
 				LineNr = { fg = "highlight_med" },
 				Visual = { bg = "highlight_med", blend = 66 },
@@ -39,8 +38,8 @@ return {
 				WinSeparator = { fg = "highlight_high" },
 
 				NoiceVirtualText = { fg = "leaf" },
-        NotifyINFOBorder = {fg = "muted", bg = "base"},
-        NotifyINFOTitle = {fg = "text"},
+				NotifyINFOBorder = { fg = "muted", bg = "base" },
+				NotifyINFOTitle = { fg = "text" },
 
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeResultsNormal = { fg = "subtle", bg = "none" },
@@ -48,32 +47,42 @@ return {
 				TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
 				TelescopeNormal = { bg = "none" },
 				TelescopePromptNormal = { bg = "base" },
-				TelescopeMatching = { fg = "muted" },
+				TelescopeMatching = { fg = "leaf" },
 
 				NeoTreeFloatBorder = { fg = "highlight_high" },
 				NeoTreeRootName = { fg = "muted" },
 				NeoTreeWinSeparator = { fg = "highlight_high" },
 
 				MiniIndentscopeSymbol = { fg = "highlight_high" },
+				MiniIndentscopeSymbolOff = { fg = "highlight_high" },
 
-				["@tag.html"] = { fg = "pine" },
-				["@tag.css"] = { fg = "pine" },
-				["@tag.attribute.html"] = { fg = "leaf" },
 				["@keyword.conditional"] = { fg = "prune" },
 				["@keyword.repeat"] = { fg = "prune" },
+
+				["@type.haskell"] = { fg = "leaf" },
+				["@variable.member.haskell"] = { fg = "sand" },
+				["@module.haskell"] = { fg = "lagoon" },
+				-- ["@constructor.haskell"]  = {fg = "leaf"},
+
+				["@tag.html"] = { fg = "pine" },
+				["@tag.attribute.html"] = { fg = "leaf" },
+
+				["@tag.css"] = { fg = "pine" },
+
 				["@keyword.exception.java"] = { fg = "prune" },
 				["@keyword.conditional.java"] = { fg = "prune" },
 				["@lsp.type.modifier.java"] = { fg = "pine" },
 				["@type.builtin.java"] = { fg = "pine" },
 				["@lsp.type.class.java"] = { fg = "leaf" },
 				["@keyword.java"] = { fg = "prune" },
-				["@variable.builtin.supercollider"] = { fg = "leaf" },
+
+				["@variable.builtin.supercollider"] = { fg = "pine" },
 				["@constant.builtin.supercollider"] = { fg = "love" },
 				["@function.method.call.supercollider"] = { fg = "foam" },
 				["@string.special.symbol.supercollider"] = { fg = "gold" },
 				["@keyword.conditional.supercollider"] = { fg = "prune" },
 				["@keyword.supercollider"] = { fg = "prune" },
-				["@type.supercollider"] = { fg = "pine" },
+				["@type.supercollider"] = { fg = "leaf" },
 				["@number.supercollider"] = { fg = "iris" },
 				["@number.float.supercollider"] = { fg = "iris" },
 			},

@@ -10,3 +10,4 @@ vim.filetype.add({
 
 require("bss.core")
 require("bss.lazy")
+-- require("bss.lspconfig")

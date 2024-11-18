@@ -31,3 +31,33 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.expandtab = true
 	end,
 })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = {"loclist", "qf"},
+--   callback = function ()
+--     vim.opt_local.wrap = true
+--     vim.opt_local.linebreak = true
+--     vim.opt_local.breakindent = true
+--   end
+-- })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "tidal",
+	callback = function()
+    local logfile = "/tmp/tidal_ls.log"
+		vim.lsp.start({
+			name = "tidal_ls",
+			cmd = { "sh", "-c", vim.fn.expand("~/.local/bin/tidal-ls"), "2>" .. logfile },
+			-- cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
+		})
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "haskell",
+	callback = function()
+		local bufnr = vim.api.nvim_get_current_buf()
+		vim.bo[bufnr].softtabstop = 2
+		vim.bo[bufnr].shiftwidth = 4
+	end,
+})
