@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Hightlight selection on yank",
 	pattern = "*",
 	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
+		vim.highlight.on_yank({ higroup = "Comment", timeout = 150 })
 	end,
 })
 
@@ -22,9 +22,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "gitcommit", "markdown", "md" },
 	callback = function()
 		vim.opt_local.textwidth = 80
-		vim.opt_local.wrap = true
+		vim.opt_local.wrap = false
 		vim.api.nvim_set_option_value("linebreak", true, { filetype = "markdown" })
-		vim.opt_local.spell = true
+		vim.opt_local.spell = false
 		vim.opt_local.tabstop = 2
 		vim.opt_local.softtabstop = 2
 		vim.opt_local.shiftwidth = 2
@@ -32,24 +32,30 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = {"loclist", "qf"},
---   callback = function ()
---     vim.opt_local.wrap = true
---     vim.opt_local.linebreak = true
---     vim.opt_local.breakindent = true
---   end
--- })
-
+vim.lsp.set_log_level("DEBUG")
+-- Add this to your tidal filetype autocmd
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "tidal",
 	callback = function()
-    local logfile = "/tmp/tidal_ls.log"
-		vim.lsp.start({
+		local logfile = "/tmp/tidal_ls.log"
+		local client_id = vim.lsp.start({
 			name = "tidal_ls",
-			cmd = { "sh", "-c", vim.fn.expand("~/.local/bin/tidal-ls"), "2>" .. logfile },
-			-- cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
+			cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
+			-- Add these handlers
+			handlers = {
+				["window/showMessage"] = function(_, result, ctx)
+					vim.notify("LSP Message: " .. result.message, vim.log.levels.INFO, { title = "Tidal LSP" })
+				end,
+				["window/logMessage"] = function(_, result, ctx)
+					vim.notify("LSP Log: " .. result.message, vim.log.levels.DEBUG, { title = "Tidal LSP Log" })
+				end,
+			},
 		})
+		if not client_id then
+			vim.notify("Failed to start LSP client", vim.log.levels.ERROR)
+		else
+			vim.notify("LSP client started", vim.log.levels.INFO)
+		end
 	end,
 })
 

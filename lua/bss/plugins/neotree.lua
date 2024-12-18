@@ -26,6 +26,7 @@ return {
 			end,
 		},
 	},
+	lazy = false,
 	config = function()
 		-- If you want icons for diagnostic errors, you'll need to define them somewhere:
 		vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
@@ -40,14 +41,14 @@ return {
 			enable_diagnostics = true,
 			open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
 			sort_case_insensitive = false, -- used when sorting files and directories in the tree
-			sort_function = nil, -- use a custom function for sorting files and directories in the tree
-			-- sort_function = function (a,b)
-			--       if a.type == b.type then
-			--           return a.path > b.path
-			--       else
-			--           return a.type > b.type
-			--       end
-			--   end , -- this sorts files and directories descendantly
+			-- sort_function = nil, -- use a custom function for sorting files and directories in the tree
+			sort_function = function(a, b)
+				if a.type == b.type then
+					return a.path < b.path
+				else
+					return a.type < b.type
+				end
+			end, -- this sorts files and directories descendantly
 			default_component_configs = {
 				container = {
 					enable_character_fade = true,
@@ -57,8 +58,10 @@ return {
 					padding = 1, -- extra padding on left hand side
 					-- indent guides
 					with_markers = true,
-					indent_marker = "│",
-					last_indent_marker = "└",
+					-- indent_marker = "│",
+					indent_marker = " ",
+					-- last_indent_marker = "└",
+					last_indent_marker = " ",
 					highlight = "NeoTreeIndentMarker",
 					-- expander config, needed for nesting files
 					with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
@@ -150,7 +153,8 @@ return {
 						nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
 					},
 					["<2-LeftMouse>"] = "open",
-					["<cr>"] = "open",
+					-- ["<cr>"] = "open",
+					["<cr>"] = {},
 					["<esc>"] = "cancel", -- close preview or floating neo-tree window
 					["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
 					-- Read `# Preview Mode` for more information
@@ -165,9 +169,9 @@ return {
 					--["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
 					["l"] = "open",
 					["h"] = "close_node",
-					-- ['C'] = 'close_all_subnodes',
+					["C"] = "close_all_subnodes",
 					["z"] = "close_all_nodes",
-					--["Z"] = "expand_all_nodes",
+					["Z"] = "expand_all_nodes",
 					["a"] = {
 						"add",
 						-- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details

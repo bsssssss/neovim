@@ -1,34 +1,46 @@
 return {
 	"folke/noice.nvim",
+	enabled = true,
 	event = "VeryLazy",
 	opts = {},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify",
+		-- "rcarriga/nvim-notify",
 	},
 
 	config = function()
 		require("noice").setup({
 
-			messages = {
-				-- view = "mini",
-			},
+			-- messages = {
+			-- 	-- view = "mini",
+			-- },
 			cmdline = {
 				enabled = true,
 				view = "cmdline",
 				opts = {},
 			},
+			views = {
+				notify = {
+					enabled = false,
+				},
+				mini = {
+					enabled = false,
+				},
+			},
 
 			lsp = {
+        progress = {
+          enabled = false,
+        },
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 				override = {
-					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-					["vim.lsp.util.stylize_markdown"] = true,
-					["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+					["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+					["vim.lsp.util.stylize_markdown"] = false,
+					["cmp.entry.get_documentation"] = false, -- requires hrsh7th/nvim-cmp
 				},
 			},
 			hover = {
-				enabled = true,
+				enabled = false,
 				view = nil, -- when nil, use defaults from documentation
 				---@type NoiceViewOptions
 				opts = {}, -- merged with defaults from documentation
@@ -40,12 +52,24 @@ return {
 						event = "msg_show",
 						find = "(mini.align)",
 					},
-					view = "mini",
+					view = "cmdline",
+					opts = {
+						timeout = 3000,
+						update = true,
+						replace = true,
+					},
 				},
 				{
 					filter = {
 						event = "notify",
 						find = "No information available",
+					},
+					opts = { skip = true },
+				},
+				{
+					filter = {
+						event = "msg_show",
+						find = "written",
 					},
 					opts = { skip = true },
 				},

@@ -1,5 +1,5 @@
-local lspconfig = require("lspconfig")
-
+-- local lspconfig = require("lspconfig")
+--
 -- require("lspconfig.configs").tidal_ls = {
 -- 	default_config = {
 -- 		cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },

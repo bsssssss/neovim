@@ -22,12 +22,18 @@ require("lazy").setup({
 	},
 
 	install = { colorscheme = { "rose-pine-moon" } },
-	checker = { enabled = true },
+	checker = {
+		enabled = true,
+		notify = false,
+	},
 	change_detection = {
 		notify = false,
 	},
 	ui = {
 		border = "single",
 		backdrop = 100,
+	},
+	rocks = {
+		hererocks = true, -- recommended if you do not have global installation of Lua 5.1.
 	},
 })

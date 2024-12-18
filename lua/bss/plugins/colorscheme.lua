@@ -4,6 +4,7 @@ return {
 	lazy = false,
 	priority = 1000,
 	config = function()
+		---@diagnostic disable-next-line: missing-fields
 		require("rose-pine").setup({
 			extend_background_behind_borders = false,
 
@@ -17,29 +18,41 @@ return {
 			},
 			palette = {
 				moon = {
-					gold = "#E6C46E",
+					-- gold = "#E6C46E",
+					gold = "#DDB169",
 					text = "#D5D5DB",
 					prune = "#717BC7",
 					mint = "#ACE697",
 					sand = "#D1C9AD",
 					lagoon = "#75A6C7",
+          turquoise = "#68DFC9"
+					-- base = "none",
 				},
 			},
 			highlight_groups = {
 
-				CurSearch = { fg = "base", bg = "leaf", inherit = false },
-				Search = { fg = "text", bg = "leaf", blend = 50, inherit = false },
+				FzfLuaBackdrop = { fg = "base" },
+
+				CurSearch = { fg = "turquoise", bg = "turquoise", blend = 33, inherit = false },
+				Search = { fg = "turquoise", bg = "turquoise", blend = 12, inherit = false },
 				Comment = { fg = "muted" },
-				CursorLine = { bg = "highlight_low" },
+				CursorLine = { bg = "base" },
 				LineNr = { fg = "highlight_med" },
 				Visual = { bg = "highlight_med", blend = 66 },
 				NormalFloat = { bg = "none" },
 				FloatBorder = { bg = "none" },
 				WinSeparator = { fg = "highlight_high" },
+				Special = { fg = "lagoon" },
+        -- String = { fg = "sand" },
 
-				NoiceVirtualText = { fg = "leaf" },
+				NoiceVirtualText = { fg = "turquoise" },
 				NotifyINFOBorder = { fg = "muted", bg = "base" },
 				NotifyINFOTitle = { fg = "text" },
+
+				SnacksDashboardDesc = { fg = "lagoon" },
+				SnacksDashboardKey = { fg = "foam" },
+				SnacksDashboardTitle = { fg = "pine" },
+				SnacksDashboardIcon = { fg = "pine" },
 
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeResultsNormal = { fg = "subtle", bg = "none" },
@@ -56,6 +69,14 @@ return {
 				MiniIndentscopeSymbol = { fg = "highlight_high" },
 				MiniIndentscopeSymbolOff = { fg = "highlight_high" },
 
+				mcdCardinality = { fg = "iris" },
+				mcdEntity = { fg = "leaf" },
+				mcdEntityRef = { fg = "leaf" },
+
+				["@string.special.symbol.make"] = { fg = "pine" },
+
+				["@module.latex"] = { fg = "leaf" },
+
 				["@keyword.conditional"] = { fg = "prune" },
 				["@keyword.repeat"] = { fg = "prune" },
 
@@ -64,6 +85,7 @@ return {
 				["@module.haskell"] = { fg = "lagoon" },
 				-- ["@constructor.haskell"]  = {fg = "leaf"},
 
+				["@tag.xml"] = { fg = "pine" },
 				["@tag.html"] = { fg = "pine" },
 				["@tag.attribute.html"] = { fg = "leaf" },
 

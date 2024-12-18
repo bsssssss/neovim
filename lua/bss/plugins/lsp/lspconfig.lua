@@ -5,6 +5,10 @@ return {
 		opts = {
 			library = {
 				-- Load luvit types when the `vim.uv` word is found
+				plugins = {
+					"nvim-dap-ui",
+					types = true,
+				},
 				{ path = "luvit-meta/library", words = { "vim%.uv" } },
 			},
 		},
@@ -92,11 +96,11 @@ return {
 						},
 					},
 				},
-				jdtls = {},
-        hls = {},
+				hls = {},
+        jdtls = {},
 			}
 
-			-- require("java").setup()
+			require("java").setup()
 			require("mason").setup({
 				ui = {
 					border = "single",
@@ -123,13 +127,6 @@ return {
 					end,
 				},
 			})
-
-			-- require("lspconfig").tidal_ls.setup({
-			-- 	cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
-			-- 	filetypes = { "tidal" },
-			-- 	-- root_dir = lspconfig.util.root_pattern(".root"),
-			-- 	-- settings = {},
-			-- })
 		end,
 	},
 }

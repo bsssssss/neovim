@@ -42,6 +42,14 @@ opt.undodir = vim.fn.expand("~/.undodir")
 opt.undofile = true
 
 opt.swapfile = false
-opt.laststatus = 2
+opt.laststatus = 3
 
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+
+vim.opt.syntax = "on"
+vim.opt.conceallevel = 2
+vim.g.vimtex_syntax_conceal_disable = 0
+
+vim.o.scrolloff = 10
+vim.o.sidescrolloff = 10
