@@ -23,9 +23,11 @@ return {
 					text = "#D5D5DB",
 					prune = "#717BC7",
 					mint = "#ACE697",
-					sand = "#D1C9AD",
+					-- sand = "#D1C9AD",
+					sand = "#D1C29F",
 					lagoon = "#75A6C7",
-          turquoise = "#68DFC9"
+					turquoise = "#68DFC9",
+					tea = "#ebbbb9",
 					-- base = "none",
 				},
 			},
@@ -43,7 +45,12 @@ return {
 				FloatBorder = { bg = "none" },
 				WinSeparator = { fg = "highlight_high" },
 				Special = { fg = "lagoon" },
-        -- String = { fg = "sand" },
+				-- String = { fg = "sand" },
+
+				MasonBackdrop = { bg = "base" },
+
+				LspReferenceRead = { bg = "highlight_med" },
+				LspReferenceWrite = { bg = "highlight_med" },
 
 				NoiceVirtualText = { fg = "turquoise" },
 				NotifyINFOBorder = { fg = "muted", bg = "base" },
@@ -73,6 +80,26 @@ return {
 				mcdEntity = { fg = "leaf" },
 				mcdEntityRef = { fg = "leaf" },
 
+				-- folke/which-key.nvim
+				WhichKey = { fg = "iris" },
+				WhichKeyDesc = { fg = "muted" },
+				WhichKeyGroup = { fg = "pine" },
+				WhichKeyIcon = { fg = "pine" },
+				WhichKeyIconAzure = { fg = "pine" },
+				WhichKeyIconBlue = { fg = "foam" },
+				WhichKeyIconCyan = { fg = "foam" },
+				WhichKeyIconGreen = { fg = "leaf" },
+				WhichKeyIconGrey = { fg = "subtle" },
+				WhichKeyIconOrange = { fg = "rose" },
+				WhichKeyIconPurple = { fg = "iris" },
+				WhichKeyIconRed = { fg = "love" },
+				WhichKeyIconYellow = { fg = "sand" },
+				WhichKeySeparator = { fg = "subtle" },
+				WhichKeyValue = { fg = "text" },
+
+				["@type"] = { fg = "leaf" },
+				["@property"] = { fg = "sand" },
+
 				["@string.special.symbol.make"] = { fg = "pine" },
 
 				["@module.latex"] = { fg = "leaf" },
@@ -91,22 +118,38 @@ return {
 
 				["@tag.css"] = { fg = "pine" },
 
-				["@keyword.exception.java"] = { fg = "prune" },
+				-- ["@type"] = { fg = "pine" },
+
+				["@keyword.return"] = { fg = "love" },
+
+				["@lsp.typemod.class.declaration.java"] = { fg = "gold" },
+				-- ["@lsp.mod.importDeclaration.java"] = { fg = "pine" },
+				["@keyword.exception.java"] = { fg = "pine" },
 				["@keyword.conditional.java"] = { fg = "prune" },
+				-- ["@keyword.return.java"] = { fg = "love" },
 				["@lsp.type.modifier.java"] = { fg = "pine" },
 				["@type.builtin.java"] = { fg = "pine" },
-				["@lsp.type.class.java"] = { fg = "leaf" },
+				-- ["@lsp.type.class.java"] = { fg = "leaf" },
+				-- ["@lsp.type.property.java"] = { fg = "sand" },
 				["@keyword.java"] = { fg = "prune" },
+
+				["@type.typescript"] = { fg = "leaf" },
+				["@type.builtin.typescript"] = { fg = "leaf" },
+				["@lsp.type.enum.typescript"] = { fg = "leaf" },
+				["@lsp.type.interface.typescript"] = { fg = "leaf" },
+				["@function.method.call.typescript"] = { fg = "tea" },
 
 				["@variable.builtin.supercollider"] = { fg = "pine" },
 				["@constant.builtin.supercollider"] = { fg = "love" },
 				["@function.method.call.supercollider"] = { fg = "foam" },
-				["@string.special.symbol.supercollider"] = { fg = "gold" },
+				["@string.special.symbol.supercollider"] = { fg = "leaf" },
 				["@keyword.conditional.supercollider"] = { fg = "prune" },
-				["@keyword.supercollider"] = { fg = "prune" },
-				["@type.supercollider"] = { fg = "leaf" },
-				["@number.supercollider"] = { fg = "iris" },
-				["@number.float.supercollider"] = { fg = "iris" },
+				["@keyword.supercollider"] = { fg = "pine" },
+				["@type.supercollider"] = { fg = "lagoon" },
+				-- ["@number.supercollider"] = { fg = "iris" },
+				-- ["@number.float.supercollider"] = { fg = "iris" },
+
+				["@constant.builtin.genexpr"] = { fg = "pine" },
 			},
 		})
 		vim.cmd("colorscheme rose-pine-moon")

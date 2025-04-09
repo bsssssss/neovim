@@ -32,16 +32,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.lsp.set_log_level("DEBUG")
--- Add this to your tidal filetype autocmd
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "tidal",
 	callback = function()
-		local logfile = "/tmp/tidal_ls.log"
+		-- local logfile = "/tmp/tidal_ls.log"
 		local client_id = vim.lsp.start({
 			name = "tidal_ls",
 			cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
-			-- Add these handlers
 			handlers = {
 				["window/showMessage"] = function(_, result, ctx)
 					vim.notify("LSP Message: " .. result.message, vim.log.levels.INFO, { title = "Tidal LSP" })
@@ -60,6 +57,24 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+	pattern = "genexpr",
+	callback = function()
+		vim.lsp.start({
+			name = "genexpr_ls",
+			cmd = { "node", vim.fn.expand("~/Code/projects/genexpr_ls/out/server/server.js"), "--stdio" },
+			handlers = {
+				["window/showMessage"] = function(_, result, ctx)
+					vim.notify(result.message, vim.log.levels.INFO, { title = "GenExpr LSP" })
+				end,
+				["window/logMessage"] = function(_, result, ctx)
+					vim.notify(result.message, vim.log.levels.DEBUG, { title = "GenExpr LSP Log" })
+				end,
+			},
+		})
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
 	pattern = "haskell",
 	callback = function()
 		local bufnr = vim.api.nvim_get_current_buf()
@@ -67,3 +82,24 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.bo[bufnr].shiftwidth = 4
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "json",
+	callback = function()
+		vim.opt_local.conceallevel = 0
+	end,
+})
+
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "help",
+-- 	callback = function()
+-- 		vim.keymap.set("n", "q", "<cmd>q<cr>", {})
+-- 	end,
+-- })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = {"maxpat", "maxtheme", "maxstx"},
+--   callback = function ()
+--     vim.cmd('set filetype=json')
+--   end
+-- })

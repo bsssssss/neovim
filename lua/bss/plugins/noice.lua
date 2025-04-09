@@ -11,17 +11,21 @@ return {
 	config = function()
 		require("noice").setup({
 
-			-- messages = {
-			-- 	-- view = "mini",
-			-- },
+			message = {
+				enabled = true,
+				view = "notify",
+				opts = {},
+			},
+
 			cmdline = {
 				enabled = true,
 				view = "cmdline",
 				opts = {},
 			},
+
 			views = {
 				notify = {
-					enabled = false,
+					enabled = true,
 				},
 				mini = {
 					enabled = false,
@@ -29,14 +33,17 @@ return {
 			},
 
 			lsp = {
-        progress = {
-          enabled = false,
-        },
+				progress = {
+					enabled = false,
+				},
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = false,
 					["vim.lsp.util.stylize_markdown"] = false,
 					["cmp.entry.get_documentation"] = false, -- requires hrsh7th/nvim-cmp
+				},
+				message = {
+					enabled = true,
 				},
 			},
 			hover = {

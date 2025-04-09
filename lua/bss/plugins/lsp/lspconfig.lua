@@ -28,6 +28,8 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
+			vim.lsp.set_log_level("ERROR")
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
@@ -86,6 +88,38 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+			-- Configurer le type de fichier pour GenExpr
+			-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+			-- 	pattern = "*.genexpr",
+			-- 	callback = function()
+			-- 		vim.bo.filetype = "genexpr"
+			-- 	end,
+			-- })
+
+			-- [GenExpr]
+			--
+			-- local configs = require("lspconfig.configs")
+			-- if not configs.genexpr_ls then
+			-- 	configs.genexpr_ls = {
+			-- 		default_config = {
+			-- 			cmd = {
+			-- 				"node",
+			-- 				os.getenv("HOME") .. "/Code/projects/genexpr_ls/out/server/server.js",
+			-- 				"--stdio",
+			-- 			},
+			-- 			root_dir = function(fname)
+			-- 				return vim.fn.getcwd()
+			-- 			end,
+			-- 			filetypes = { "genexpr" },
+			-- 			settings = {},
+			-- 		},
+			-- 	}
+			-- end
+			--
+			-- require("lspconfig").genexpr_ls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+
 			local servers = {
 				lua_ls = {
 					settings = {
@@ -97,10 +131,12 @@ return {
 					},
 				},
 				hls = {},
-        jdtls = {},
+				jdtls = {},
 			}
 
 			require("java").setup()
+
+			---@diagnostic disable-next-line: missing-fields
 			require("mason").setup({
 				ui = {
 					border = "single",
@@ -118,6 +154,7 @@ return {
 				max_width = 80,
 			})
 
+			---@diagnostic disable-next-line: missing-fields
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)

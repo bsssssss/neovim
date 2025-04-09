@@ -2,6 +2,7 @@
 return {
 	{
 		"folke/snacks.nvim",
+		enabled = true,
 		priority = 1000,
 		lazy = false,
 		---@type snacks.Config
@@ -68,19 +69,26 @@ return {
 					{ section = "recent_files", cwd = true, limit = 8, indent = 2 },
 				},
 			},
+
 			notifier = {
 				enabled = true,
-				timeout = 3000,
+				timeout = 6000,
 			},
+
 			quickfile = { enabled = true },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
+
 			styles = {
 				notification = {
 					wo = { wrap = true }, -- Wrap notifications
 				},
+				float = {
+					backdrop = 100,
+				},
 			},
 		},
+
 		keys = {
 			{
 				"<leader>.",

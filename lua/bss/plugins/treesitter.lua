@@ -7,6 +7,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		main = "nvim-treesitter.configs", -- Sets main module to use for opts
+		-- enable = false,
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 		opts = {
 			ensure_installed = {
@@ -79,8 +80,8 @@ return {
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "<C-space",
-					node_incremental = "<C-space",
+					init_selection = "<C-space>",
+					node_incremental = "<C-space>",
 					scope_incremental = false,
 					node_decremental = "<bs>",
 				},
@@ -90,6 +91,28 @@ return {
 			-- 	enable = true,
 			-- },
 		},
+
+		config = function(_, opts)
+			require("nvim-treesitter.install").prefer_git = true
+
+			-- [[genExpr]]
+			--
+			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+			---@diagnostic disable-next-line: inject-field
+			parser_config.genexpr = {
+				install_info = {
+					url = "/Users/bss/Code/git/bsssssss/tree-sitter-genexpr",
+          -- url = "https://github.com/bsssssss/tree-sitter-genexpr",
+					-- branch = "dev",
+					files = { "src/parser.c", "src/scanner.c" },
+					maintainer = "@bsssssss",
+				},
+				filetype = "genexpr", -- specify the filetype if it does not match the parser name
+			}
+
+			---@diagnostic disable-next-line: missing-fields
+			require("nvim-treesitter.configs").setup(opts)
+		end,
 		-- There are additional nvim-treesitter modules that you can use to interact
 		-- with nvim-treesitter. You should go explore a few and see what interests you:
 		--
