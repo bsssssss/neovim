@@ -30,7 +30,7 @@ return {
 			-- 		lsp_format = lsp_format_opt,
 			-- 	}
 			-- end,
-      format_on_save = {},
+			-- format_on_save = {},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				haskell = { "stylish-haskell" },

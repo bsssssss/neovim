@@ -80,6 +80,18 @@ return {
 					},
 					opts = { skip = true },
 				},
+					--    {
+					--      filter = {
+					--        event = "notify",
+					--        find = "LSP: "
+					--      },
+					--      view = "cmdline_output",
+					-- opts = {
+					-- 	-- timeout = 3000,
+					-- 	-- update = true,
+					-- 	replace = true,
+					-- },
+					--    }
 			},
 
 			presets = {

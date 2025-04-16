@@ -102,9 +102,10 @@ return {
 			parser_config.genexpr = {
 				install_info = {
 					url = "/Users/bss/Code/git/bsssssss/tree-sitter-genexpr",
-          -- url = "https://github.com/bsssssss/tree-sitter-genexpr",
+					-- url = "https://github.com/bsssssss/tree-sitter-genexpr",
 					-- branch = "dev",
-					files = { "src/parser.c", "src/scanner.c" },
+					-- files = { "src/parser.c", "src/scanner.c" },
+					files = { "src/parser.c" },
 					maintainer = "@bsssssss",
 				},
 				filetype = "genexpr", -- specify the filetype if it does not match the parser name

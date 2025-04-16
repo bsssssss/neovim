@@ -1,6 +1,6 @@
 return {
 	"lervag/vimtex",
-	enabled = true,
+	enabled = false,
 	init = function()
 		-- vim.g['vimtex_view_method'] = 'skim'     -- main variant with xdotool (requires X11; not compatible with wayland)
 		vim.g["vimtex_view_method"] = "skim" -- for variant without xdotool to avoid errors in wayland

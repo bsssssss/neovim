@@ -20,7 +20,8 @@ return {
 				moon = {
 					-- gold = "#E6C46E",
 					gold = "#DDB169",
-					text = "#D5D5DB",
+					-- text = "#D5D5DB",
+					text = "#C8C8D0",
 					prune = "#717BC7",
 					mint = "#ACE697",
 					-- sand = "#D1C9AD",
@@ -35,8 +36,8 @@ return {
 
 				FzfLuaBackdrop = { fg = "base" },
 
-				CurSearch = { fg = "turquoise", bg = "turquoise", blend = 33, inherit = false },
-				Search = { fg = "turquoise", bg = "turquoise", blend = 12, inherit = false },
+				CurSearch = { fg = "iris", bg = "iris", blend = 33, inherit = false },
+				Search = { fg = "iris", bg = "iris", blend = 12, inherit = false },
 				Comment = { fg = "muted" },
 				CursorLine = { bg = "base" },
 				LineNr = { fg = "highlight_med" },
@@ -52,7 +53,7 @@ return {
 				LspReferenceRead = { bg = "highlight_med" },
 				LspReferenceWrite = { bg = "highlight_med" },
 
-				NoiceVirtualText = { fg = "turquoise" },
+				NoiceVirtualText = { fg = "iris" },
 				NotifyINFOBorder = { fg = "muted", bg = "base" },
 				NotifyINFOTitle = { fg = "text" },
 
@@ -98,7 +99,7 @@ return {
 				WhichKeyValue = { fg = "text" },
 
 				["@type"] = { fg = "leaf" },
-				["@property"] = { fg = "sand" },
+				-- ["@property"] = { fg = "lagoon" },
 
 				["@string.special.symbol.make"] = { fg = "pine" },
 
@@ -121,6 +122,7 @@ return {
 				-- ["@type"] = { fg = "pine" },
 
 				["@keyword.return"] = { fg = "love" },
+				["@keyword.return.lua"] = { fg = "love" },
 
 				["@lsp.typemod.class.declaration.java"] = { fg = "gold" },
 				-- ["@lsp.mod.importDeclaration.java"] = { fg = "pine" },
@@ -138,6 +140,9 @@ return {
 				["@lsp.type.enum.typescript"] = { fg = "leaf" },
 				["@lsp.type.interface.typescript"] = { fg = "leaf" },
 				["@function.method.call.typescript"] = { fg = "tea" },
+				["@lsp.type.property.typescript"] = { fg = "lagoon" },
+				["@lsp.type.variable.typescript"] = { fg = "foam" },
+				["@lsp.typemod.variable.local.typescript"] = { fg = "text" },
 
 				["@variable.builtin.supercollider"] = { fg = "pine" },
 				["@constant.builtin.supercollider"] = { fg = "love" },
@@ -149,7 +154,12 @@ return {
 				-- ["@number.supercollider"] = { fg = "iris" },
 				-- ["@number.float.supercollider"] = { fg = "iris" },
 
-				["@constant.builtin.genexpr"] = { fg = "pine" },
+				["@lsp.type.object.genexpr"] = { fg = "rose" },
+				["@lsp.type.constant.genexpr"] = { fg = "lagoon" },
+				["@lsp.type.attribute.genexpr"] = { fg = "iris" },
+				-- ["@constant.builtin.genexpr"] = { fg = "pine" },
+				["@lsp.typemod.variable.special.genexpr"] = { fg = "foam" },
+				-- ["@lsp.typemod.function.builtin.genexpr"] = { fg = "foam" },
 			},
 		})
 		vim.cmd("colorscheme rose-pine-moon")

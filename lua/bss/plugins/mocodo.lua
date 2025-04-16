@@ -1,4 +1,5 @@
 return {
+  enabled = false,
 	dir = vim.fn.expand("~/Code/projects/mocodo.nvim"),
   lazy = false,
 	opts = {

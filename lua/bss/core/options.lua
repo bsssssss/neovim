@@ -47,7 +47,7 @@ opt.laststatus = 3
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.opt.syntax = "on"
-vim.opt.conceallevel = 0
+vim.opt.conceallevel = 1
 vim.g.vimtex_syntax_conceal_disable = 0
 
 vim.o.scrolloff = 10

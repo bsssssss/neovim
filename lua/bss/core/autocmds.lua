@@ -59,15 +59,26 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "genexpr",
 	callback = function()
+		vim.defer_fn(function()
+			vim.cmd(":InspectTree")
+			local sendBottomKey = vim.api.nvim_replace_termcodes("<C-w>J", true, false, true)
+			vim.api.nvim_feedkeys(sendBottomKey, "n", false)
+		end, 100)
+		vim.defer_fn(function()
+			local goBack = vim.api.nvim_replace_termcodes("<C-w>k", true, false, true)
+			vim.api.nvim_feedkeys(goBack, "n", false)
+		end, 100)
+
+		-- The language server
 		vim.lsp.start({
 			name = "genexpr_ls",
-			cmd = { "node", vim.fn.expand("~/Code/projects/genexpr_ls/out/server/server.js"), "--stdio" },
+			cmd = { "node", vim.fn.expand("~/Code/projects/genexpr-language-server/out/server/server.js"), "--stdio" },
 			handlers = {
 				["window/showMessage"] = function(_, result, ctx)
 					vim.notify(result.message, vim.log.levels.INFO, { title = "GenExpr LSP" })
 				end,
 				["window/logMessage"] = function(_, result, ctx)
-					vim.notify(result.message, vim.log.levels.DEBUG, { title = "GenExpr LSP Log" })
+					vim.notify("LSP log: " .. result.message, vim.log.levels.DEBUG, {})
 				end,
 			},
 		})

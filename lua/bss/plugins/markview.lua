@@ -1,6 +1,7 @@
 return {
 	{
 		"OXY2DEV/markview.nvim",
+		enabled = false,
 		lazy = false, -- Recommended
 		-- ft = "markdown" -- If you decide to lazy-load anyway
 
@@ -9,12 +10,12 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
-      latex = {
-        enable = false,
-        block = {
-          enable = false,
-        },
-      },
+			latex = {
+				enable = false,
+				block = {
+					enable = false,
+				},
+			},
 			list_items = {
 				enable = true,
 
