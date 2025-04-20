@@ -8,7 +8,7 @@ vim.keymap.set({ "n", "i" }, "<C-l>", "<C-w>l", { desc = "Switch right window" }
 vim.keymap.set({ "n", "i" }, "<C-j>", "<C-w>j", { desc = "Switch down window" })
 vim.keymap.set({ "n", "i" }, "<C-k>", "<C-w>k", { desc = "Switch up window" })
 
-vim.keymap.set("n", "<leader>fb", "<cmd>Neotree toggle float reveal_force_cwd<CR>", { desc = "Neotree: Toggle" })
+-- vim.keymap.set("n", "<leader>fb", "<cmd>Neotree toggle float reveal_force_cwd<CR>", { desc = "Neotree: Toggle" })
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")

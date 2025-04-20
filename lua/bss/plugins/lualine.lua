@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
@@ -30,7 +31,15 @@ return {
 				component_separators = { left = "⟩", right = "" },
 				theme = theme,
 				disabled_filetypes = {
+          "help",
 					"neo-tree",
+          "snacks_picker_list",
+          "snacks_picker_input",
+          "snacks_terminal",
+          "snacks_notif_history"
+				},
+				refresh = {
+					statusline = 100,
 				},
 			},
 
@@ -49,6 +58,15 @@ return {
 						cond = require("noice").api.status.mode.has,
 						color = { fg = palette.gold },
 					},
+					-- {
+					-- 	require("noice").api.status.message.get_hl,
+					-- 	cond = require("noice").api.status.message.has,
+					-- },
+					-- {
+					-- 	require("noice").api.status.command.get,
+					-- 	cond = require("noice").api.status.command.has,
+					-- 	color = { fg = "#ff9e64" },
+					-- },
 				},
 
 				lualine_x = {},
@@ -56,6 +74,7 @@ return {
 				lualine_z = {
 					{ "filetype", icon = { align = "right" } },
 					"encoding",
+					"location",
 				},
 			},
 			inactive_sections = {

@@ -23,6 +23,7 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
+vim.opt.fillchars = vim.opt.fillchars + 'eob: '
 
 opt.backspace = "indent,eol,start"
 
@@ -47,10 +48,12 @@ opt.laststatus = 3
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.opt.syntax = "on"
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 0
 vim.g.vimtex_syntax_conceal_disable = 0
 
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 10
+
+-- vim.opt.cmdheight=0
 
 -- vim.lsp.set_log_level("off")

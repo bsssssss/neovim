@@ -54,18 +54,19 @@ return {
 			},
 
 			routes = {
-				{
-					filter = {
-						event = "msg_show",
-						find = "(mini.align)",
-					},
-					view = "cmdline",
-					opts = {
-						timeout = 3000,
-						update = true,
-						replace = true,
-					},
-				},
+				-- {
+				-- 	filter = {
+				-- 		event = "msg_show",
+				-- 		find = "(mini.align)",
+				-- 	},
+				-- 	-- skip = true,
+				-- 	-- view = "cmdline",
+				-- 	-- opts = {
+				-- 	-- 	timeout = 3000,
+				-- 	-- 	update = true,
+				-- 	-- 	replace = true,
+				-- 	-- },
+				-- },
 				{
 					filter = {
 						event = "notify",
@@ -80,18 +81,18 @@ return {
 					},
 					opts = { skip = true },
 				},
-					--    {
-					--      filter = {
-					--        event = "notify",
-					--        find = "LSP: "
-					--      },
-					--      view = "cmdline_output",
-					-- opts = {
-					-- 	-- timeout = 3000,
-					-- 	-- update = true,
-					-- 	replace = true,
-					-- },
-					--    }
+				--    {
+				--      filter = {
+				--        event = "notify",
+				--        find = "LSP: "
+				--      },
+				--      view = "cmdline_output",
+				-- opts = {
+				-- 	-- timeout = 3000,
+				-- 	-- update = true,
+				-- 	replace = true,
+				-- },
+				--    }
 			},
 
 			presets = {

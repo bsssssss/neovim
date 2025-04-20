@@ -1,12 +1,12 @@
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*",
-	callback = function()
-		if vim.bo.filetype == "neo-tree" then
-			vim.opt.signcolumn = "no"
-		end
-		vim.wo.fillchars = "eob: "
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		if vim.bo.filetype == "neo-tree" then
+-- 			vim.opt.signcolumn = "no"
+-- 		end
+-- 		vim.wo.fillchars = "eob: "
+-- 	end,
+-- })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
@@ -95,6 +95,15 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+	pattern = "c",
+	callback = function()
+		local bufnr = vim.api.nvim_get_current_buf()
+		vim.bo[bufnr].softtabstop = 2
+		vim.bo[bufnr].shiftwidth = 4
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
 	pattern = "json",
 	callback = function()
 		vim.opt_local.conceallevel = 0
@@ -113,4 +122,14 @@ vim.api.nvim_create_autocmd("FileType", {
 --   callback = function ()
 --     vim.cmd('set filetype=json')
 --   end
+-- })
+--
+
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "man",
+-- 	callback = function()
+--     vim.notify("Man !")
+-- 		vim.opt.linebreak = true
+-- 		vim.opt.textwidth = 80
+-- 	end,
 -- })

@@ -99,6 +99,7 @@ return {
 				WhichKeyValue = { fg = "text" },
 
 				["@type"] = { fg = "leaf" },
+				["@type.builtin"] = { fg = "pine" },
 				-- ["@property"] = { fg = "lagoon" },
 
 				["@string.special.symbol.make"] = { fg = "pine" },
@@ -121,8 +122,8 @@ return {
 
 				-- ["@type"] = { fg = "pine" },
 
-				["@keyword.return"] = { fg = "love" },
-				["@keyword.return.lua"] = { fg = "love" },
+				["@keyword.return"] = { fg = "pine" },
+				-- ["@keyword.return.lua"] = { fg = "love" },
 
 				["@lsp.typemod.class.declaration.java"] = { fg = "gold" },
 				-- ["@lsp.mod.importDeclaration.java"] = { fg = "pine" },
