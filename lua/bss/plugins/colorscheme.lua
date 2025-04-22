@@ -98,7 +98,7 @@ return {
 				WhichKeySeparator = { fg = "subtle" },
 				WhichKeyValue = { fg = "text" },
 
-				["@type"] = { fg = "leaf" },
+				["@type"] = { fg = "lagoon" },
 				["@type.builtin"] = { fg = "pine" },
 				-- ["@property"] = { fg = "lagoon" },
 
@@ -156,6 +156,7 @@ return {
 				-- ["@number.supercollider"] = { fg = "iris" },
 				-- ["@number.float.supercollider"] = { fg = "iris" },
 
+				["@lsp.type.variable.genexpr"] = { fg = "text" },
 				["@lsp.type.object.genexpr"] = { fg = "rose" },
 				["@lsp.type.constant.genexpr"] = { fg = "lagoon" },
 				["@lsp.type.attribute.genexpr"] = { fg = "iris" },
