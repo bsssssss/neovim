@@ -30,7 +30,6 @@ return {
 		config = function()
 			vim.lsp.set_log_level("ERROR")
 
-
 			vim.diagnostic.config({
 				virtual_text = true,
 				signs = true,
@@ -83,8 +82,8 @@ return {
 				end,
 			})
 
-      -- [GenExpr language server]
-      --
+			-- [GenExpr language server]
+			--
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = "genexpr",
 				callback = function()
@@ -110,7 +109,7 @@ return {
 								vim.notify("LSP log: " .. result.message, vim.log.levels.DEBUG, {})
 							end,
 						},
-            root_dir = vim.fn.getcwd();
+						root_dir = vim.fn.getcwd(),
 					})
 				end,
 			})
