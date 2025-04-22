@@ -74,7 +74,7 @@ return {
 				},
 			},
 
-      terminal = {},
+			terminal = { enabled = true },
 		},
 
 		keys = {
