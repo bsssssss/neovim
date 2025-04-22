@@ -6,13 +6,40 @@ return {
 
 		local theme = {
 			normal = {
-				a = { bg = palette.base, fg = palette.base, gui = "bold" },
+				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
 				b = { bg = palette.base, fg = palette.muted },
 				c = { bg = palette.base, fg = palette.muted },
 
 				x = { bg = palette.base, fg = palette.muted },
 				y = { bg = palette.base, fg = palette.muted },
-				z = { bg = palette.base, fg = palette.muted },
+				z = { bg = palette.base, fg = palette.iris },
+			},
+			insert = {
+				a = { bg = palette.leaf, fg = palette.base, gui = "bold" },
+				b = { bg = palette.base, fg = palette.muted },
+				c = { bg = palette.base, fg = palette.muted },
+
+				x = { bg = palette.base, fg = palette.muted },
+				y = { bg = palette.base, fg = palette.muted },
+				z = { bg = palette.base, fg = palette.leaf },
+			},
+			visual = {
+				a = { bg = palette.pine, fg = palette.base, gui = "bold" },
+				b = { bg = palette.base, fg = palette.muted },
+				c = { bg = palette.base, fg = palette.muted },
+
+				x = { bg = palette.base, fg = palette.muted },
+				y = { bg = palette.base, fg = palette.muted },
+				z = { bg = palette.base, fg = palette.pine },
+			},
+			replace = {
+				a = { bg = palette.rose, fg = palette.base, gui = "bold" },
+				b = { bg = palette.base, fg = palette.muted },
+				c = { bg = palette.base, fg = palette.muted },
+
+				x = { bg = palette.base, fg = palette.muted },
+				y = { bg = palette.base, fg = palette.muted },
+				z = { bg = palette.base, fg = palette.rose },
 			},
 		}
 
@@ -31,12 +58,12 @@ return {
 				component_separators = { left = "⟩", right = "" },
 				theme = theme,
 				disabled_filetypes = {
-          "help",
+					"help",
 					"neo-tree",
-          "snacks_picker_list",
-          "snacks_picker_input",
-          "snacks_terminal",
-          "snacks_notif_history"
+					"snacks_picker_list",
+					"snacks_picker_input",
+					"snacks_terminal",
+					"snacks_notif_history",
 				},
 				refresh = {
 					statusline = 100,
@@ -44,9 +71,18 @@ return {
 			},
 
 			sections = {
-				lualine_a = {},
+				lualine_a = {
+					{
+						"mode",
+						fmt = function(str)
+							return str:sub(1, 1)
+						end,
+					},
+				},
 				lualine_b = {
-					{ "branch", color = { fg = palette.iris } },
+					{ "branch",
+            color = { fg = palette.iris }
+          },
 					"diff",
 					{ "diagnostics", draw_empty = true },
 				},
@@ -70,11 +106,15 @@ return {
 				},
 
 				lualine_x = {},
-				lualine_y = {},
-				lualine_z = {
+				lualine_y = {
 					{ "filetype", icon = { align = "right" } },
 					"encoding",
-					"location",
+				},
+				lualine_z = {
+					{
+						"location",
+						-- color = { fg = palette.iris, bg = palette.base },
+					},
 				},
 			},
 			inactive_sections = {

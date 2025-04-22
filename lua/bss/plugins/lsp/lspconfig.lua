@@ -25,10 +25,11 @@ return {
 			{ "j-hui/fidget.nvim", opts = {} },
 
 			-- Allows extra capabilities provided by nvim-cmp
-			"hrsh7th/cmp-nvim-lsp",
+			-- "hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
 			vim.lsp.set_log_level("ERROR")
+
 
 			vim.diagnostic.config({
 				virtual_text = true,
@@ -45,17 +46,6 @@ return {
 						mode = mode or "n"
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
-
-					-- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-					-- map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-					-- map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-					-- map("<leader>gD", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-					-- map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-					-- map(
-					-- 	"<leader>ws",
-					-- 	require("telescope.builtin").lsp_dynamic_workspace_symbols,
-					-- 	"[W]orkspace [S]ymbols"
-					-- )
 
 					map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
@@ -93,40 +83,40 @@ return {
 				end,
 			})
 
+      -- [GenExpr language server]
+      --
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "genexpr",
+				callback = function()
+					vim.defer_fn(function()
+						vim.cmd(":InspectTree")
+						local sendBottomKey = vim.api.nvim_replace_termcodes("<C-w>J", true, false, true)
+						vim.api.nvim_feedkeys(sendBottomKey, "n", false)
+					end, 100)
+					vim.defer_fn(function()
+						local goBack = vim.api.nvim_replace_termcodes("<C-w>k", true, false, true)
+						vim.api.nvim_feedkeys(goBack, "n", false)
+					end, 100)
+
+					-- Start the language server
+					vim.lsp.start({
+						name = "genexpr-language-server",
+						cmd = { "node", vim.fn.expand("~/Code/projects/genexpr-language-server/out/server/server.js"), "--stdio" },
+						handlers = {
+							["window/showMessage"] = function(_, result, ctx)
+								vim.notify(result.message, vim.log.levels.INFO, { title = "GenExpr LSP" })
+							end,
+							["window/logMessage"] = function(_, result, ctx)
+								vim.notify("LSP log: " .. result.message, vim.log.levels.DEBUG, {})
+							end,
+						},
+            root_dir = vim.fn.getcwd();
+					})
+				end,
+			})
+
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-			-- Configurer le type de fichier pour GenExpr
-			-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-			-- 	pattern = "*.genexpr",
-			-- 	callback = function()
-			-- 		vim.bo.filetype = "genexpr"
-			-- 	end,
-			-- })
-
-			-- [GenExpr]
-			--
-			-- local configs = require("lspconfig.configs")
-			-- if not configs.genexpr_ls then
-			-- 	configs.genexpr_ls = {
-			-- 		default_config = {
-			-- 			cmd = {
-			-- 				"node",
-			-- 				os.getenv("HOME") .. "/Code/projects/genexpr_ls/out/server/server.js",
-			-- 				"--stdio",
-			-- 			},
-			-- 			root_dir = function(fname)
-			-- 				return vim.fn.getcwd()
-			-- 			end,
-			-- 			filetypes = { "genexpr" },
-			-- 			settings = {},
-			-- 		},
-			-- 	}
-			-- end
-			--
-			-- require("lspconfig").genexpr_ls.setup({
-			-- 	capabilities = capabilities,
-			-- })
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 
 			local servers = {
 				lua_ls = {
@@ -143,11 +133,6 @@ return {
 				},
 				hls = {},
 				jdtls = {},
-				-- clangd = {
-				--   completion = {
-				--     enable = true
-				--   }
-				-- }
 			}
 
 			require("java").setup()
@@ -164,11 +149,6 @@ return {
 				"stylua", -- Used to format Lua code
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
-			-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-			-- 	border = "rounded",
-			-- 	max_width = 80,
-			-- })
 
 			---@diagnostic disable-next-line: missing-fields
 			require("mason-lspconfig").setup({

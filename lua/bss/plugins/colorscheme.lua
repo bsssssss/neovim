@@ -136,14 +136,15 @@ return {
 				-- ["@lsp.type.property.java"] = { fg = "sand" },
 				["@keyword.java"] = { fg = "prune" },
 
-				["@type.typescript"] = { fg = "leaf" },
-				["@type.builtin.typescript"] = { fg = "leaf" },
-				["@lsp.type.enum.typescript"] = { fg = "leaf" },
-				["@lsp.type.interface.typescript"] = { fg = "leaf" },
+				["@type.typescript"] = { fg = "lagoon" },
+				-- ["@type.builtin.typescript"] = { fg = "lagoon" },
+				["@lsp.type.enum.typescript"] = { fg = "lagoon" },
+				["@lsp.type.interface.typescript"] = { fg = "lagoon" },
+				["@lsp.type.class.typescript"] = { fg = "lagoon" },
 				["@function.method.call.typescript"] = { fg = "tea" },
-				["@lsp.type.property.typescript"] = { fg = "lagoon" },
-				["@lsp.type.variable.typescript"] = { fg = "foam" },
-				["@lsp.typemod.variable.local.typescript"] = { fg = "text" },
+				["@lsp.type.property.typescript"] = { fg = "foam" },
+				-- ["@lsp.type.variable.typescript"] = { fg = "foam" },
+				-- ["@lsp.typemod.variable.local.typescript"] = { fg = "text" },
 
 				["@variable.builtin.supercollider"] = { fg = "pine" },
 				["@constant.builtin.supercollider"] = { fg = "love" },
@@ -161,6 +162,7 @@ return {
 				-- ["@constant.builtin.genexpr"] = { fg = "pine" },
 				["@lsp.typemod.variable.special.genexpr"] = { fg = "foam" },
 				-- ["@lsp.typemod.function.builtin.genexpr"] = { fg = "foam" },
+				["@lsp.type.comment.genexpr"] = { fg = "muted" },
 			},
 		})
 		vim.cmd("colorscheme rose-pine-moon")

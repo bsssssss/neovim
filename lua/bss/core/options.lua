@@ -54,6 +54,6 @@ vim.g.vimtex_syntax_conceal_disable = 0
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 10
 
--- vim.opt.cmdheight=0
+vim.opt.cmdheight = 1
 
 -- vim.lsp.set_log_level("off")
