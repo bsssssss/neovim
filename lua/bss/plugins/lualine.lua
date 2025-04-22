@@ -6,7 +6,7 @@ return {
 
 		local theme = {
 			normal = {
-				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
+				a = { bg = palette.base, fg = palette.iris, gui = "bold" },
 				b = { bg = palette.base, fg = palette.muted },
 				c = { bg = palette.base, fg = palette.muted },
 
@@ -15,31 +15,31 @@ return {
 				z = { bg = palette.base, fg = palette.iris },
 			},
 			insert = {
-				a = { bg = palette.leaf, fg = palette.base, gui = "bold" },
+				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
 				b = { bg = palette.base, fg = palette.muted },
 				c = { bg = palette.base, fg = palette.muted },
 
 				x = { bg = palette.base, fg = palette.muted },
 				y = { bg = palette.base, fg = palette.muted },
-				z = { bg = palette.base, fg = palette.leaf },
+				z = { bg = palette.base, fg = palette.iris },
 			},
 			visual = {
-				a = { bg = palette.pine, fg = palette.base, gui = "bold" },
+				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
 				b = { bg = palette.base, fg = palette.muted },
 				c = { bg = palette.base, fg = palette.muted },
 
 				x = { bg = palette.base, fg = palette.muted },
 				y = { bg = palette.base, fg = palette.muted },
-				z = { bg = palette.base, fg = palette.pine },
+				z = { bg = palette.base, fg = palette.iris },
 			},
 			replace = {
-				a = { bg = palette.rose, fg = palette.base, gui = "bold" },
+				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
 				b = { bg = palette.base, fg = palette.muted },
 				c = { bg = palette.base, fg = palette.muted },
 
 				x = { bg = palette.base, fg = palette.muted },
 				y = { bg = palette.base, fg = palette.muted },
-				z = { bg = palette.base, fg = palette.rose },
+				z = { bg = palette.base, fg = palette.iris },
 			},
 		}
 
@@ -80,11 +80,12 @@ return {
 					},
 				},
 				lualine_b = {
-					{ "branch",
-            color = { fg = palette.iris }
-          },
-					"diff",
-					{ "diagnostics", draw_empty = true },
+					{ "branch", color = { fg = palette.iris } },
+					{
+						"diff",
+						"diagnostics",
+						draw_empty = true,
+					},
 				},
 				lualine_c = {
 					{ "filename", color = { fg = palette.text } },
