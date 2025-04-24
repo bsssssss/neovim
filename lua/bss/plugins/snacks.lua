@@ -74,7 +74,10 @@ return {
 				},
 			},
 
-			terminal = { enabled = true },
+			-- terminal = {
+			-- 	enabled = true,
+			--      auto_insert = false
+			-- },
 		},
 
 		keys = {
