@@ -46,9 +46,17 @@ return {
 		local rec_mode = function()
 			---@diagnostic disable-next-line: undefined-field
 			local mode = require("noice").api.status.mode.get()
+
 			if mode:match("^%-%-.*%-%-$") then
 				return ""
 			end
+
+			local suffix = mode:match("^%-%-.*%-%-(.*)$")
+
+			if suffix then
+				return suffix
+			end
+
 			return tostring(mode)
 		end
 
@@ -58,7 +66,7 @@ return {
 				component_separators = { left = "⟩", right = "" },
 				theme = theme,
 				disabled_filetypes = {
-					"help",
+					-- "help",
 					"neo-tree",
 					"snacks_picker_list",
 					"snacks_picker_input",
@@ -84,29 +92,30 @@ return {
 					{
 						"diff",
 						"diagnostics",
-						draw_empty = true,
+						-- draw_empty = true,
 					},
+					{ "filename", color = { fg = palette.text } },
 				},
 				lualine_c = {
-					{ "filename", color = { fg = palette.text } },
+					-- {
+					-- 	require("noice").api.status.message.get_hl,
+					-- 	cond = require("noice").api.status.message.has,
+					-- },
+				},
+
+				lualine_x = {
 					{
 						rec_mode,
 						---@diagnostic disable-next-line: undefined-field
 						cond = require("noice").api.status.mode.has,
 						color = { fg = palette.gold },
 					},
-					-- {
-					-- 	require("noice").api.status.message.get_hl,
-					-- 	cond = require("noice").api.status.message.has,
-					-- },
-					-- {
-					-- 	require("noice").api.status.command.get,
-					-- 	cond = require("noice").api.status.command.has,
-					-- 	color = { fg = "#ff9e64" },
-					-- },
+					{
+						require("noice").api.status.command.get,
+						cond = require("noice").api.status.command.has,
+						color = { fg = "#ff9e64" },
+					},
 				},
-
-				lualine_x = {},
 				lualine_y = {
 					{ "filetype", icon = { align = "right" } },
 					"encoding",
