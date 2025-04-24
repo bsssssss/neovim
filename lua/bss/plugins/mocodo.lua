@@ -1,6 +1,6 @@
 return {
   enabled = false,
-	dir = vim.fn.expand("~/Code/projects/mocodo.nvim"),
+	dir = vim.fn.expand("~/Code/projects/neovim-plugins/mocodo.nvim"),
   lazy = false,
 	opts = {
 		window = {
