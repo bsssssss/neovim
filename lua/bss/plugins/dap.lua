@@ -12,15 +12,33 @@ return {
 			vim.keymap.set("n", "<F3>", function() dap.step_out() end, { desc = "DAP: Step Out" })
 			vim.keymap.set("n", "<F4>", function() dap.step_back() end, { desc = "DAP: Step Back" })
 			vim.keymap.set("n", "<Leader>db", function() dap.toggle_breakpoint() end, { desc = "DAP: Toggle Breakpoint" })
-			vim.keymap.set("n", "<Leader>B", function() dap.set_breakpoint() end, { desc = "DAP: Set Breakpoint" })
-			vim.keymap.set("n", "<Leader>lp", function() dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, { desc = "DAP: Log Point" })
-			vim.keymap.set("n", "<Leader>dr", function() dap.repl.open() end, { desc = "DAP: Open" })
+			vim.keymap.set("n", "<Leader>dB", function() dap.set_breakpoint() end, { desc = "DAP: Set Breakpoint" })
+			vim.keymap.set("n", "<Leader>dp", function() dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, { desc = "DAP: Log Point" })
+			vim.keymap.set("n", "<Leader>dr", function() dap.repl.open() end, { desc = "DAP: REPL" })
 			vim.keymap.set("n", "<Leader>dl", function() dap.run_last() end, { desc = "DAP: Run Last" })
 			vim.keymap.set({ "n", "v" }, "<Leader>dh", function() require("dap.ui.widgets").hover() end, { desc = "DAP: Hover" })
-			vim.keymap.set({ "n", "v" }, "<Leader>dp", function() require("dap.ui.widgets").preview() end, { desc = "DAP: Preview" })
+			vim.keymap.set({ "n", "v" }, "<Leader>dP", function() require("dap.ui.widgets").preview() end, { desc = "DAP: Preview" })
 			vim.keymap.set("n", "<Leader>df", function() local widgets = require("dap.ui.widgets") widgets.centered_float(widgets.frames) end, { desc = "DAP: Frame" })
 			vim.keymap.set("n", "<Leader>ds", function() local widgets = require("dap.ui.widgets") widgets.centered_float(widgets.scopes) end, { desc = "DAP: Scope" })
 			-- stylua: ignore end
+
+			dap.adapters.codelldb = {
+				type = "executable",
+				command = "codelldb",
+			}
+
+			-- dap.configurations.c = {
+			-- 	{
+			--        name = "Launch file",
+			--        type = "codelldb",
+			--        request = "launch",
+			--        program = function ()
+			--          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+			--        end,
+			--        cwd = "${workspaceFolder}",
+			--        stopOnEntry = false
+			--      },
+			-- }
 		end,
 	},
 	{
@@ -34,6 +52,16 @@ return {
 			require("dapui").setup({
 				layouts = {
 					{
+						elements = {
+							{ id = "scopes", size = 0.25 },
+							{ id = "breakpoints", size = 0.25 },
+							{ id = "stacks", size = 0.25 },
+							{ id = "watches", size = 0.25 },
+						},
+						position = "left",
+						size = 50,
+					},
+					{
             -- stylua: ignore start
 						elements = {
               { id = "repl", size = 0.5, },
@@ -42,32 +70,33 @@ return {
 						position = "bottom",
 						size = 10,
 					},
-					{
-						elements = {
-							{ id = "scopes", size = 0.25 },
-							{ id = "breakpoints", size = 0.25 },
-							{ id = "stacks", size = 0.25 },
-							{ id = "watches", size = 0.25 },
-						},
-						position = "right",
-						size = 0.33,
-					},
 					-- stylua: ignore end
 				},
 			})
-			local dap, dapui = require("dap"), require("dapui")
-      -- stylua: ignore start
-			dap.listeners.before.attach.dapui_config = function() dapui.open() end
-			dap.listeners.before.launch.dapui_config = function() dapui.open() end
 
-      vim.api.nvim_create_user_command("DapUiClose", function () dapui.close() end, {})
-			-- stylua: ignore end
-			-- dap.listeners.before.event_terminated.dapui_config = function()
-			-- 	dapui.close()
-			-- end
-			-- dap.listeners.before.event_exited.dapui_config = function()
-			-- 	dapui.close()
-			-- end
+			local dap, dapui = require("dap"), require("dapui")
+
+			dap.listeners.before.attach.dapui_config = function()
+				dapui.open()
+			end
+
+			dap.listeners.before.launch.dapui_config = function()
+				dapui.open()
+			end
+
+			dap.listeners.before.event_terminated.dapui_config = function()
+				dapui.close()
+			end
+
+			dap.listeners.before.event_exited.dapui_config = function()
+				dapui.close()
+			end
+
+			vim.api.nvim_create_user_command("DapUiClose", function()
+				dapui.close()
+			end, {})
+
+			vim.keymap.set("n", "<Leader>dC", "<cmd>DapUiClose<CR>", { desc = "DAP: Close" })
 		end,
 	},
 	{
@@ -81,14 +110,5 @@ return {
 			},
 			handlers = {},
 		},
-		-- config = function()
-		-- 	---@diagnostic disable-next-line: missing-fields
-		-- 	require("mason-nvim-dap").setup({
-		-- 		ensure_installed = {
-		-- 			"codelldb",
-		-- 		},
-		-- 		handlers = {},
-		-- 	})
-		-- end,
 	},
 }
