@@ -48,7 +48,14 @@ return {
 				Special = { fg = "lagoon" },
 				-- String = { fg = "sand" },
 
-				MasonBackdrop = { bg = "base" },
+				-- MasonBackdrop = { bg = "base" },
+				MasonMuted = { fg = "muted" },
+				MasonHighlight = { fg = "gold" },
+				MasonMutedBlock = { fg = "iris" },
+				MasonMutedBlockBold = { fg = "iris" },
+				MasonHighlightBlock = { fg = "iris", bg = "iris", blend = 15 },
+				MasonHighlightBlockBold = { fg = "iris", bg = "iris", blend = 15 },
+				MasonHeader = { fg = "pine" },
 
 				LspReferenceRead = { bg = "highlight_med" },
 				LspReferenceWrite = { bg = "highlight_med" },
