@@ -38,6 +38,8 @@ return {
 				severity_sort = true,
 			})
 
+			vim.lsp.buf.hover({ border = "single" })
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
@@ -140,6 +142,7 @@ return {
 			require("mason").setup({
 				ui = {
 					border = "single",
+					backdrop = 100,
 				},
 			})
 
