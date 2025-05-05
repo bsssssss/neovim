@@ -171,6 +171,9 @@ return {
 				["@lsp.typemod.variable.special.genexpr"] = { fg = "foam" },
 				-- ["@lsp.typemod.function.builtin.genexpr"] = { fg = "foam" },
 				["@lsp.type.comment.genexpr"] = { fg = "muted" },
+
+				["@string.documentation.python"] = { fg = "muted" },
+
 			},
 		})
 		vim.cmd("colorscheme rose-pine-moon")
