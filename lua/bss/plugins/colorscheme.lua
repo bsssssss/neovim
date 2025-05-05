@@ -18,18 +18,25 @@ return {
 			},
 			palette = {
 				moon = {
-					-- gold = "#E6C46E",
-					gold = "#DDB169",
-					-- text = "#D5D5DB",
+					foam = "#9CCFD8",
+					base = "#262b38",
+					-- base = "#1F232E",
+					-- gold = "#DDB169",
+					gold = "#D7B175",
 					text = "#C8C8D0",
 					prune = "#717BC7",
 					mint = "#ACE697",
-					-- sand = "#D1C9AD",
 					sand = "#D1C29F",
 					lagoon = "#75A6C7",
 					turquoise = "#68DFC9",
 					tea = "#ebbbb9",
-					-- base = "none",
+					highlight_low = "#343B4C",
+					highlight_med = "#48526A",
+					highlight_high = "#535E79",
+					muted = "#677598",
+					surface = "#2D3343",
+					overlay = "#353A52",
+					subtle = "#8D92AA",
 				},
 			},
 			highlight_groups = {
@@ -46,7 +53,8 @@ return {
 				FloatBorder = { bg = "none" },
 				WinSeparator = { fg = "highlight_high" },
 				Special = { fg = "lagoon" },
-				-- String = { fg = "sand" },
+
+				PmenuSel = { bg = "highlight_med" },
 
 				-- MasonBackdrop = { bg = "base" },
 				MasonMuted = { fg = "muted" },
@@ -57,8 +65,9 @@ return {
 				MasonHighlightBlockBold = { fg = "iris", bg = "iris", blend = 15 },
 				MasonHeader = { fg = "pine" },
 
-				LspReferenceRead = { bg = "highlight_med" },
-				LspReferenceWrite = { bg = "highlight_med" },
+				LspReferenceRead = { bg = "highlight_low" },
+				LspReferenceWrite = { bg = "highlight_low" },
+				LspReferenceText = { bg = "overlay" },
 
 				NoiceVirtualText = { fg = "iris" },
 				NotifyINFOBorder = { fg = "muted", bg = "base" },
@@ -173,7 +182,6 @@ return {
 				["@lsp.type.comment.genexpr"] = { fg = "muted" },
 
 				["@string.documentation.python"] = { fg = "muted" },
-
 			},
 		})
 		vim.cmd("colorscheme rose-pine-moon")
