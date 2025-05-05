@@ -79,13 +79,13 @@ vim.api.nvim_create_autocmd("FileType", {
 -- 	end,
 -- })
 
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = {"maxpat", "maxtheme", "maxstx"},
---   callback = function ()
---     vim.cmd('set filetype=json')
---   end
--- })
---
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "max",
+  callback = function ()
+    vim.cmd('set filetype=json')
+  end
+})
+
 
 -- vim.api.nvim_create_autocmd("FileType", {
 -- 	pattern = "man",
