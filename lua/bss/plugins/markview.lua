@@ -17,6 +17,10 @@ return {
 				},
 			},
 			markdown = {
+				headings = {
+					enable = false,
+				},
+
 				list_items = {
 					enable = true,
 
