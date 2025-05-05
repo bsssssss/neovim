@@ -18,6 +18,8 @@ return {
 				lua = { "stylua" },
 				haskell = { "stylish-haskell" },
 				c = { "clang-format" },
+				python = { "black" },
+        javascript = { "clang-format" },
 			},
 		},
 	},
