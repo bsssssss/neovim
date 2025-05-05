@@ -134,6 +134,8 @@ return {
 				},
 				hls = {},
 				jdtls = {},
+				pylsp = {},
+				ts_ls = {},
 			}
 
 			require("java").setup()
