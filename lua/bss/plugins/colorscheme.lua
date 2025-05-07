@@ -68,6 +68,7 @@ return {
 					-- StatusLine = { fg = "love", bg = "love", blend = 15 },
 					-- VertSplit = { fg = "muted", bg = "muted" },
 					-- Visual = { fg = "base", bg = "text", inherit = false },
+					["@type"] = { fg = "lagoon" },
 				},
 
 				before_highlight = function(group, highlight, palette)
