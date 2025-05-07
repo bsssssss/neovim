@@ -14,13 +14,20 @@ return {
 		},
 		opts = {
 			notify_on_error = false,
+      -- stylua: ignore start
 			formatters_by_ft = {
-				lua = { "stylua" },
-				haskell = { "stylish-haskell" },
-				c = { "clang-format" },
-				python = { "black" },
+				lua        = { "stylua" },
+				haskell    = { "stylish-haskell" },
+				c          = { "clang-format" },
+				python     = { "black" },
         javascript = { "clang-format" },
 			},
+      -- stylua: ignore end
+      format_on_save = {
+        -- I recommend these options. See :help conform.format for details.
+        lsp_format = "fallback",
+        timeout_ms = 500,
+      },
 		},
 	},
 }
