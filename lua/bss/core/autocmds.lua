@@ -1,10 +1,9 @@
-
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
 	desc = "Hightlight selection on yank",
 	pattern = "*",
 	callback = function()
-		vim.highlight.on_yank({ higroup = "Comment", timeout = 150 })
+		vim.highlight.on_yank({ higroup = "LspReferenceText", timeout = 150 })
 	end,
 })
 
@@ -80,18 +79,27 @@ vim.api.nvim_create_autocmd("FileType", {
 -- })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "max",
-  callback = function ()
-    vim.cmd('set filetype=json')
-  end
+	pattern = "max",
+	callback = function()
+		vim.cmd("set filetype=json")
+	end,
 })
 
+vim.api.nvim_create_augroup("view_save", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWrite" }, {
+	pattern = { "*" },
+	group = "view_save",
+	desc = "Save view state of current window when leaving",
+	callback = function()
+		vim.cmd("mkview")
+	end,
+})
 
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = "man",
--- 	callback = function()
---     vim.notify("Man !")
--- 		vim.opt.linebreak = true
--- 		vim.opt.textwidth = 80
--- 	end,
--- })
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = "view_save",
+	pattern = { "*" },
+	desc = "Load view state of current window",
+	callback = function()
+		vim.cmd("silent! loadview")
+	end,
+})
