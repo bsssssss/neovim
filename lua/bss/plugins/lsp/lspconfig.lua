@@ -38,7 +38,10 @@ return {
 				severity_sort = true,
 			})
 
-			vim.lsp.buf.hover({ border = "single" })
+			vim.lsp.buf.hover({
+				border = "single",
+				relative = "editor",
+			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
