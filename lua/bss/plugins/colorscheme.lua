@@ -23,26 +23,27 @@ return {
 				},
 
 				groups = {
+          -- stylua: ignore start
 					border = "muted",
-					link = "iris",
-					panel = "surface",
+					link   = "iris",
+					panel  = "surface",
 
 					error = "love",
-					hint = "iris",
-					info = "foam",
-					note = "pine",
-					todo = "rose",
-					warn = "gold",
+					hint  = "iris",
+					info  = "foam",
+					note  = "pine",
+					todo  = "rose",
+					warn  = "gold",
 
-					git_add = "leaf",
-					git_change = "rose",
-					git_delete = "love",
-					git_dirty = "rose",
-					git_ignore = "muted",
-					git_merge = "iris",
-					git_rename = "pine",
-					git_stage = "iris",
-					git_text = "rose",
+					git_add       = "leaf",
+					git_change    = "rose",
+					git_delete    = "love",
+					git_dirty     = "rose",
+					git_ignore    = "muted",
+					git_merge     = "iris",
+					git_rename    = "pine",
+					git_stage     = "iris",
+					git_text      = "rose",
 					git_untracked = "subtle",
 
 					h1 = "iris",
@@ -51,24 +52,31 @@ return {
 					h4 = "gold",
 					h5 = "pine",
 					h6 = "foam",
+          -- stylua: ignore end
 				},
 
 				palette = {
-					-- Override the builtin palette per variant
-					-- moon = {
-					--     base = '#18191a',
-					--     overlay = '#363738',
-					-- },
 				},
 
 				-- NOTE: Highlight groups are extended (merged) by default. Disable this
 				-- per group via `inherit = false`
 				highlight_groups = {
-					-- Comment = { fg = "foam" },
-					-- StatusLine = { fg = "love", bg = "love", blend = 15 },
-					-- VertSplit = { fg = "muted", bg = "muted" },
-					-- Visual = { fg = "base", bg = "text", inherit = false },
-					["@type"] = { fg = "lagoon" },
+          -- stylua: ignore start
+					Comment               = { fg = "muted" },
+          MiniIndentscopeSymbol = { fg = "highlight_med" },
+					LineNr                = { fg = "highlight_med" },
+          BlinkCmpGhostText     = { link = "Comment" },
+          Visual                = { bg = "highlight_high" },
+
+					["@keyword.return"]                  = { fg   = "love" },
+					["@type"]                            = { fg   = "lagoon" },
+					["@type.builtin"]                    = { fg   = "lagoon" },
+					["@tag.xml"]                         = { fg   = "pine" },
+					["@tag.html"]                        = { fg   = "pine" },
+					["@tag.css"]                         = { fg   = "pine" },
+					["@function.method.call.javascript"] = { fg   = "rose" },
+					["@variable.builtin.javascript"]     = { link = "@operator" },
+          -- stylua: ignore end
 				},
 
 				before_highlight = function(group, highlight, palette)
