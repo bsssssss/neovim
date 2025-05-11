@@ -62,19 +62,22 @@ return {
 				-- per group via `inherit = false`
 				highlight_groups = {
           -- stylua: ignore start
-					Comment               = { fg = "muted" },
-          MiniIndentscopeSymbol = { fg = "highlight_med" },
-					LineNr                = { fg = "highlight_med" },
-          BlinkCmpGhostText     = { link = "Comment" },
+					LineNr                = { fg = "highlight_med"  },
           Visual                = { bg = "highlight_high" },
+          Comment               = { fg = "muted"          },
+          BlinkCmpGhostText     = { link = "Comment"      },
+          MiniIndentscopeSymbol = { fg = "highlight_med"  },
 
-					["@keyword.return"]                  = { fg   = "love" },
-					["@type"]                            = { fg   = "lagoon" },
-					["@type.builtin"]                    = { fg   = "lagoon" },
-					["@tag.xml"]                         = { fg   = "pine" },
-					["@tag.html"]                        = { fg   = "pine" },
-					["@tag.css"]                         = { fg   = "pine" },
-					["@function.method.call.javascript"] = { fg   = "rose" },
+					["@keyword.return"] = { fg = "love"   },
+					["@keyword.repeat"] = { fg = "prune"  },
+					["@type"]           = { fg = "lagoon" },
+					["@type.builtin"]   = { fg = "lagoon" },
+
+					["@tag.xml"]  = { fg = "pine" },
+					["@tag.html"] = { fg = "pine" },
+					["@tag.css"]  = { fg = "pine" },
+
+					["@function.method.call.javascript"] = { fg   = "rose"      },
 					["@variable.builtin.javascript"]     = { link = "@operator" },
           -- stylua: ignore end
 				},
