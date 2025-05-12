@@ -24,7 +24,7 @@ return {
 
 				groups = {
           -- stylua: ignore start
-					border = "muted",
+					border = "highlight_high",
 					link   = "iris",
 					panel  = "surface",
 
@@ -52,21 +52,20 @@ return {
 					h4 = "gold",
 					h5 = "pine",
 					h6 = "foam",
-          -- stylua: ignore end
+					-- stylua: ignore end
 				},
 
-				palette = {
-				},
+				palette = {},
 
 				-- NOTE: Highlight groups are extended (merged) by default. Disable this
 				-- per group via `inherit = false`
 				highlight_groups = {
           -- stylua: ignore start
 					LineNr                = { fg = "highlight_med"  },
-          Visual                = { bg = "highlight_high" },
+          Visual                = { bg = "subtle" },
           Comment               = { fg = "muted"          },
           BlinkCmpGhostText     = { link = "Comment"      },
-          MiniIndentscopeSymbol = { fg = "highlight_med"  },
+          MiniIndentscopeSymbol = { fg = "highlight_high" },
 
 					["@keyword.return"] = { fg = "love"   },
 					["@keyword.repeat"] = { fg = "prune"  },
@@ -79,7 +78,7 @@ return {
 
 					["@function.method.call.javascript"] = { fg   = "rose"      },
 					["@variable.builtin.javascript"]     = { link = "@operator" },
-          -- stylua: ignore end
+					-- stylua: ignore end
 				},
 
 				before_highlight = function(group, highlight, palette)
