@@ -3,43 +3,44 @@ return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
 		local palette = require("rose-pine.palette")
+    local bg = palette.surface
 
 		local theme = {
 			normal = {
-				a = { bg = palette.base, fg = palette.iris, gui = "bold" },
-				b = { bg = palette.base, fg = palette.muted },
-				c = { bg = palette.base, fg = palette.muted },
+				a = { bg = bg, fg = palette.iris, gui = "bold" },
+				b = { bg = bg, fg = palette.muted },
+				c = { bg = bg, fg = palette.muted },
 
-				x = { bg = palette.base, fg = palette.muted },
-				y = { bg = palette.base, fg = palette.muted },
-				z = { bg = palette.base, fg = palette.iris },
+				x = { bg = bg, fg = palette.muted },
+				y = { bg = bg, fg = palette.muted },
+				z = { bg = bg, fg = palette.iris },
 			},
 			insert = {
 				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
-				b = { bg = palette.base, fg = palette.muted },
-				c = { bg = palette.base, fg = palette.muted },
+				b = { bg = bg, fg = palette.muted },
+				c = { bg = bg, fg = palette.muted },
 
-				x = { bg = palette.base, fg = palette.muted },
-				y = { bg = palette.base, fg = palette.muted },
-				z = { bg = palette.base, fg = palette.iris },
+				x = { bg = bg, fg = palette.muted },
+				y = { bg = bg, fg = palette.muted },
+				z = { bg = bg, fg = palette.iris },
 			},
 			visual = {
 				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
-				b = { bg = palette.base, fg = palette.muted },
-				c = { bg = palette.base, fg = palette.muted },
+				b = { bg = bg, fg = palette.muted },
+				c = { bg = bg, fg = palette.muted },
 
-				x = { bg = palette.base, fg = palette.muted },
-				y = { bg = palette.base, fg = palette.muted },
-				z = { bg = palette.base, fg = palette.iris },
+				x = { bg = bg, fg = palette.muted },
+				y = { bg = bg, fg = palette.muted },
+				z = { bg = bg, fg = palette.iris },
 			},
 			replace = {
 				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
-				b = { bg = palette.base, fg = palette.muted },
-				c = { bg = palette.base, fg = palette.muted },
+				b = { bg = bg, fg = palette.muted },
+				c = { bg = bg, fg = palette.muted },
 
-				x = { bg = palette.base, fg = palette.muted },
-				y = { bg = palette.base, fg = palette.muted },
-				z = { bg = palette.base, fg = palette.iris },
+				x = { bg = bg, fg = palette.muted },
+				y = { bg = bg, fg = palette.muted },
+				z = { bg = bg, fg = palette.iris },
 			},
 		}
 
@@ -123,7 +124,6 @@ return {
 				lualine_z = {
 					{
 						"location",
-						-- color = { fg = palette.iris, bg = palette.base },
 					},
 				},
 			},
