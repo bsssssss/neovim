@@ -52,7 +52,7 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "quickmath.nvim": { "branch": "main", "commit": "7a9a6599018aa931a8fe7ad2e4cb2f36db533d19" },
   "rose-pine": { "branch": "main", "commit": "491a0c77abc7ecb955c27a974091a5968232995f" },
-  "rose-pine.nvim": { "branch": "main", "commit": "fd92c21492290ce0a76fc260612743e5fe1b955e" },
+  "rose-pine.nvim": { "branch": "main", "commit": "7bab302df21dc59c3154432ab3d0c8460ac2c647" },
   "scheme2max.nvim": { "branch": "main", "commit": "330deec804004671a94a9a42cdc4b8819a0d02bd" },
   "scnvim": { "branch": "main", "commit": "cb6a968b3de9b9a176f4012dd18efcb8d9d34f71" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
