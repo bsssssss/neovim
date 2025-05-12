@@ -1,3 +1,11 @@
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "help", "qf" },
+	desc = "Keymap to close help/qf window",
+	callback = function()
+		vim.keymap.set("n", "q", "<C-w>c<CR>", { buffer = true, desc = "Close help/qf split window" })
+	end,
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
 	desc = "Hightlight selection on yank",
