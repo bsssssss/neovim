@@ -21,6 +21,7 @@ return {
 				c          = { "clang-format" },
 				python     = { "black" },
         javascript = { "clang-format" },
+        typescript = { "clang-format" }
 			},
       -- stylua: ignore end
       format_on_save = {
