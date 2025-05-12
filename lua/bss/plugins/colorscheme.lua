@@ -66,6 +66,7 @@ return {
           Comment               = { fg = "muted"          },
           BlinkCmpGhostText     = { link = "Comment"      },
           MiniIndentscopeSymbol = { fg = "highlight_high" },
+          WinSeparator = { fg = "highlight_high" },
 
 					["@keyword.return"] = { fg = "love"   },
 					["@keyword.repeat"] = { fg = "prune"  },
