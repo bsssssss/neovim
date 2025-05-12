@@ -46,12 +46,12 @@ return {
 					enabled = true,
 				},
 			},
-			hover = {
-				enabled = false,
-				view = nil, -- when nil, use defaults from documentation
-				---@type NoiceViewOptions
-				opts = {}, -- merged with defaults from documentation
-			},
+			-- hover = {
+			-- 	enabled = false,
+			-- 	view = nil, -- when nil, use defaults from documentation
+			-- 	---@type NoiceViewOptions
+			-- 	opts = {}, -- merged with defaults from documentation
+			-- },
 
 			routes = {
 				-- {
