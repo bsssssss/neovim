@@ -40,7 +40,6 @@ return {
 
 			vim.lsp.buf.hover({
 				border = "single",
-				relative = "editor",
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
