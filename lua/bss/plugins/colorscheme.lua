@@ -61,12 +61,12 @@ return {
 				-- per group via `inherit = false`
 				highlight_groups = {
           -- stylua: ignore start
-					LineNr                = { fg = "highlight_med"  },
-          Visual                = { bg = "subtle" },
-          Comment               = { fg = "muted"          },
-          BlinkCmpGhostText     = { link = "Comment"      },
-          MiniIndentscopeSymbol = { fg = "highlight_high" },
-          WinSeparator = { fg = "highlight_high" },
+					LineNr                = { fg   = "highlight_med" },
+          Visual                = { bg   = "subtle" },
+          Comment               = { fg   = "muted" },
+          BlinkCmpGhostText     = { link = "Comment" },
+          MiniIndentscopeSymbol = { fg   = "highlight_high" },
+          WinSeparator          = { fg   = "highlight_high" },
 
 					["@keyword.return"] = { fg = "love"   },
 					["@keyword.repeat"] = { fg = "prune"  },
@@ -79,6 +79,7 @@ return {
 
 					["@function.method.call.javascript"] = { fg   = "rose"      },
 					["@variable.builtin.javascript"]     = { link = "@operator" },
+					["@lsp.type.modifier.java"]          = { link = "Keyword" },
 					-- stylua: ignore end
 				},
 
