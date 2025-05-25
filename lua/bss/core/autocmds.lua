@@ -55,16 +55,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "haskell",
-	callback = function()
-		local bufnr = vim.api.nvim_get_current_buf()
-		vim.bo[bufnr].softtabstop = 2
-		vim.bo[bufnr].shiftwidth = 4
-	end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "c",
+	pattern = { "haskell", "c", "java" },
 	callback = function()
 		local bufnr = vim.api.nvim_get_current_buf()
 		vim.bo[bufnr].softtabstop = 2
@@ -79,13 +70,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = "help",
--- 	callback = function()
--- 		vim.keymap.set("n", "q", "<cmd>q<cr>", {})
--- 	end,
--- })
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "max",
 	callback = function()
@@ -93,6 +77,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Allow to save folds
 vim.api.nvim_create_augroup("view_save", { clear = true })
 vim.api.nvim_create_autocmd({ "BufWrite" }, {
 	pattern = { "*" },
