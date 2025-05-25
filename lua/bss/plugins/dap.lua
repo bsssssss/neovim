@@ -20,6 +20,8 @@ return {
 			vim.keymap.set({ "n", "v" }, "<Leader>dP", function() require("dap.ui.widgets").preview() end, { desc = "DAP: Preview" })
 			vim.keymap.set("n", "<Leader>df", function() local widgets = require("dap.ui.widgets") widgets.centered_float(widgets.frames) end, { desc = "DAP: Frame" })
 			vim.keymap.set("n", "<Leader>ds", function() local widgets = require("dap.ui.widgets") widgets.centered_float(widgets.scopes) end, { desc = "DAP: Scope" })
+      vim.keymap.set("n", "<leader>dc", function() require("dap").disconnect(); require("dapui").close(); end)
+      vim.keymap.set("n", "<leader>dt", function() require("dap").terminate(); require("dapui").close(); end)
 			-- stylua: ignore end
 
 			dap.adapters.codelldb = {
@@ -68,7 +70,7 @@ return {
 							{ id = "watches", size = 0.25 },
 						},
 						position = "left",
-						size = 50,
+						size = 40,
 					},
 					{
             -- stylua: ignore start
@@ -104,12 +106,6 @@ return {
 			dap.listeners.before.event_exited.dapui_config = function()
 				-- dapui.close()
 			end
-
-			vim.api.nvim_create_user_command("DapUiClose", function()
-				dapui.close()
-			end, {})
-
-			vim.keymap.set("n", "<Leader>dC", "<cmd>DapUiClose<CR>", { desc = "DAP: Close" })
 		end,
 	},
 	{
