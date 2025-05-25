@@ -39,3 +39,15 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "<leader>cR", ":IncRename ", { desc = "Incremenal Rename" })
+
+vim.keymap.set("n", "<leader>tc", function ()
+  if vim.bo.filetype == "java" then
+    require("jdtls").test_class();
+  end
+end, { desc = "Java : Test Class"})
+
+vim.keymap.set("n", "<leader>tm", function ()
+  if vim.bo.filetype == "java" then
+    require("jdtls").test_nearest_method();
+  end
+end, { desc = "Java : Test Method"})
