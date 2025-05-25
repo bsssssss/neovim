@@ -1,34 +1,5 @@
 return {
 	{
-		-- "nvim-java/nvim-java",
-		-- enabled = true,
-		-- dependencies = {
-		-- 	"mfussenegger/nvim-dap",
-		-- },
-		-- lazy = true,
-		-- opts = {
-		-- 	java_debug_adapter = {
-		-- 		enable = true,
-		-- 		version = "0.58.1",
-		-- 	},
-		-- 	dap = {
-		-- 		-- Configuration du débogueur
-		-- 		hotcodereplace = "auto",
-		-- 		config_overrides = {
-		-- 			-- Vous pouvez personnaliser la configuration ici
-		-- 		},
-		-- 	},
-		-- },
-		-- config = function(_, opts)
-		-- 	-- Important: il faut appeler setup avec les options
-		-- 	require("nvim-java").setup(opts)
-		--
-		-- 	-- Ajoutez des raccourcis clavier spécifiques à Java ici
-		-- 	vim.keymap.set("n", "<leader>jr", "<cmd>JavaRunnerRunMain<CR>", { desc = "Java: Run" })
-		-- 	vim.keymap.set("n", "<leader>jd", "<cmd>JavaDebugMain<CR>", { desc = "Java: Debug" })
-		-- end,
-	},
-	{
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {
@@ -46,10 +17,9 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
-			"williamboman/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			"nvim-java/nvim-java",
+			{ "mason-org/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
+			{ "mason-org/mason-lspconfig.nvim" },
+			{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
 			-- Useful status updates for LSP.
 			{ "j-hui/fidget.nvim", opts = {} },
@@ -170,16 +140,6 @@ return {
 				ts_ls = {},
 			}
 
-			require("java").setup({
-				jdtls = {
-					version = "v1.46.1",
-				},
-				jdk = {},
-				java_debug_adapter = {
-					enabled = true,
-				},
-			})
-
 			---@diagnostic disable-next-line: missing-fields
 			require("mason").setup({
 				ui = {
@@ -192,15 +152,24 @@ return {
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 			})
-			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					"java-debug-adapter",
+					"java-test",
+				},
+			})
 
 			---@diagnostic disable-next-line: missing-fields
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
-						local server = servers[server_name] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
+						-- jdtls has it's own attach logic (in ftplugin/java.lua) so we avoid it here
+						if server_name ~= "jdtls" then
+							local server = servers[server_name] or {}
+							server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+							require("lspconfig")[server_name].setup(server)
+						end
 					end,
 				},
 			})
