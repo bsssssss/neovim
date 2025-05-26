@@ -77,7 +77,7 @@ return {
 					["@tag.html"] = { fg = "pine" },
 					["@tag.css"]  = { fg = "pine" },
 
-					["@function.method.call.javascript"] = { fg   = "rose"      },
+					["@function.method.call"] = { fg   = "rose"      },
 					["@variable.builtin.javascript"]     = { link = "@operator" },
 					["@lsp.type.modifier.java"]          = { link = "Keyword" },
 					-- stylua: ignore end
