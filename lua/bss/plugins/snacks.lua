@@ -8,8 +8,14 @@ return {
 
 		---@type snacks.Config
 		opts = {
-
 			bigfile = { enabled = true },
+			image = {
+				doc = {
+					max_width = 30,
+					max_height = 10,
+					inline = false,
+				},
+			},
 
 			dashboard = {
 				enabled = true,
