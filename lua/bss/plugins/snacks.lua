@@ -80,10 +80,10 @@ return {
 				},
 			},
 
-			-- terminal = {
-			-- 	enabled = true,
-			--      auto_insert = false
-			-- },
+			terminal = {
+				enabled = true,
+				auto_insert = false,
+			},
 		},
 
 		keys = {
