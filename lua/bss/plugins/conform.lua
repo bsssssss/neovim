@@ -20,8 +20,8 @@ return {
 				haskell    = { "stylish-haskell" },
 				c          = { "clang-format" },
 				python     = { "black" },
-        javascript = { "clang-format" },
-        typescript = { "clang-format" }
+        javascript = { "prettier" },
+        typescript = { "prettier" }
 			},
       -- stylua: ignore end
       format_on_save = {
