@@ -68,7 +68,7 @@ return {
           MiniIndentscopeSymbol = { fg   = "highlight_high" },
           WinSeparator          = { fg   = "highlight_high" },
 
-					["@keyword.return"] = { fg = "love"   },
+					["@keyword.return"] = { fg = "pine"   },
 					["@keyword.repeat"] = { fg = "prune"  },
 					["@type"]           = { fg = "lagoon" },
 					["@type.builtin"]   = { fg = "lagoon" },
