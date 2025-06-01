@@ -61,8 +61,8 @@ return {
 				-- per group via `inherit = false`
 				highlight_groups = {
           -- stylua: ignore start
-					LineNr                = { fg   = "highlight_med" },
-          Visual                = { bg   = "subtle" },
+					LineNr                = { fg   = "muted" },
+          Visual                = { bg   = "highlight_high" },
           Comment               = { fg   = "muted" },
           BlinkCmpGhostText     = { link = "Comment" },
           MiniIndentscopeSymbol = { fg   = "highlight_high" },
