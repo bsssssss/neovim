@@ -67,6 +67,7 @@ return {
           BlinkCmpGhostText     = { link = "Comment" },
           MiniIndentscopeSymbol = { fg   = "highlight_high" },
           WinSeparator          = { fg   = "highlight_high" },
+          Directory             = { fg   = "lagoon" },
 
 					["@keyword.return"] = { fg = "pine"   },
 					["@keyword.repeat"] = { fg = "prune"  },
