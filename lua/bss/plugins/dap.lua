@@ -117,6 +117,7 @@ return {
 			ensure_installed = {
 				"codelldb",
 				"java-debug-adapter",
+        "js-debug-adapter",
 			},
 			handlers = {},
 		},
