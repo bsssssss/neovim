@@ -106,15 +106,15 @@ return {
 
 				lualine_x = {
 					{
-						rec_mode,
-						---@diagnostic disable-next-line: undefined-field
-						cond = require("noice").api.status.mode.has,
-						color = { fg = palette.gold },
+						-- rec_mode,
+						-- ---@diagnostic disable-next-line: undefined-field
+						-- cond = require("noice").api.status.mode.has,
+						-- color = { fg = palette.gold },
 					},
 					{
-						require("noice").api.status.command.get,
-						cond = require("noice").api.status.command.has,
-						color = { fg = "#ff9e64" },
+						-- require("noice").api.status.command.get,
+						-- cond = require("noice").api.status.command.has,
+						-- color = { fg = "#ff9e64" },
 					},
 				},
 				lualine_y = {
