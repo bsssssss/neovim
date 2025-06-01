@@ -23,7 +23,7 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
-vim.opt.fillchars = vim.opt.fillchars + 'eob: '
+vim.opt.fillchars = vim.opt.fillchars + "eob: "
 
 opt.backspace = "indent,eol,start"
 
@@ -55,5 +55,8 @@ vim.o.scrolloff = 10
 vim.o.sidescrolloff = 10
 
 vim.opt.cmdheight = 1
+
+vim.opt.showmode = false
+vim.opt.shortmess = "lfToOCFa"
 
 -- vim.lsp.set_log_level("off")
