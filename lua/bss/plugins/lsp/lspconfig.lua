@@ -38,10 +38,6 @@ return {
 				severity_sort = true,
 			})
 
-			vim.lsp.buf.hover({
-				border = "single",
-			})
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 				callback = function(event)
@@ -53,6 +49,9 @@ return {
 					map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+					map("K", function()
+						vim.lsp.buf.hover({ border = "single" })
+					end, "Hover")
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
