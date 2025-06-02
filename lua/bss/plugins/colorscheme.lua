@@ -1,6 +1,7 @@
 return {
 	{
 		"bsssssss/rose-pine.nvim",
+    branch = "neutral-grey",
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -19,7 +20,7 @@ return {
 				styles = {
 					bold = true,
 					italic = true,
-					transparency = false,
+					transparency = true,
 				},
 
 				groups = {
@@ -62,7 +63,7 @@ return {
 				highlight_groups = {
           -- stylua: ignore start
 					LineNr                = { fg   = "muted" },
-          Visual                = { bg   = "highlight_high" },
+          Visual                = { bg   = "overlay" },
           Comment               = { fg   = "muted" },
           BlinkCmpGhostText     = { link = "Comment" },
           MiniIndentscopeSymbol = { fg   = "highlight_high" },
