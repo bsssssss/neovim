@@ -3,7 +3,7 @@ return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
 		local palette = require("rose-pine.palette")
-		local bg = palette.base
+		local bg = palette.surface
 
 		local theme = {
 			normal = {
