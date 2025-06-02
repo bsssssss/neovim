@@ -1,7 +1,7 @@
 return {
 	{
 		"bsssssss/rose-pine.nvim",
-    branch = "neutral-grey",
+		branch = "neutral-grey",
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -56,14 +56,18 @@ return {
 					-- stylua: ignore end
 				},
 
-				palette = {},
+				palette = {
+					moon = {
+						-- surface = "#242430",
+					},
+				},
 
 				-- NOTE: Highlight groups are extended (merged) by default. Disable this
 				-- per group via `inherit = false`
 				highlight_groups = {
           -- stylua: ignore start
-					LineNr                = { fg   = "muted" },
-          Visual                = { fg = "lagoon", bg = "lagoon", blend = 5 },
+					LineNr                = { fg   = "highlight_med" },
+          Visual                = { fg   = "lagoon", bg = "lagoon", blend = 5 },
           Comment               = { fg   = "muted" },
           BlinkCmpGhostText     = { link = "Comment" },
           MiniIndentscopeSymbol = { fg   = "highlight_high" },
