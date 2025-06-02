@@ -74,7 +74,7 @@ return {
           WinSeparator          = { fg   = "highlight_high" },
           Directory             = { fg   = "lagoon" },
 
-					["@keyword.return"] = { fg = "pine"   },
+					["@keyword.return"] = { fg = "love"   },
 					["@keyword.repeat"] = { fg = "prune"  },
 					["@type"]           = { fg = "lagoon" },
 					["@type.builtin"]   = { fg = "lagoon" },
@@ -84,8 +84,8 @@ return {
 					["@tag.css"]  = { fg = "pine" },
 
 					["@function.method.call"]                           = { fg   = "rose"      },
-          ["@lsp.typemod.variable.defaultLibrary.javascript"] = { link = "@operator"},
-					["@variable.builtin.javascript"]                    = { link = "@operator" },
+          ["@lsp.typemod.variable.defaultLibrary.javascript"] = { fg = "lagoon" },
+					["@variable.builtin.javascript"]                    = { fg = "lagoon" },
 					["@lsp.type.modifier.java"]                         = { link = "Keyword" },
 					-- stylua: ignore end
 				},
