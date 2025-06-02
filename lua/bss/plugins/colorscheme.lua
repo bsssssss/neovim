@@ -63,7 +63,7 @@ return {
 				highlight_groups = {
           -- stylua: ignore start
 					LineNr                = { fg   = "muted" },
-          Visual                = { bg   = "overlay" },
+          Visual                = { fg = "lagoon", bg = "lagoon", blend = 5 },
           Comment               = { fg   = "muted" },
           BlinkCmpGhostText     = { link = "Comment" },
           MiniIndentscopeSymbol = { fg   = "highlight_high" },
