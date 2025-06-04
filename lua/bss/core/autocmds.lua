@@ -72,3 +72,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		vim.cmd("silent! loadview")
 	end,
 })
+
+-- Force cursor reset on exit
+-- vim.api.nvim_create_autocmd("VimLeave", {
+--   callback = function()
+--     vim.opt.guicursor = "a:ver25-blinkon1"
+--   end,
+-- })
+
