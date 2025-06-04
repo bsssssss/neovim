@@ -13,6 +13,7 @@ return {
 					"help",
 					"alpha",
 					"dashboard",
+          "snacks_dashboard",
 					"neo-tree",
 					"Trouble",
 					"trouble",
@@ -21,6 +22,7 @@ return {
 					"notify",
 					"toggleterm",
 					"lazyterm",
+          "man"
 				},
 			},
 		},
@@ -42,6 +44,7 @@ return {
 				pattern = {
 					"alpha",
 					"dashboard",
+          "snacks_dashboard",
 					"fzf",
 					"help",
 					"lazy",
@@ -52,6 +55,7 @@ return {
 					"toggleterm",
 					"Trouble",
 					"trouble",
+          "man"
 				},
 				callback = function()
 					vim.b.miniindentscope_disable = true
