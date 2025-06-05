@@ -58,13 +58,3 @@ vim.opt.cmdheight = 1
 
 vim.opt.showmode = false
 vim.opt.shortmess = "lfToOCFa"
-
--- Cursor configuration
-vim.opt.guicursor = {
-	"n-v-c:block",
-	"i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150",
-	"r-cr:hor20",
-	"o:hor50",
-}
-
--- vim.lsp.set_log_level("off")
