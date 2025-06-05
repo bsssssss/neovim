@@ -11,8 +11,8 @@ return {
       -- Setup scnvim
       scnvim.setup({
         keymaps = {
-          ["<D-E>"] = map("editor.send_line", { "i", "n" }),
-          ["<D-e>"] = {
+          ["<C-E>"] = map("editor.send_line", { "i", "n" }),
+          ["<C-e>"] = {
             map("editor.send_block", { "i", "n" }),
             map("editor.send_selection", "x"),
           },
