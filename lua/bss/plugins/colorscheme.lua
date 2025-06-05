@@ -87,6 +87,8 @@ return {
           ["@lsp.typemod.variable.defaultLibrary.javascript"] = { fg = "lagoon" },
 					["@variable.builtin.javascript"]                    = { fg = "lagoon" },
 					["@lsp.type.modifier.java"]                         = { link = "Keyword" },
+
+          ["@string.special.symbol.supercollider"] = { fg = "gold" },
 					-- stylua: ignore end
 				},
 
