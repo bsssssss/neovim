@@ -83,9 +83,9 @@ return {
 					["@tag.html"] = { fg = "pine" },
 					["@tag.css"]  = { fg = "pine" },
 
-					["@function.method.call"]                           = { fg   = "rose"      },
-          ["@lsp.typemod.variable.defaultLibrary.javascript"] = { fg = "lagoon" },
-					["@variable.builtin.javascript"]                    = { fg = "lagoon" },
+					["@function.method.call"]                           = { fg   = "rose"    },
+          ["@lsp.typemod.variable.defaultLibrary.javascript"] = { fg   = "lagoon"  },
+					["@variable.builtin.javascript"]                    = { fg   = "lagoon"  },
 					["@lsp.type.modifier.java"]                         = { link = "Keyword" },
 
           ["@string.special.symbol.supercollider"] = { fg = "gold" },
