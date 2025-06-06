@@ -19,6 +19,7 @@ return {
 
 			dashboard = {
 				enabled = true,
+        width = 50,
 				preset = {
 					keys = {
             -- stylua: ignore start
@@ -40,16 +41,23 @@ return {
 					end,
 				},
 				sections = {
+					-- {
+					-- 	section = "terminal",
+					-- 	cmd = "fortune -s | cowsay",
+					-- 	hl = "String",
+					-- 	indent = 8,
+					-- 	height = 16,
+					-- },
 					{
 						section = "terminal",
-						cmd = "fortune -s | cowsay",
-						hl = "String",
-						indent = 8,
-						height = 16,
+						cmd = "astroterm -c -l 1 -t 2 -u -r 2.5",
+						hl = "Comment",
+						indent = 0,
+						height = 24,
 					},
-					{ section = "keys", padding = 2, gap = 0 },
+					{ section = "keys", padding = 2, gap = 0, indent = 0 },
 					{ title = "MRU ", file = vim.fn.fnamemodify(".", ":~"), padding = 1 },
-					{ section = "recent_files", cwd = true, limit = 8, indent = 2, padding = 2 },
+					{ section = "recent_files", cwd = true, limit = 8, indent = 0, padding = 2 },
 					{ section = "startup" },
 				},
 			},
