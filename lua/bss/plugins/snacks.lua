@@ -19,7 +19,7 @@ return {
 
 			dashboard = {
 				enabled = true,
-        width = 50,
+        width = 60,
 				preset = {
 					keys = {
             -- stylua: ignore start
@@ -50,10 +50,11 @@ return {
 					-- },
 					{
 						section = "terminal",
-						cmd = "astroterm -c -l 1 -t 2 -u -r 2.5",
+						cmd = "astroterm -c -l 0.25 -t 2 -u -r 2.25",
 						hl = "Comment",
 						indent = 0,
-						height = 24,
+            height = 16,
+            padding = 1,
 					},
 					{ section = "keys", padding = 2, gap = 0, indent = 0 },
 					{ title = "MRU ", file = vim.fn.fnamemodify(".", ":~"), padding = 1 },
