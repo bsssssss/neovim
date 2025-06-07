@@ -80,3 +80,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
 --   end,
 -- })
 
+-- Fix "Press Enter" bug with tmux splits
+if os.getenv("TMUX") then
+	vim.api.nvim_create_autocmd("BufWritePost", {
+		pattern = "*",
+		command = "silent! redraw!",
+	})
+end
