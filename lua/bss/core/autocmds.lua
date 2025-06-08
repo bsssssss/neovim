@@ -34,8 +34,19 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "haskell", "c", "java" },
 	callback = function()
 		local bufnr = vim.api.nvim_get_current_buf()
-		vim.bo[bufnr].softtabstop = 2
+		vim.bo[bufnr].tabstop = 4
+		vim.bo[bufnr].softtabstop = 4
 		vim.bo[bufnr].shiftwidth = 4
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "html" },
+	callback = function()
+		local bufnr = vim.api.nvim_get_current_buf()
+		vim.bo[bufnr].tabstop = 2
+		vim.bo[bufnr].softtabstop = 2
+		vim.bo[bufnr].shiftwidth = 2
 	end,
 })
 
