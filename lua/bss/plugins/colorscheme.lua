@@ -7,7 +7,7 @@ return {
 		config = function()
 			require("rose-pine").setup({
 				variant = "auto", -- auto, main, moon, or dawn
-				dark_variant = "moon", -- main, moon, or dawn
+				dark_variant = "main", -- main, moon, or dawn
 				dim_inactive_windows = false,
 				extend_background_behind_borders = false,
 
@@ -24,7 +24,7 @@ return {
 				},
 
 				groups = {
-          -- stylua: ignore start
+                    -- stylua: ignore start
 					border = "highlight_high",
 					link   = "iris",
 					panel  = "surface",
@@ -65,14 +65,14 @@ return {
 				-- NOTE: Highlight groups are extended (merged) by default. Disable this
 				-- per group via `inherit = false`
 				highlight_groups = {
-          -- stylua: ignore start
-					LineNr                = { fg   = "highlight_med" },
-          Visual                = { fg   = "lagoon", bg = "lagoon", blend = 5 },
-          Comment               = { fg   = "muted" },
-          BlinkCmpGhostText     = { link = "Comment" },
-          MiniIndentscopeSymbol = { fg   = "highlight_high" },
-          WinSeparator          = { fg   = "highlight_high" },
-          Directory             = { fg   = "lagoon" },
+                -- stylua: ignore start
+                    LineNr                = { fg   = "highlight_med" },
+                    Visual                = { fg   = "lagoon", bg = "lagoon", blend = 5 },
+                    Comment               = { fg   = "muted" },
+                    BlinkCmpGhostText     = { link = "Comment" },
+                    MiniIndentscopeSymbol = { fg   = "highlight_high" },
+                    WinSeparator          = { fg   = "highlight_high" },
+                    Directory             = { fg   = "lagoon" },
 
 					["@keyword.return"] = { fg = "love"   },
 					["@keyword.repeat"] = { fg = "prune"  },
@@ -84,11 +84,11 @@ return {
 					["@tag.css"]  = { fg = "pine" },
 
 					["@function.method.call"]                           = { fg   = "rose"    },
-          ["@lsp.typemod.variable.defaultLibrary.javascript"] = { fg   = "lagoon"  },
+                    ["@lsp.typemod.variable.defaultLibrary.javascript"] = { fg   = "lagoon"  },
 					["@variable.builtin.javascript"]                    = { fg   = "lagoon"  },
 					["@lsp.type.modifier.java"]                         = { link = "Keyword" },
 
-          ["@string.special.symbol.supercollider"] = { fg = "gold" },
+                    ["@string.special.symbol.supercollider"] = { fg = "gold" },
 					-- stylua: ignore end
 				},
 
