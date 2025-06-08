@@ -24,12 +24,12 @@ return {
         typescript = { "prettier" },
         html       = { "htmlbeautifier" },
 			},
-      -- stylua: ignore end
-      format_on_save = {
-        -- I recommend these options. See :help conform.format for details.
-        lsp_format = "fallback",
-        timeout_ms = 500,
-      },
+			-- stylua: ignore end
+			format_on_save = {
+				-- I recommend these options. See :help conform.format for details.
+				lsp_format = "fallback",
+				timeout_ms = 500,
+			},
 		},
 	},
 }

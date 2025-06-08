@@ -56,11 +56,7 @@ return {
 					-- stylua: ignore end
 				},
 
-				palette = {
-					moon = {
-						-- surface = "#242430",
-					},
-				},
+				palette = {},
 
 				-- NOTE: Highlight groups are extended (merged) by default. Disable this
 				-- per group via `inherit = false`
@@ -74,19 +70,24 @@ return {
                     WinSeparator          = { fg   = "highlight_high" },
                     Directory             = { fg   = "lagoon" },
 
-					["@keyword.return"] = { fg = "love"   },
-					["@keyword.repeat"] = { fg = "prune"  },
-					["@type"]           = { fg = "lagoon" },
-					["@type.builtin"]   = { fg = "lagoon" },
+					["@keyword.return"]      = { fg = "love" },
+					["@keyword.conditional"] = { fg = "prune" },
+					["@keyword.repeat"]      = { fg = "prune" },
+
+					["@type"]         = { fg = "lagoon" },
+					["@type.builtin"] = { fg = "lagoon" },
+
+					["@function.method.call"] = { fg = "rose" },
 
 					["@tag.xml"]  = { fg = "pine" },
 					["@tag.html"] = { fg = "pine" },
 					["@tag.css"]  = { fg = "pine" },
 
-					["@function.method.call"]                           = { fg   = "rose"    },
+
                     ["@lsp.typemod.variable.defaultLibrary.javascript"] = { fg   = "lagoon"  },
 					["@variable.builtin.javascript"]                    = { fg   = "lagoon"  },
-					["@lsp.type.modifier.java"]                         = { link = "Keyword" },
+
+					["@lsp.type.modifier.java"] = { link = "Keyword" },
 
                     ["@string.special.symbol.supercollider"] = { fg = "gold" },
 					-- stylua: ignore end
