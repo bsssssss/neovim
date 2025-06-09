@@ -1,10 +1,10 @@
 return {
 	{
 		"3rd/image.nvim",
-		enabled = false,
+		enabled = true,
 		lazy = false,
 		opts = {
-			backend = "kitty",
+			backend = "ueberzug",
 			integrations = {
 				markdown = {
 					enabled = true,
