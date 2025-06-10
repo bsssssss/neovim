@@ -19,10 +19,10 @@ return {
 
 			dashboard = {
 				enabled = true,
-        width = 60,
+				width = 50,
 				preset = {
 					keys = {
-            -- stylua: ignore start
+                        -- stylua: ignore start
 						{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')", },
 						{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
 						{ icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')", },
@@ -53,12 +53,12 @@ return {
 						cmd = "astroterm -c -l 0.25 -t 2 -u -r 2.25",
 						hl = "Comment",
 						indent = 0,
-            height = 16,
-            padding = 1,
+						height = 16,
+						padding = 2,
 					},
 					{ section = "keys", padding = 2, gap = 0, indent = 0 },
 					{ title = "MRU ", file = vim.fn.fnamemodify(".", ":~"), padding = 1 },
-					{ section = "recent_files", cwd = true, limit = 8, indent = 0, padding = 2 },
+					{ section = "recent_files", cwd = true, limit = 8, indent = 0, padding = 4 },
 					{ section = "startup" },
 				},
 			},
