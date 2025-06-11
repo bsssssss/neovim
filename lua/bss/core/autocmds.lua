@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "html" },
+	pattern = { "html", "lua" },
 	callback = function()
 		local bufnr = vim.api.nvim_get_current_buf()
 		vim.bo[bufnr].tabstop = 2
@@ -65,24 +65,24 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Allow to save folds
-vim.api.nvim_create_augroup("view_save", { clear = true })
-vim.api.nvim_create_autocmd({ "BufWrite" }, {
-	pattern = { "*" },
-	group = "view_save",
-	desc = "Save view state of current window when leaving",
-	callback = function()
-		vim.cmd("mkview")
-	end,
-})
+-- vim.api.nvim_create_augroup("view_save", { clear = true })
+-- vim.api.nvim_create_autocmd({ "BufWrite" }, {
+-- 	pattern = { "*" },
+-- 	group = "view_save",
+-- 	desc = "Save view state of current window when leaving",
+-- 	callback = function()
+-- 		vim.cmd("mkview")
+-- 	end,
+-- })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	group = "view_save",
-	pattern = { "*" },
-	desc = "Load view state of current window",
-	callback = function()
-		vim.cmd("silent! loadview")
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	group = "view_save",
+-- 	pattern = { "*" },
+-- 	desc = "Load view state of current window",
+-- 	callback = function()
+-- 		vim.cmd("silent! loadview")
+-- 	end,
+-- })
 
 -- Force cursor reset on exit
 -- vim.api.nvim_create_autocmd("VimLeave", {
