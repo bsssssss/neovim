@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "haskell", "c", "java" },
+	pattern = { "haskell", "c", "java", "html" },
 	callback = function()
 		local bufnr = vim.api.nvim_get_current_buf()
 		vim.bo[bufnr].tabstop = 4
@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "html", "lua" },
+	pattern = { "lua" },
 	callback = function()
 		local bufnr = vim.api.nvim_get_current_buf()
 		vim.bo[bufnr].tabstop = 2
