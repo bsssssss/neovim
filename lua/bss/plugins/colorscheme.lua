@@ -30,24 +30,32 @@ return {
 								},
 								bg_gutter = "none",
 							},
+							diag = {
+                -- stylua: ignore start
+								error   = "#E46876",
+								warning = "#DCA561",
+								-- stylua: ignore end
+							},
+							vcs = {
+								added = "#8a9a7b",
+								changed = "#a292a3",
+								removed = "#c4746e",
+							},
 						},
 					},
 				},
 				overrides = function(colors) -- add/modify highlights
 					return {
-						Comment = { fg = colors.palette.dragonBlack6 },
-						CursorLine = { bg = "none" },
-            CursorLineNr = { fg = colors.theme.syn.keyword },
-						Operator = { fg = colors.palette.dragonGray3 },
-            -- Identifier = { fg = colors.palette.fujiWhite },
-
-						IblIndent = { fg = colors.palette.dragonBlack5 },
+            -- stylua: ignore start
+						Comment               = { fg = colors.palette.dragonBlack6 },
+						CursorLine            = { bg = "none" },
+            CursorLineNr          = { fg = colors.theme.syn.keyword },
+						Operator              = { fg = colors.palette.dragonGray3 },
+            -- Identifier         = { fg = colors.palette.fujiWhite },
+            MsgArea               = { fg = colors.theme.syn.keyword },
+						IblIndent             = { fg = colors.palette.dragonBlack4 },
 						MiniIndentscopeSymbol = { fg = colors.palette.dragonBlack6 },
-
-						DiagnosticVirtualTextHint = { fg = colors.palette.oniViolet },
-						DiagnosticVirtualTextInfo = { fg = colors.palette.katanaGray },
-						DiagnosticVirtualTextWarn = { fg = colors.palette.autumnYellow },
-						DiagnosticVirtualTextError = { fg = colors.palette.waveRed },
+						-- stylua: ignore end
 					}
 				end,
 				theme = "dragon", -- Load "wave" theme
