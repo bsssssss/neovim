@@ -22,7 +22,7 @@ return {
 				python     = { "black" },
         javascript = { "prettier" },
         typescript = { "prettier" },
-        -- html       = { "htmlbeautifier" },
+        html       = { "prettier" },
 			},
 			-- stylua: ignore end
 			format_on_save = {
