@@ -2,47 +2,9 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
-		local palette = require("rose-pine.palette")
-		local bg = palette.none
-
-		local theme = {
-			normal = {
-				a = { bg = bg, fg = palette.iris, gui = "bold" },
-				b = { bg = bg, fg = palette.muted },
-				c = { bg = bg, fg = palette.muted },
-
-				x = { bg = bg, fg = palette.muted },
-				y = { bg = bg, fg = palette.muted },
-				z = { bg = bg, fg = palette.iris },
-			},
-			insert = {
-				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
-				b = { bg = bg, fg = palette.muted },
-				c = { bg = bg, fg = palette.muted },
-
-				x = { bg = bg, fg = palette.muted },
-				y = { bg = bg, fg = palette.muted },
-				z = { bg = bg, fg = palette.iris },
-			},
-			visual = {
-				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
-				b = { bg = bg, fg = palette.muted },
-				c = { bg = bg, fg = palette.muted },
-
-				x = { bg = bg, fg = palette.muted },
-				y = { bg = bg, fg = palette.muted },
-				z = { bg = bg, fg = palette.iris },
-			},
-			replace = {
-				a = { bg = palette.iris, fg = palette.base, gui = "bold" },
-				b = { bg = bg, fg = palette.muted },
-				c = { bg = bg, fg = palette.muted },
-
-				x = { bg = bg, fg = palette.muted },
-				y = { bg = bg, fg = palette.muted },
-				z = { bg = bg, fg = palette.iris },
-			},
-		}
+		local colors = require("bss.themes.lualine.rose-pine")
+		local theme = colors.theme
+		local palette = colors.palette
 
 		local rec_mode = function()
 			---@diagnostic disable-next-line: undefined-field
@@ -89,7 +51,7 @@ return {
 					},
 				},
 				lualine_b = {
-					{ "branch", color = { fg = palette.iris } },
+					{ "branch", color = { fg = palette.primary } },
 					{
 						"diff",
 						"diagnostics",
@@ -131,7 +93,7 @@ return {
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {
-					{ "filename", color = { fg = palette.muted, bg = palette.base } },
+					{ "filename", color = { fg = palette.secondary, bg = palette.bg } },
 				},
 				lualine_x = {
 					{ "location" },
