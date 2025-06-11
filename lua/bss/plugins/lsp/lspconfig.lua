@@ -115,7 +115,7 @@ return {
 					-- Start the language server
 					vim.lsp.start({
 						name = "genexpr-language-server",
-						cmd = { "node", vim.fn.expand("~/Code/projects/genexpr-language-server/out/server/server.js"), "--stdio" },
+						cmd = { "node", vim.fn.expand("~/dev/github.com/bsssssss/genexpr-language-server/out/server/server.js"), "--stdio" },
 						handlers = {
 							["window/showMessage"] = function(_, result, ctx)
 								vim.notify(result.message, vim.log.levels.INFO, { title = "GenExpr LSP" })
