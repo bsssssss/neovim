@@ -2,7 +2,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
-		local colors = require("bss.themes.lualine.rose-pine")
+		local colors = require("bss.themes.lualine.kanagawa")
 		local theme = colors.theme
 		local palette = colors.palette
 
