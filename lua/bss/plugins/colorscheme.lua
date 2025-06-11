@@ -1,6 +1,68 @@
 return {
 	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- Default options:
+			require("kanagawa").setup({
+				compile = false, -- enable compiling the colorscheme
+				undercurl = true, -- enable undercurls
+				commentStyle = { italic = false },
+				functionStyle = {},
+				keywordStyle = { italic = false },
+				statementStyle = { bold = true },
+				typeStyle = {},
+				transparent = true, -- do not set background color
+				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+				terminalColors = true, -- define vim.g.terminal_color_{0,17}
+				colors = { -- add/modify theme and palette colors
+					palette = {},
+					theme = {
+						wave = {},
+						lotus = {},
+						dragon = {},
+						all = {
+							ui = {
+								float = {
+									bg = "none",
+									bg_border = "none",
+								},
+								bg_gutter = "none",
+							},
+						},
+					},
+				},
+				overrides = function(colors) -- add/modify highlights
+					return {
+						Comment = { fg = colors.palette.dragonBlack6 },
+						CursorLine = { bg = "none" },
+						Operator = { fg = colors.palette.dragonGray3 },
+            -- Identifier = { fg = colors.palette.fujiWhite },
+
+						IblIndent = { fg = colors.palette.dragonBlack5 },
+						MiniIndentscopeSymbol = { fg = colors.palette.dragonBlack6 },
+
+						DiagnosticVirtualTextHint = { fg = colors.palette.oniViolet },
+						DiagnosticVirtualTextInfo = { fg = colors.palette.katanaGray },
+						DiagnosticVirtualTextWarn = { fg = colors.palette.autumnYellow },
+						DiagnosticVirtualTextError = { fg = colors.palette.waveRed },
+					}
+				end,
+				theme = "dragon", -- Load "wave" theme
+				background = { -- map the value of 'background' option to a theme
+					dark = "dragon", -- try "dragon" !
+					light = "lotus",
+				},
+			})
+
+			-- setup must be called before loading
+			vim.cmd("colorscheme kanagawa")
+		end,
+	},
+	{
 		"bsssssss/rose-pine.nvim",
+		enabled = true,
 		branch = "neutral-grey",
 		lazy = false,
 		priority = 1000,
@@ -61,36 +123,33 @@ return {
 				-- NOTE: Highlight groups are extended (merged) by default. Disable this
 				-- per group via `inherit = false`
 				highlight_groups = {
-                -- stylua: ignore start
-                    LineNr                = { fg   = "highlight_med" },
-                    Visual                = { fg   = "lagoon", bg = "lagoon", blend = 10 },
-                    Comment               = { fg   = "muted" },
-                    BlinkCmpGhostText     = { link = "Comment" },
-                    MiniIndentscopeSymbol = { fg   = "highlight_high" },
-                    WinSeparator          = { fg   = "highlight_high" },
-                    Directory             = { fg   = "lagoon" },
+					LineNr = { fg = "highlight_med" },
+					Visual = { fg = "lagoon", bg = "lagoon", blend = 10 },
+					Comment = { fg = "muted" },
+					BlinkCmpGhostText = { link = "Comment" },
+					MiniIndentscopeSymbol = { fg = "highlight_high" },
+					WinSeparator = { fg = "highlight_high" },
+					Directory = { fg = "lagoon" },
 
-					["@keyword.return"]      = { fg = "love" },
+					["@keyword.return"] = { fg = "love" },
 					["@keyword.conditional"] = { fg = "prune" },
-					["@keyword.repeat"]      = { fg = "prune" },
+					["@keyword.repeat"] = { fg = "prune" },
 
-					["@type"]         = { fg = "lagoon" },
+					["@type"] = { fg = "lagoon" },
 					["@type.builtin"] = { fg = "lagoon" },
 
 					["@function.method.call"] = { fg = "rose" },
 
-					["@tag.xml"]  = { fg = "pine" },
+					["@tag.xml"] = { fg = "pine" },
 					["@tag.html"] = { fg = "pine" },
-					["@tag.css"]  = { fg = "pine" },
+					["@tag.css"] = { fg = "pine" },
 
-
-                    ["@lsp.typemod.variable.defaultLibrary.javascript"] = { fg   = "lagoon"  },
-					["@variable.builtin.javascript"]                    = { fg   = "lagoon"  },
+					["@lsp.typemod.variable.defaultLibrary.javascript"] = { fg = "lagoon" },
+					["@variable.builtin.javascript"] = { fg = "lagoon" },
 
 					["@lsp.type.modifier.java"] = { link = "Keyword" },
 
-                    ["@string.special.symbol.supercollider"] = { fg = "gold" },
-					-- stylua: ignore end
+					["@string.special.symbol.supercollider"] = { fg = "gold" },
 				},
 
 				before_highlight = function(group, highlight, palette)
@@ -106,7 +165,7 @@ return {
 				end,
 			})
 
-			vim.cmd("colorscheme rose-pine")
+			-- vim.cmd("colorscheme rose-pine")
 			-- vim.cmd("colorscheme rose-pine-main")
 			-- vim.cmd("colorscheme rose-pine-moon")
 			-- vim.cmd("colorscheme rose-pine-dawn")
