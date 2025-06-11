@@ -37,6 +37,7 @@ return {
 					return {
 						Comment = { fg = colors.palette.dragonBlack6 },
 						CursorLine = { bg = "none" },
+            CursorLineNr = { fg = colors.theme.syn.keyword },
 						Operator = { fg = colors.palette.dragonGray3 },
             -- Identifier = { fg = colors.palette.fujiWhite },
 
