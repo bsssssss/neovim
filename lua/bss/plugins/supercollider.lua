@@ -13,7 +13,7 @@ return {
         keymaps = {
           -- ["<C-E>"] = map("editor.send_line", { "i", "n" }),
           ["<C-e>"] = {
-            map("editor.send_block", { "i", "n" }),
+            map("editor.send_block", { "n" }),
             map("editor.send_selection", "x"),
           },
           ["<CR>"] = map("postwin.toggle"),
