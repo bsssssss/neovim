@@ -172,6 +172,7 @@ return {
 				jdtls = {},
 				pylsp = {},
 				ts_ls = {},
+        cssls = {},
 			}
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
