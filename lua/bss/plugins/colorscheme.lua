@@ -56,8 +56,9 @@ return {
 						IblIndent             = { fg = colors.palette.dragonBlack4 },
 						MiniIndentscopeSymbol = { fg = colors.palette.dragonBlack6 },
 
-            LspReferenceText = { bg = "none", bold = false },
-            LspReferenceRead = { bg = "none", bold = true },
+            Special = { bold = true },
+
+            LspReferenceText = { bg = "none", bold = true },
             LspReferenceWrite = { bg = "none", underline = true },
 						-- stylua: ignore end
 					}
