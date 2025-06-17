@@ -58,4 +58,4 @@ vim.o.sidescrolloff = 10
 vim.opt.cmdheight = 1
 
 vim.opt.showmode = false
-vim.opt.shortmess = "lfToOCFa"
+vim.opt.shortmess = "lfTtoOCFa"
