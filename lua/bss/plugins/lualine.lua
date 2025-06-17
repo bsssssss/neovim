@@ -1,7 +1,7 @@
 ---@diagnostic disable: undefined-field
 return {
 	"nvim-lualine/lualine.nvim",
-  enabled = true,
+	enabled = true,
 	config = function()
 		local colors = require("bss.themes.lualine.kanagawa")
 		local theme = colors.theme
@@ -27,7 +27,7 @@ return {
 		require("lualine").setup({
 			options = {
 				section_separators = { left = "", right = "" },
-				component_separators = { left = "⟩", right = "" },
+				component_separators = { left = "•", right = " " },
 				theme = theme,
 				disabled_filetypes = {
 					-- "help",
@@ -38,7 +38,22 @@ return {
 					"snacks_notif_history",
 				},
 				refresh = {
-					statusline = 100,
+					statusline = 1000,
+					tabline = 1000,
+					winbar = 1000,
+					refresh_time = 16, -- ~60fps
+					events = {
+						"WinEnter",
+						"BufEnter",
+						"BufWritePost",
+						"SessionLoadPost",
+						"FileChangedShellPost",
+						"VimResized",
+						"Filetype",
+						"CursorMoved",
+						"CursorMovedI",
+						"ModeChanged",
+					},
 				},
 			},
 
@@ -52,7 +67,11 @@ return {
 					},
 				},
 				lualine_b = {
-					{ "branch", color = { fg = palette.primary } },
+					{
+						"branch",
+						icons_enabled = false,
+						color = { fg = palette.primary },
+					},
 					{
 						"diff",
 						"diagnostics",
