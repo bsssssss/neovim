@@ -53,7 +53,7 @@ return {
 						CursorLineNr = { fg = colors.theme.syn.keyword },
 						Operator = { fg = colors.palette.dragonGray3 },
 						MsgArea = { fg = colors.theme.syn.keyword },
-						NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+						NormalDark = { fg = theme.ui.fg_dim, bg = "none" },
 						IblIndent = { fg = colors.palette.dragonBlack4 },
 						MiniIndentscopeSymbol = { fg = colors.palette.dragonBlack6 },
 						Special = { bold = true },

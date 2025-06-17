@@ -26,16 +26,17 @@ return {
 
 		require("lualine").setup({
 			options = {
+        globalstatus = true,
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "•", right = " " },
 				theme = theme,
 				disabled_filetypes = {
 					-- "help",
-					"neo-tree",
-					"snacks_picker_list",
-					"snacks_picker_input",
-					"snacks_terminal",
-					"snacks_notif_history",
+					-- "neo-tree",
+					-- "snacks_picker_list",
+					-- "snacks_picker_input",
+					-- "snacks_terminal",
+					-- "snacks_notif_history",
 				},
 				refresh = {
 					statusline = 1000,
@@ -100,7 +101,7 @@ return {
 					},
 				},
 				lualine_y = {
-					{ "filetype", icon = { align = "right" } },
+					{ "filetype" },
 					"encoding",
 				},
 				lualine_z = {
