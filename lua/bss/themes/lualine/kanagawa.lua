@@ -3,7 +3,7 @@ local palette_colors = colors.palette
 local theme_colors = colors.theme
 
 local palette = {
-	bg = theme_colors.ui.bg,
+	bg = theme_colors.ui.bg_m1,
 	primary = palette_colors.dragonPink,
 	secondary = palette_colors.fujiGray,
 	text = palette_colors.fujiWhite,
