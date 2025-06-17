@@ -27,7 +27,7 @@ return {
 								float = {
 									bg = "none",
 									bg_border = "none",
-                  fg = "#c4b28a"
+									fg = "#c4b28a",
 								},
 								bg_gutter = "none",
 							},
@@ -46,6 +46,7 @@ return {
 					},
 				},
 				overrides = function(colors) -- add/modify highlights
+					local theme = colors.theme
 					return {
             -- stylua: ignore start
 						Comment               = { fg = colors.palette.dragonBlack6 },
@@ -54,6 +55,7 @@ return {
 						Operator              = { fg = colors.palette.dragonGray3 },
 
             MsgArea               = { fg = colors.theme.syn.keyword },
+            NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
 
 						IblIndent             = { fg = colors.palette.dragonBlack4 },
 						MiniIndentscopeSymbol = { fg = colors.palette.dragonBlack6 },
@@ -62,6 +64,11 @@ return {
 
             LspReferenceText = { bg = "none", bold = true },
             LspReferenceWrite = { bg = "none", underline = true },
+
+            Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+            PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+            PmenuSbar = { bg = theme.ui.bg_m1 },
+            PmenuThumb = { bg = theme.ui.bg_p2 },
 						-- stylua: ignore end
 					}
 				end,
