@@ -46,6 +46,15 @@ local theme = {
 		y = { bg = palette.bg, fg = palette.secondary },
 		z = { bg = palette.bg, fg = palette.primary },
 	},
+	inactive = {
+		a = { bg = palette.bg, fg = palette.primary, gui = "bold" },
+		b = { bg = palette.bg, fg = palette.secondary },
+		c = { bg = palette.bg, fg = palette.secondary },
+
+		x = { bg = palette.bg, fg = palette.secondary },
+		y = { bg = palette.bg, fg = palette.secondary },
+		z = { bg = palette.bg, fg = palette.primary },
+	},
 }
 
 return {
