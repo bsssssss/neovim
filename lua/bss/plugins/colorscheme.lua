@@ -32,10 +32,8 @@ return {
 								bg_gutter = "none",
 							},
 							diag = {
-                -- stylua: ignore start
-								error   = "#E46876",
+								error = "#E46876",
 								warning = "#DCA561",
-								-- stylua: ignore end
 							},
 							vcs = {
 								added = "#8a9a7b",
