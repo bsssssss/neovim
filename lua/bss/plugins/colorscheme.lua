@@ -48,21 +48,23 @@ return {
 				overrides = function(colors) -- add/modify highlights
 					local theme = colors.theme
 					return {
-						Comment = { fg = colors.palette.dragonBlack6 },
-						CursorLine = { bg = "none" },
-						CursorLineNr = { fg = colors.theme.syn.keyword },
-						Operator = { fg = colors.palette.dragonGray3 },
-						MsgArea = { fg = colors.theme.syn.keyword },
-						NormalDark = { fg = theme.ui.fg_dim, bg = "none" },
-						IblIndent = { fg = colors.palette.dragonBlack4 },
+            -- stylua: ignore start
+						Comment               = { fg = colors.palette.dragonBlack6 },
+						CursorLine            = { bg = "none" },
+						CursorLineNr          = { fg = colors.theme.syn.keyword },
+						Operator              = { fg = colors.palette.dragonGray3 },
+						MsgArea               = { fg = colors.theme.syn.keyword },
+						NormalDark            = { fg = theme.ui.fg_dim, bg = "none" },
+						IblIndent             = { fg = theme.ui.bg_p2 },
 						MiniIndentscopeSymbol = { fg = colors.palette.dragonBlack6 },
-						Special = { bold = true },
-						LspReferenceText = { bg = "none", bold = true },
-						LspReferenceWrite = { bg = "none", underline = true },
-						Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-						PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-						PmenuSbar = { bg = theme.ui.bg_m1 },
-						PmenuThumb = { bg = theme.ui.bg_p2 },
+						Special               = { bold = true },
+						LspReferenceText      = { bg = "none", bold = true },
+						LspReferenceWrite     = { bg = "none", underline = true },
+						Pmenu                 = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+						PmenuSel              = { fg = "NONE", bg = theme.ui.bg_p2 },
+						PmenuSbar             = { bg = theme.ui.bg_m1 },
+						PmenuThumb            = { bg = theme.ui.bg_p2 },
+						-- stylua: ignore end
 					}
 				end,
 				theme = "dragon", -- Load "wave" theme
