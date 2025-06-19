@@ -26,7 +26,7 @@ return {
 
 		require("lualine").setup({
 			options = {
-        globalstatus = true,
+				globalstatus = true,
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "•", right = " " },
 				theme = theme,
@@ -73,11 +73,8 @@ return {
 						icons_enabled = false,
 						color = { fg = palette.primary },
 					},
-					{
-						"diff",
-						"diagnostics",
-						-- draw_empty = true,
-					},
+					{ "diff" },
+					{ "diagnostics", source = { "nvim" } },
 					{ "filename", color = { fg = palette.text } },
 				},
 				lualine_c = {
