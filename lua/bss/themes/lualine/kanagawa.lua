@@ -4,14 +4,14 @@ local theme_colors = colors.theme
 
 local palette = {
 	bg = theme_colors.ui.bg_p1,
-	primary = palette_colors.dragonBlue,
+	primary = palette_colors.dragonBlue2,
 	secondary = palette_colors.fujiGray,
 	text = palette_colors.fujiWhite,
 }
 
 local theme = {
 	normal = {
-		a = { bg = palette.bg, fg = palette.primary, gui = "bold" },
+		a = { bg = palette_colors.dragonBlue2, fg = palette.bg, gui = "bold" },
 		b = { bg = palette.bg, fg = palette.secondary },
 		c = { bg = palette.bg, fg = palette.secondary },
 
