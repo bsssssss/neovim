@@ -37,19 +37,6 @@ return {
 					vmArgs = "" .. "-Xmx2g",
 				},
 			}
-
-			-- dap.configurations.c = {
-			-- 	{
-			--        name = "Launch file",
-			--        type = "codelldb",
-			--        request = "launch",
-			--        program = function ()
-			--          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-			--        end,
-			--        cwd = "${workspaceFolder}",
-			--        stopOnEntry = false
-			--      },
-			-- }
 		end,
 	},
 	{
@@ -73,15 +60,13 @@ return {
 						size = 40,
 					},
 					{
-            -- stylua: ignore start
 						elements = {
-              { id = "repl", size = 0.5, },
-              { id = "console", size = 0.5, }
-            },
+							{ id = "repl", size = 0.5 },
+							{ id = "console", size = 0.5 },
+						},
 						position = "bottom",
 						size = 10,
 					},
-					-- stylua: ignore end
 				},
 			})
 
@@ -109,7 +94,7 @@ return {
 			ensure_installed = {
 				"codelldb",
 				"java-debug-adapter",
-        "js-debug-adapter",
+				"js-debug-adapter",
 			},
 			handlers = {},
 		},
