@@ -7,7 +7,9 @@ return {
 	{
 		"nvzone/floaterm",
 		dependencies = "nvzone/volt",
-		opts = {},
+		opts = {
+      border = true
+    },
 		cmd = "FloatermToggle",
 	},
 }
