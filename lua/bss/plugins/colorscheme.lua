@@ -13,7 +13,7 @@ return {
 				keywordStyle = { italic = false },
 				statementStyle = { bold = true },
 				typeStyle = {},
-				transparent = true, -- do not set background color
+				transparent = false, -- do not set background color
 				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
 				terminalColors = true, -- define vim.g.terminal_color_{0,17}
 				colors = { -- add/modify theme and palette colors
@@ -47,6 +47,7 @@ return {
 					local theme = colors.theme
 					return {
             -- stylua: ignore start
+            Normal                = { bg = "#222222"},
 						Comment               = { fg = colors.palette.dragonBlack6 },
 						CursorLine            = { bg = theme.ui.bg_p1 },
 						CursorLineNr          = { fg = colors.theme.syn.keyword },
