@@ -48,11 +48,10 @@ return {
 					return {
             -- stylua: ignore start
 						Comment               = { fg = colors.palette.dragonBlack6 },
-						CursorLine            = { bg = "none" },
+						CursorLine            = { bg = theme.ui.bg_p1 },
 						CursorLineNr          = { fg = colors.theme.syn.keyword },
 						Operator              = { fg = colors.palette.dragonGray3 },
 						MsgArea               = { fg = colors.theme.syn.keyword },
-						NormalDark            = { fg = theme.ui.fg_dim, bg = "none" },
 						IblIndent             = { fg = theme.ui.bg_p2 },
 						MiniIndentscopeSymbol = { fg = colors.palette.dragonBlack6 },
 						Special               = { bold = true },
