@@ -172,7 +172,8 @@ return {
 				jdtls = {},
 				pylsp = {},
 				ts_ls = {},
-        cssls = {},
+				cssls = {},
+				-- racket_langserver = {},
 			}
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -211,6 +212,8 @@ return {
 					end,
 				},
 			})
+
+			-- require("lspconfig").racket_langserver.setup({})
 		end,
 	},
 }
