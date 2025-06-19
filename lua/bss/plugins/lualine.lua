@@ -7,28 +7,13 @@ return {
 		local theme = colors.theme
 		local palette = colors.palette
 
-		local rec_mode = function()
-			---@diagnostic disable-next-line: undefined-field
-			local mode = require("noice").api.status.mode.get()
-
-			if mode:match("^%-%-.*%-%-$") then
-				return ""
-			end
-
-			local suffix = mode:match("^%-%-.*%-%-(.*)$")
-
-			if suffix then
-				return suffix
-			end
-
-			return tostring(mode)
-		end
-
 		require("lualine").setup({
 			options = {
 				globalstatus = true,
-				section_separators = { left = "", right = "" },
-				component_separators = { left = "•", right = " " },
+				-- section_separators = { left = "", right = "" },
+				-- component_separators = { left = "•", right = " " },
+				component_separators = "",
+				section_separators = { left = "", right = "" },
 				theme = theme,
 				disabled_filetypes = {
 					-- "help",
@@ -77,26 +62,9 @@ return {
 					{ "diagnostics", source = { "nvim" } },
 					{ "filename", color = { fg = palette.text } },
 				},
-				lualine_c = {
-					-- {
-					-- 	require("noice").api.status.message.get_hl,
-					-- 	cond = require("noice").api.status.message.has,
-					-- },
-				},
+				lualine_c = {},
 
-				lualine_x = {
-					{
-						-- rec_mode,
-						-- ---@diagnostic disable-next-line: undefined-field
-						-- cond = require("noice").api.status.mode.has,
-						-- color = { fg = palette.gold },
-					},
-					{
-						-- require("noice").api.status.command.get,
-						-- cond = require("noice").api.status.command.has,
-						-- color = { fg = "#ff9e64" },
-					},
-				},
+				lualine_x = {},
 				lualine_y = {
 					{ "filetype" },
 					"encoding",
