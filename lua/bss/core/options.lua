@@ -24,7 +24,7 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
-vim.opt.fillchars = vim.opt.fillchars + "eob: "
+opt.fillchars = vim.opt.fillchars + "eob: "
 
 opt.backspace = "indent,eol,start"
 
