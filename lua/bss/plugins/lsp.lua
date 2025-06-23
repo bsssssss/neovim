@@ -62,6 +62,7 @@ return {
 						vim.lsp.buf.hover({
 							border = "single",
 							max_height = 10,
+              max_width = 80,
 						})
 					end, "Hover")
 
