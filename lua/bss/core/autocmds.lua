@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "lua", "html", "json" },
+	pattern = { "lua", "json", "html" },
 	callback = function()
 		local bufnr = vim.api.nvim_get_current_buf()
 		vim.bo[bufnr].tabstop = 2
