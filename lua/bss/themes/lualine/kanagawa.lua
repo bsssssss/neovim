@@ -11,7 +11,7 @@ local palette = {
 
 local theme = {
 	normal = {
-		a = { bg = palette_colors.dragonBlue2, fg = palette.bg, gui = "bold" },
+		a = { bg = palette.primary, fg = palette.bg, gui = "bold" },
 		b = { bg = palette.bg, fg = palette.secondary },
 		c = { bg = palette.bg, fg = palette.secondary },
 
