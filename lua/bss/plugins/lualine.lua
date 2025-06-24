@@ -7,10 +7,15 @@ return {
 		local theme = colors.theme
 		local palette = colors.palette
 
+		local blendColor = function(color, blend)
+			local c = require("kanagawa.lib.color")
+			return { fg = color, bg = c(color):blend(palette.bg, blend):to_hex() }
+		end
+
 		require("lualine").setup({
 			options = {
 				globalstatus = true,
-				component_separators = "",
+				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				theme = theme,
 				disabled_filetypes = {
@@ -54,9 +59,10 @@ return {
 					{
 						"branch",
 						icons_enabled = false,
-						color = { fg = palette.primary },
+						color = blendColor(palette.primary, 0.9),
+						separator = { right = "" },
 					},
-					{ "diff" },
+					{ "diff", },
 					{ "diagnostics", source = { "nvim" } },
 					{ "filename", color = { fg = palette.text } },
 				},
@@ -64,7 +70,7 @@ return {
 
 				lualine_x = {},
 				lualine_y = {
-					{ "filetype" },
+					{ "filetype", icons_enabled = false },
 					"encoding",
 				},
 				lualine_z = {
