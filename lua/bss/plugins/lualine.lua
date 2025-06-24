@@ -10,10 +10,7 @@ return {
 		require("lualine").setup({
 			options = {
 				globalstatus = true,
-				-- section_separators = { left = "", right = "" },
-				-- component_separators = { left = "•", right = " " },
 				component_separators = "",
-        -- 
 				section_separators = { left = "", right = "" },
 				theme = theme,
 				disabled_filetypes = {
