@@ -14,8 +14,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("K", function()
 			vim.lsp.buf.hover({
 				border = "single",
-				max_height = 10,
-				max_width = 80,
 			})
 		end, "Hover")
 
@@ -107,6 +105,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+--------------------------------------------------------------------------------
+-- OTHER --
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "help", "qf" },
 	desc = "Keymap to close help/qf window",
@@ -114,9 +115,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "q", "<C-w>c<CR>", { buffer = true, desc = "Close help/qf split window" })
 	end,
 })
-
---------------------------------------------------------------------------------
--- OTHER --
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
