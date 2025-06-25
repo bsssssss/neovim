@@ -1,5 +1,30 @@
 -- vim.lsp.set_log_level("ERROR")
 
+vim.lsp.config("*", {
+	capabilities = {
+		textDocument = {
+			semanticTokens = {
+				multilineTokenSupport = true,
+			},
+		},
+	},
+	root_markers = { ".git" },
+})
+
+vim.lsp.enable({
+	"lua_ls",
+	"basedpyright",
+	"bashls",
+	"clangd",
+	"cmake",
+	"cssls",
+	"emmet_language_server",
+	"hls",
+	"texlab",
+	"ts_ls",
+	"lemminx",
+})
+
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
