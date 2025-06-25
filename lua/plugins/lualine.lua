@@ -3,13 +3,14 @@ return {
 	"nvim-lualine/lualine.nvim",
 	enabled = true,
 	config = function()
-		local colors = require("themes.lualine.kanagawa")
-		local theme = colors.theme
-		local palette = colors.palette
-
+		local colors = require("kanagawa.colors").setup()
+		local theme = require("themes.lualine.kanagawa")
 		local blendColor = function(color, blend)
 			local c = require("kanagawa.lib.color")
-			return { fg = color, bg = c(color):blend(palette.bg, blend):to_hex() }
+			return {
+				fg = color,
+				bg = c(color):blend(theme.normal.b.bg, blend):to_hex(),
+			}
 		end
 
 		require("lualine").setup({
@@ -18,14 +19,7 @@ return {
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				theme = theme,
-				disabled_filetypes = {
-					-- "help",
-					-- "neo-tree",
-					-- "snacks_picker_list",
-					-- "snacks_picker_input",
-					-- "snacks_terminal",
-					-- "snacks_notif_history",
-				},
+				disabled_filetypes = {},
 				refresh = {
 					statusline = 1000,
 					tabline = 1000,
@@ -59,16 +53,21 @@ return {
 					{
 						"branch",
 						icons_enabled = false,
-						color = blendColor(palette.primary, 0.9),
+						color = blendColor(theme.normal.a.bg, 0.90),
 						separator = { right = "" },
 					},
-					{ "diff" },
-					{ "diagnostics", source = { "nvim" } },
-					{ "filename", color = { fg = palette.text } },
+					{
+						"diff",
+						color = { bg = blendColor(theme.normal.a.bg, 0.96).bg },
+						separator = { right = "" },
+					},
+					{ "filename", color = { fg = colors.palette.dragonBlue2 } },
 				},
 				lualine_c = {},
 
-				lualine_x = {},
+				lualine_x = {
+					{ "diagnostics", source = { "nvim" } },
+				},
 				lualine_y = {
 					{ "filetype", icons_enabled = false },
 					"encoding",
@@ -83,7 +82,7 @@ return {
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {
-					{ "filename", color = { fg = palette.secondary, bg = palette.bg } },
+					{ "filename", color = { fg = theme.inactive.b.fg } },
 				},
 				lualine_x = {
 					{ "location" },

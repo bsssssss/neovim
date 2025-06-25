@@ -2,62 +2,59 @@ local colors = require("kanagawa.colors").setup()
 local palette_colors = colors.palette
 local theme_colors = colors.theme
 
-local palette = {
+local c = {
 	bg = theme_colors.ui.bg_p1,
-	primary = palette_colors.dragonBlue2,
+	primary = palette_colors.dragonBlue,
 	secondary = palette_colors.fujiGray,
 	text = palette_colors.fujiWhite,
 }
 
 local theme = {
 	normal = {
-		a = { bg = palette.primary, fg = palette.bg, gui = "bold" },
-		b = { bg = palette.bg, fg = palette.secondary },
-		c = { bg = palette.bg, fg = palette.secondary },
+		a = { bg = c.primary, fg = c.bg, gui = "bold" },
+		b = { bg = c.bg, fg = c.secondary },
+		c = { bg = c.bg, fg = c.secondary },
 
-		x = { bg = palette.bg, fg = palette.secondary },
-		y = { bg = palette.bg, fg = palette.secondary },
-		z = { bg = palette.bg, fg = palette.primary },
+		x = { bg = c.bg, fg = c.secondary },
+		y = { bg = c.bg, fg = c.secondary },
+		z = { bg = c.bg, fg = c.primary },
 	},
 	insert = {
-		a = { bg = palette.primary, fg = palette.bg, gui = "bold" },
-		b = { bg = palette.bg, fg = palette.secondary },
-		c = { bg = palette.bg, fg = palette.secondary },
+		a = { bg = c.primary, fg = c.bg, gui = "bold" },
+		b = { bg = c.bg, fg = c.secondary },
+		c = { bg = c.bg, fg = c.secondary },
 
-		x = { bg = palette.bg, fg = palette.secondary },
-		y = { bg = palette.bg, fg = palette.secondary },
-		z = { bg = palette.bg, fg = palette.primary },
+		x = { bg = c.bg, fg = c.secondary },
+		y = { bg = c.bg, fg = c.secondary },
+		z = { bg = c.bg, fg = c.primary },
 	},
 	visual = {
-		a = { bg = palette.primary, fg = palette.bg, gui = "bold" },
-		b = { bg = palette.bg, fg = palette.secondary },
-		c = { bg = palette.bg, fg = palette.secondary },
+		a = { bg = c.primary, fg = c.bg, gui = "bold" },
+		b = { bg = c.bg, fg = c.secondary },
+		c = { bg = c.bg, fg = c.secondary },
 
-		x = { bg = palette.bg, fg = palette.secondary },
-		y = { bg = palette.bg, fg = palette.secondary },
-		z = { bg = palette.bg, fg = palette.primary },
+		x = { bg = c.bg, fg = c.secondary },
+		y = { bg = c.bg, fg = c.secondary },
+		z = { bg = c.bg, fg = c.primary },
 	},
 	replace = {
-		a = { bg = palette.primary, fg = palette.bg, gui = "bold" },
-		b = { bg = palette.bg, fg = palette.secondary },
-		c = { bg = palette.bg, fg = palette.secondary },
+		a = { bg = c.primary, fg = c.bg, gui = "bold" },
+		b = { bg = c.bg, fg = c.secondary },
+		c = { bg = c.bg, fg = c.secondary },
 
-		x = { bg = palette.bg, fg = palette.secondary },
-		y = { bg = palette.bg, fg = palette.secondary },
-		z = { bg = palette.bg, fg = palette.primary },
+		x = { bg = c.bg, fg = c.secondary },
+		y = { bg = c.bg, fg = c.secondary },
+		z = { bg = c.bg, fg = c.primary },
 	},
 	inactive = {
-		a = { bg = palette.bg, fg = palette.primary, gui = "bold" },
-		b = { bg = palette.bg, fg = palette.secondary },
-		c = { bg = palette.bg, fg = palette.secondary },
+		a = { bg = c.bg, fg = c.primary, gui = "bold" },
+		b = { bg = c.bg, fg = c.secondary },
+		c = { bg = c.bg, fg = c.secondary },
 
-		x = { bg = palette.bg, fg = palette.secondary },
-		y = { bg = palette.bg, fg = palette.secondary },
-		z = { bg = palette.bg, fg = palette.primary },
+		x = { bg = c.bg, fg = c.secondary },
+		y = { bg = c.bg, fg = c.secondary },
+		z = { bg = c.bg, fg = c.primary },
 	},
 }
 
-return {
-	palette = palette,
-	theme = theme,
-}
+return theme
