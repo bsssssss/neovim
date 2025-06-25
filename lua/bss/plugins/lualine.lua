@@ -62,7 +62,7 @@ return {
 						color = blendColor(palette.primary, 0.9),
 						separator = { right = "" },
 					},
-					{ "diff", },
+					{ "diff" },
 					{ "diagnostics", source = { "nvim" } },
 					{ "filename", color = { fg = palette.text } },
 				},
