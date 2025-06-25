@@ -1,5 +1,5 @@
 -- JDTLS (Java LSP) configuration
---
+
 local home = vim.env.HOME -- Get the home directory
 
 local jdtls = require("jdtls")
@@ -23,17 +23,26 @@ end
 
 -- Needed for debugging
 local bundles = {
-	vim.fn.glob(home .. "/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar"),
+	vim.fn.glob(
+		home
+			.. "/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar"
+	),
 }
 
 -- Needed for running/debugging unit tests
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/mason/share/java-test/*.jar", true), "\n"))
+vim.list_extend(
+	bundles,
+	vim.split(
+		vim.fn.glob(home .. "/.local/share/nvim/mason/share/java-test/*.jar", true),
+		"\n"
+	)
+)
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
 	-- The command that starts the language server
 	-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
-  -- stylua: ignore start
+	-- stylua: ignore start
 	cmd = {
 		sdkman_java_bin,
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -58,7 +67,12 @@ local config = {
 
 	-- This is the default if not provided, you can remove it. Or adjust as needed.
 	-- One dedicated LSP server & client will be started per unique root_dir
-	root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "pom.xml", "build.gradle" }),
+	root_dir = require("jdtls.setup").find_root({
+		".git",
+		"mvnw",
+		"pom.xml",
+		"build.gradle",
+	}),
 
 	-- Here you can configure eclipse.jdt.ls specific settings
 	-- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
@@ -81,9 +95,9 @@ local config = {
 				},
 			},
 			-- import = {
-			-- 	gradle = {
-			-- 		enabled = true,
-			-- 	},
+			--	gradle = {
+			--		enabled = true,
+			--	},
 			-- },
 			maven = {
 				downloadSources = true,
@@ -151,7 +165,10 @@ local config = {
 
 -- Needed for debugging
 config["on_attach"] = function(client, bufnr)
-	jdtls.setup_dap({ hotcodereplace = "auto" })
+	jdtls.setup_dap({
+		hotcodereplace = "auto",
+		config_overrides = {},
+	})
 	require("jdtls.dap").setup_dap_main_class_configs()
 end
 
