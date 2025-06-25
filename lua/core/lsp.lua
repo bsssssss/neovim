@@ -1,5 +1,3 @@
--- vim.lsp.set_log_level("ERROR")
-
 vim.lsp.config("*", {
 	capabilities = {
 		textDocument = {
