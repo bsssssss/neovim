@@ -1,3 +1,111 @@
+-- LSP --
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+	callback = function(event)
+		local map = function(keys, func, desc, mode)
+			mode = mode or "n"
+			vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+		end
+
+		map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
+		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+		map("K", function()
+			vim.lsp.buf.hover({
+				border = "single",
+				max_height = 10,
+				max_width = 80,
+			})
+		end, "Hover")
+
+		local client = vim.lsp.get_client_by_id(event.data.client_id)
+		if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+			local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				buffer = event.buf,
+				group = highlight_augroup,
+				callback = vim.lsp.buf.document_highlight,
+			})
+
+			vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+				buffer = event.buf,
+				group = highlight_augroup,
+				callback = vim.lsp.buf.clear_references,
+			})
+
+			vim.api.nvim_create_autocmd("LspDetach", {
+				group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+				callback = function(event2)
+					vim.lsp.buf.clear_references()
+					vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
+				end,
+			})
+		end
+
+		if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+			map("<leader>th", function()
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+			end, "[T]oggle Inlay [H]ints")
+		end
+	end,
+})
+
+-- GenExpr language server
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "genexpr",
+	callback = function()
+		vim.defer_fn(function()
+			vim.cmd(":InspectTree")
+			local sendBottomKey = vim.api.nvim_replace_termcodes("<C-w>J", true, false, true)
+			vim.api.nvim_feedkeys(sendBottomKey, "n", false)
+		end, 100)
+		vim.defer_fn(function()
+			local goBack = vim.api.nvim_replace_termcodes("<C-w>k", true, false, true)
+			vim.api.nvim_feedkeys(goBack, "n", false)
+		end, 100)
+
+		vim.lsp.start({
+			name = "genexpr-language-server",
+			cmd = { "node", vim.fn.expand("~/dev/github.com/bsssssss/genexpr-language-server/out/server/server.js"), "--stdio" },
+			handlers = {
+				["window/showMessage"] = function(_, result, ctx)
+					vim.notify(result.message, vim.log.levels.INFO, { title = "GenExpr LSP" })
+				end,
+				["window/logMessage"] = function(_, result, ctx)
+					vim.notify("LSP log: " .. result.message, vim.log.levels.DEBUG, {})
+				end,
+			},
+			root_dir = vim.fn.getcwd(),
+		})
+	end,
+})
+
+-- Tidal language server
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "tidal",
+	callback = function()
+		-- local logfile = "/tmp/tidal_ls.log"
+		local client_id = vim.lsp.start({
+			name = "tidal_ls",
+			cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
+			handlers = {
+				["window/showMessage"] = function(_, result, ctx)
+					vim.notify("LSP Message: " .. result.message, vim.log.levels.INFO, { title = "Tidal LSP" })
+				end,
+				["window/logMessage"] = function(_, result, ctx)
+					vim.notify("LSP Log: " .. result.message, vim.log.levels.DEBUG, { title = "Tidal LSP Log" })
+				end,
+			},
+		})
+		if not client_id then
+			vim.notify("Failed to start LSP client", vim.log.levels.ERROR)
+		else
+			vim.notify("LSP client started", vim.log.levels.INFO)
+		end
+	end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "help", "qf" },
 	desc = "Keymap to close help/qf window",
@@ -5,6 +113,9 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "q", "<C-w>c<CR>", { buffer = true, desc = "Close help/qf split window" })
 	end,
 })
+
+--------------------------------------------------------------------------------
+-- OTHER --
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
@@ -63,38 +174,3 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.cmd("set filetype=json")
 	end,
 })
-
--- Allow to save folds
--- vim.api.nvim_create_augroup("view_save", { clear = true })
--- vim.api.nvim_create_autocmd({ "BufWrite" }, {
--- 	pattern = { "*" },
--- 	group = "view_save",
--- 	desc = "Save view state of current window when leaving",
--- 	callback = function()
--- 		vim.cmd("mkview")
--- 	end,
--- })
-
--- vim.api.nvim_create_autocmd("BufEnter", {
--- 	group = "view_save",
--- 	pattern = { "*" },
--- 	desc = "Load view state of current window",
--- 	callback = function()
--- 		vim.cmd("silent! loadview")
--- 	end,
--- })
-
--- Force cursor reset on exit
--- vim.api.nvim_create_autocmd("VimLeave", {
---   callback = function()
---     vim.opt.guicursor = "a:ver25-blinkon1"
---   end,
--- })
-
--- Fix "Press Enter" bug with tmux splits
-if os.getenv("TMUX") then
-	vim.api.nvim_create_autocmd("BufWritePost", {
-		pattern = "*",
-		command = "silent! redraw!",
-	})
-end
