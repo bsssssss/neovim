@@ -22,6 +22,7 @@ return {
 			-- "hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
+
 			local servers = {
 				lua_ls = {
 					settings = {
@@ -40,23 +41,23 @@ return {
 				pylsp = {},
 				ts_ls = {},
 				cssls = {},
-				-- racket_langserver = {},
 			}
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 
+			local ensure_installed = vim.tbl_keys(servers or {})
+			vim.list_extend(ensure_installed, {
+				"stylua", -- Used to format Lua code
+			})
+
 			---@diagnostic disable-next-line: missing-fields
 			require("mason").setup({
+        ensure_installed = ensure_installed,
 				ui = {
 					border = "single",
 					backdrop = 100,
 				},
-			})
-
-			local ensure_installed = vim.tbl_keys(servers or {})
-			vim.list_extend(ensure_installed, {
-				"stylua", -- Used to format Lua code
 			})
 
 			require("mason-tool-installer").setup({
