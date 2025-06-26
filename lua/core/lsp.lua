@@ -21,6 +21,7 @@ vim.lsp.enable({
 	"texlab",
 	"ts_ls",
 	"lemminx",
+  "marksman",
 })
 
 vim.diagnostic.config({
