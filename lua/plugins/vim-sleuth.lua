@@ -1,4 +1,4 @@
 return {
 	"tpope/vim-sleuth",
-	enabled = true,
+	enabled = false,
 }
