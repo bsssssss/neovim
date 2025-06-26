@@ -23,6 +23,7 @@ return {
         javascript = { "prettierd" },
         typescript = { "prettierd" },
         html       = { "htmlbeautifier" },
+        markdown   = { "mdformat" },
 			},
 			-- stylua: ignore end
 			format_on_save = {
