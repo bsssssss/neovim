@@ -52,6 +52,6 @@ vim.keymap.set("n", "<leader>tm", function()
 	end
 end, { desc = "Java : Test Method" })
 
-vim.keymap.set({ "n", "t" }, "<C-/>", function()
-	require("floaterm").toggle()
-end, {})
+-- vim.keymap.set({ "n", "t" }, "<leader>tt", function()
+-- 	require("floaterm").toggle()
+-- end, {})
