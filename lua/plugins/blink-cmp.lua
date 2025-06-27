@@ -51,9 +51,13 @@ return {
 			},
 			accept = {
 				auto_brackets = {
-					enabled = true,
+					enabled = false,
 				},
 			},
+			menu = {
+				auto_show = false,
+			},
+			list = { selection = { preselect = false, auto_insert = true } },
 		},
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
