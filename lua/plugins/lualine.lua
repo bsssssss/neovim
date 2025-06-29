@@ -4,8 +4,6 @@ return {
 	enabled = true,
 	config = function()
 		local kana = require("kanagawa.colors").setup()
-		-- local theme = require("themes.lualine.kanagawa")
-
 		local colors = {
 			bg = kana.theme.ui.bg_p1,
 			fg = "#c4b28a",
@@ -14,7 +12,6 @@ return {
 			orange = kana.palette.dragonOrange,
 			black = "#000000",
 		}
-
 		local theme = {
 			normal = {
 				a = { bg = colors.fg, fg = colors.black },
