@@ -65,7 +65,7 @@ return {
 						PmenuThumb            = { bg = theme.ui.bg_p2 },
             ObsidianRefText       = { fg = colors.palette.dragonGray3 },
 
-            ["@markup.heading"]   = { fg = colors.palette.dragonOrange2 },
+            ["@markup.heading"]   = { fg = colors.palette.dragonOrange2, bold = true },
 						-- stylua: ignore end
 					}
 				end,
