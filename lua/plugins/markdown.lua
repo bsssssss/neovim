@@ -15,15 +15,13 @@ return {
 			},
 			bullet = {
 				icons = { "•", "•", "•", "•" },
-				left_pad = 2,
 			},
 			code = {
 				sign = false,
 				width = "block",
-				left_margin = 2,
-				left_pad = 2,
-				right_pad = 2,
 				border = "thin",
+        left_pad = 1,
+        right_pad = 1,
 			},
 		},
 	},
