@@ -3,13 +3,43 @@ return {
 	"nvim-lualine/lualine.nvim",
 	enabled = true,
 	config = function()
-		local colors = require("kanagawa.colors").setup()
-		local theme = require("themes.lualine.kanagawa")
-		local blendColor = function(color, blend)
+		local kana = require("kanagawa.colors").setup()
+		-- local theme = require("themes.lualine.kanagawa")
+
+		local colors = {
+			bg = kana.theme.ui.bg_p1,
+			fg = "#c4b28a",
+			blue = kana.palette.dragonBlue,
+			green = kana.palette.dragonGreen,
+			orange = kana.palette.dragonOrange,
+			black = "#000000",
+		}
+
+		local theme = {
+			normal = {
+				a = { bg = colors.fg, fg = colors.black },
+				b = { bg = colors.bg, fg = colors.fg },
+				c = { bg = colors.bg, fg = colors.fg },
+				x = { bg = colors.bg, fg = colors.fg },
+				y = { bg = colors.bg, fg = colors.fg },
+				z = { bg = colors.fg, fg = colors.bg },
+			},
+			insert = {
+				a = { bg = colors.green, fg = colors.black },
+			},
+			visual = {
+				a = { bg = colors.blue, fg = colors.black },
+			},
+			replace = {
+				a = { bg = colors.orange, fg = colors.black },
+			},
+		}
+
+		local function blendColor(color, blend)
 			local c = require("kanagawa.lib.color")
 			return {
 				fg = color,
-				bg = c(color):blend(theme.normal.b.bg, blend):to_hex(),
+				bg = c(color):blend(colors.bg, blend):to_hex(),
 			}
 		end
 
@@ -47,13 +77,14 @@ return {
 						fmt = function(str)
 							return str:sub(1, 1)
 						end,
+						color = { gui = "bold" },
 					},
 				},
 				lualine_b = {
 					{
 						"branch",
-						icons_enabled = false,
-						color = blendColor(theme.normal.a.bg, 0.90),
+						icons_enabled = true,
+						color = blendColor(colors.fg, 0.90),
 						separator = { right = "" },
 					},
 					{
@@ -61,7 +92,7 @@ return {
 						color = { bg = blendColor(theme.normal.a.bg, 0.96).bg },
 						separator = { right = "" },
 					},
-					{ "filename", color = { fg = colors.palette.dragonBlue2 } },
+					{ "filename", color = { fg = kana.palette.dragonBlue2 } },
 				},
 				lualine_c = {},
 
@@ -73,22 +104,20 @@ return {
 					"encoding",
 				},
 				lualine_z = {
-					{
-						"location",
-					},
+					{ "location", color = { gui = "bold" } },
 				},
 			},
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {
-					{ "filename", color = { fg = theme.inactive.b.fg } },
+					{ "filename" },
 				},
-				lualine_x = {
-					{ "location" },
-				},
+				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {},
+				lualine_z = {
+					{ "location", color = { gui = "bold" } },
+				},
 			},
 		})
 	end,
