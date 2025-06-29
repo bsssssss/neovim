@@ -92,7 +92,7 @@ return {
 						color = { bg = blendColor(theme.normal.a.bg, 0.96).bg },
 						separator = { right = "" },
 					},
-					{ "filename", color = { fg = kana.palette.dragonBlue2 } },
+					{ "filename" },
 				},
 				lualine_c = {},
 
