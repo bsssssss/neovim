@@ -1,12 +1,6 @@
-vim.filetype.add({
-	filename = {
-		["kitty.conf"] = "kitty",
-	},
-	pattern = {
-		[".*%.[sS]"] = "asm6502",
-		[".*/kitty/.*%.conf"] = "kitty",
-	},
-})
-
-require("bss.core")
-require("bss.lazy")
+require("config.options")
+require("core.lazy")
+require("core.lsp")
+require("config.keymaps")
+require("config.autocmds")
+require("config.user_commands")

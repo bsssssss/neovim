@@ -15,6 +15,8 @@ return {
 				callback = function()
 					-- print("entering a tidal file..")
 					-- vim.bo.filetype = "haskell"
+          vim.bo.commentstring = "-- %s"
+          vim.bo.smartindent = true
 					vim.keymap.set({ "n", "i" }, "<C-e>", "<cmd>TidalSend<CR>", { desc = "Send to tidal" })
 					vim.keymap.set({ "n", "i" }, "<C-.>", "<cmd>TidalHush<CR>", { desc = "Silence tidal" })
 					vim.keymap.set("n", "<CR>", "<cmd>TidalPost<CR>", { desc = "Toggle Postwindow" })
