@@ -6,8 +6,9 @@ return {
 		local kana = require("kanagawa.colors").setup()
 		local colors = {
 			bg = kana.theme.ui.bg_p1,
-			-- fg = "#c4b28a",
       fg = kana.theme.syn.keyword,
+			-- warm = "#c4b28a",
+			warm = kana.theme.syn.identifier,
 			blue = kana.palette.dragonBlue2,
 			green = kana.palette.dragonGreen2,
 			orange = kana.palette.dragonOrange,
@@ -23,7 +24,7 @@ return {
 				z = { bg = colors.fg, fg = colors.bg },
 			},
 			insert = {
-				a = { bg = colors.green, fg = colors.black },
+				a = { bg = colors.warm, fg = colors.black },
 			},
 			visual = {
 				a = { bg = colors.blue, fg = colors.black },
