@@ -6,9 +6,10 @@ return {
 		local kana = require("kanagawa.colors").setup()
 		local colors = {
 			bg = kana.theme.ui.bg_p1,
-			fg = "#c4b28a",
-			blue = kana.palette.dragonBlue,
-			green = kana.palette.dragonGreen,
+			-- fg = "#c4b28a",
+      fg = kana.theme.syn.keyword,
+			blue = kana.palette.dragonBlue2,
+			green = kana.palette.dragonGreen2,
 			orange = kana.palette.dragonOrange,
 			black = "#000000",
 		}
@@ -80,13 +81,13 @@ return {
 				lualine_b = {
 					{
 						"branch",
-						icons_enabled = true,
-						color = blendColor(colors.fg, 0.90),
+						icons_enabled = false,
+						color = blendColor(colors.fg, 0.91),
 						separator = { right = "" },
 					},
 					{
 						"diff",
-						color = { bg = blendColor(theme.normal.a.bg, 0.96).bg },
+						color = { bg = blendColor(theme.normal.a.bg, 0.91).bg },
 						separator = { right = "" },
 					},
 					{ "filename" },
