@@ -17,9 +17,10 @@ return {
 				icons = { "•", "•", "•", "•" },
 			},
 			code = {
+        language_name = false,
 				sign = false,
 				width = "block",
-				border = "thin",
+				border = "thick",
         left_pad = 1,
         right_pad = 1,
 			},
