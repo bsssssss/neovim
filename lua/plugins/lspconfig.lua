@@ -61,8 +61,8 @@ return {
 					"black",
 					"clang-format",
 					"htmlbeautifier",
-					"prettier",
-					"prettierd",
+					-- "prettier",
+					-- "prettierd",
 					"xmlformatter",
 				},
 			})
