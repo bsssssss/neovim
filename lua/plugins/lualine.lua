@@ -48,7 +48,9 @@ return {
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				theme = theme,
-				disabled_filetypes = {},
+				disabled_filetypes = {
+          "snacks_picker_list",
+        },
 				refresh = {
 					statusline = 1000,
 					tabline = 1000,
