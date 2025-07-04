@@ -2,7 +2,6 @@ return {
 	{
 		-- dir = "/Users/bss/Code/git/bsssssss/tidal.nvim",
 		"bsssssss/tidal.nvim",
-		enabled = true,
 		config = function()
 			require("tidal").setup({
 				tidal_boot = "/Users/bss/Dropbox/bsupercollider/tidal/BootTidal.hs",
