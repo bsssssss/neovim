@@ -140,25 +140,25 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "haskell", "c", "java" },
-	callback = function()
-		local bufnr = vim.api.nvim_get_current_buf()
-		vim.bo[bufnr].tabstop = 4
-		vim.bo[bufnr].softtabstop = 4
-		vim.bo[bufnr].shiftwidth = 4
-	end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "lua", "json", "html" },
-	callback = function()
-		local bufnr = vim.api.nvim_get_current_buf()
-		vim.bo[bufnr].tabstop = 2
-		vim.bo[bufnr].softtabstop = 2
-		vim.bo[bufnr].shiftwidth = 2
-	end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = { "haskell", "c", "java" },
+-- 	callback = function()
+-- 		local bufnr = vim.api.nvim_get_current_buf()
+-- 		vim.bo[bufnr].tabstop = 4
+-- 		vim.bo[bufnr].softtabstop = 4
+-- 		vim.bo[bufnr].shiftwidth = 4
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = { "lua", "json", "html" },
+-- 	callback = function()
+-- 		local bufnr = vim.api.nvim_get_current_buf()
+-- 		vim.bo[bufnr].tabstop = 2
+-- 		vim.bo[bufnr].softtabstop = 2
+-- 		vim.bo[bufnr].shiftwidth = 2
+-- 	end,
+-- })
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "json",
@@ -172,4 +172,11 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.cmd("set filetype=json")
 	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "supercollider",
+    callback = function ()
+        vim.opt_local.expandtab = false;
+    end
 })
