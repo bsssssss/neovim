@@ -4,7 +4,8 @@ return {
 		"bsssssss/tidal.nvim",
 		config = function()
 			require("tidal").setup({
-				tidal_boot = "/Users/bss/Dropbox/bsupercollider/tidal/BootTidal.hs",
+				tidal_boot = "/Users/bss/livecoding/tidal/setup/BootTidal.hs",
+				-- tidal_boot = "/Users/bss/dev/codeberg.org/uzu/tidal/BootTidal.hs",
 			})
 
 			vim.api.nvim_create_augroup("Tidal", { clear = true })
