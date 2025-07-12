@@ -3,7 +3,7 @@ vim.g.maplocalleader = "\\"
 
 local opt = vim.opt
 
-opt.tabstop = 8
+opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
@@ -46,6 +46,8 @@ opt.undofile = true
 
 opt.swapfile = false
 opt.laststatus = 2
+
+opt.autoread = true
 
 vim.o.sessionoptions =
 	"blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
