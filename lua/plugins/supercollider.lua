@@ -1,6 +1,7 @@
 return {
 	{
 		"bsssssss/scnvim",
+        branch = "feature/sclang-lsp",
 		dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
 		event = { "FileType supercollider" },
 		config = function()
