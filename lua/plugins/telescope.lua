@@ -3,7 +3,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
 		branch = "0.1.x",
-    enabled = true,
+		enabled = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -89,6 +89,7 @@ return {
 			pcall(require("telescope").load_extension, "ui-select")
 			-- pcall(require("telescope").load_extension, "file_browser")
 			pcall(require("telescope").load_extension, "hoogle")
+			pcall(require("telescope").load_extension, "scdoc")
 
 			-- See `:help telescope.builtin`
 			-- local builtin = require("telescope.builtin")
