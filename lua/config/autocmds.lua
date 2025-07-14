@@ -3,23 +3,39 @@
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 	callback = function(event)
+		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		local map = function(keys, func, desc, mode)
 			mode = mode or "n"
-			vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+			vim.keymap.set(
+				mode,
+				keys,
+				func,
+				{ buffer = event.buf, desc = "LSP: " .. desc }
+			)
 		end
 
 		map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
 		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-		map("K", function()
-			vim.lsp.buf.hover({
-				border = "single",
-			})
-		end, "Hover")
+		if
+			client
+			and client:supports_method(vim.lsp.protocol.Methods.textDocument_hover)
+		then
+			map("K", function()
+				vim.lsp.buf.hover({
+					border = "single",
+				})
+			end, "Hover")
+		end
 
-		local client = vim.lsp.get_client_by_id(event.data.client_id)
-		if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
-			local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+		if
+			client
+			and client:supports_method(
+				vim.lsp.protocol.Methods.textDocument_documentHighlight
+			)
+		then
+			local highlight_augroup =
+				vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 				buffer = event.buf,
@@ -37,14 +53,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
 				callback = function(event2)
 					vim.lsp.buf.clear_references()
-					vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
+					vim.api.nvim_clear_autocmds({
+						group = "lsp-highlight",
+						buffer = event2.buf,
+					})
 				end,
 			})
 		end
 
-		if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+		if
+			client
+			and client:supports_method(
+				vim.lsp.protocol.Methods.textDocument_inlayHint
+			)
+		then
 			map("<leader>th", function()
-				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+				vim.lsp.inlay_hint.enable(
+					not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
+				)
 			end, "[T]oggle Inlay [H]ints")
 		end
 	end,
@@ -56,7 +82,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.defer_fn(function()
 			vim.cmd(":InspectTree")
-			local sendBottomKey = vim.api.nvim_replace_termcodes("<C-w>J", true, false, true)
+			local sendBottomKey =
+				vim.api.nvim_replace_termcodes("<C-w>J", true, false, true)
 			vim.api.nvim_feedkeys(sendBottomKey, "n", false)
 		end, 100)
 		vim.defer_fn(function()
@@ -66,10 +93,20 @@ vim.api.nvim_create_autocmd("FileType", {
 
 		vim.lsp.start({
 			name = "genexpr-language-server",
-			cmd = { "node", vim.fn.expand("~/dev/github.com/bsssssss/genexpr-language-server/out/server/server.js"), "--stdio" },
+			cmd = {
+				"node",
+				vim.fn.expand(
+					"~/dev/github.com/bsssssss/genexpr-language-server/out/server/server.js"
+				),
+				"--stdio",
+			},
 			handlers = {
 				["window/showMessage"] = function(_, result, ctx)
-					vim.notify(result.message, vim.log.levels.INFO, { title = "GenExpr LSP" })
+					vim.notify(
+						result.message,
+						vim.log.levels.INFO,
+						{ title = "GenExpr LSP" }
+					)
 				end,
 				["window/logMessage"] = function(_, result, ctx)
 					vim.notify("LSP log: " .. result.message, vim.log.levels.DEBUG, {})
@@ -90,10 +127,18 @@ vim.api.nvim_create_autocmd("FileType", {
 			cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
 			handlers = {
 				["window/showMessage"] = function(_, result, ctx)
-					vim.notify("LSP Message: " .. result.message, vim.log.levels.INFO, { title = "Tidal LSP" })
+					vim.notify(
+						"LSP Message: " .. result.message,
+						vim.log.levels.INFO,
+						{ title = "Tidal LSP" }
+					)
 				end,
 				["window/logMessage"] = function(_, result, ctx)
-					vim.notify("LSP Log: " .. result.message, vim.log.levels.DEBUG, { title = "Tidal LSP Log" })
+					vim.notify(
+						"LSP Log: " .. result.message,
+						vim.log.levels.DEBUG,
+						{ title = "Tidal LSP Log" }
+					)
 				end,
 			},
 		})
@@ -112,7 +157,12 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "help", "qf" },
 	desc = "Keymap to close help/qf window",
 	callback = function()
-		vim.keymap.set("n", "q", "<C-w>c<CR>", { buffer = true, desc = "Close help/qf split window" })
+		vim.keymap.set(
+			"n",
+			"q",
+			"<C-w>c<CR>",
+			{ buffer = true, desc = "Close help/qf split window" }
+		)
 	end,
 })
 
@@ -175,8 +225,8 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "supercollider",
-    callback = function ()
-        vim.opt_local.expandtab = false;
-    end
+	pattern = "supercollider",
+	callback = function()
+		vim.opt_local.expandtab = false
+	end,
 })
