@@ -6,7 +6,7 @@ vim.lsp.config("*", {
 			},
 		},
 	},
-	root_markers = { ".git" },
+	-- root_markers = { ".git" },
 })
 
 vim.lsp.enable({
@@ -21,7 +21,8 @@ vim.lsp.enable({
 	"texlab",
 	"ts_ls",
 	"lemminx",
-  "marksman",
+	"marksman",
+	"supercollider",
 })
 
 vim.diagnostic.config({
