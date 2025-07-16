@@ -1,5 +1,20 @@
 return {
 	{
+		"f-person/auto-dark-mode.nvim",
+		opts = {
+			set_dark_mode = function()
+				vim.api.nvim_set_option_value("background", "dark", {})
+                vim.cmd("colorscheme kanagawa-dragon")
+			end,
+			set_light_mode = function()
+				vim.api.nvim_set_option_value("background", "light", {})
+                vim.cmd("colorscheme kanagawa-lotus")
+			end,
+			update_interval = 3000,
+			fallback = "dark",
+		},
+	},
+	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
 		priority = 1000,
@@ -21,14 +36,19 @@ return {
 					theme = {
 						wave = {},
 						lotus = {},
-						dragon = {},
+						dragon = {
+							ui = {
+								bg = "#222222",
+								float = {
+									fg = "#c4b28a",
+								},
+							},
+						},
 						all = {
 							ui = {
-                bg = "#222222",
 								float = {
 									bg = "none",
 									bg_border = "none",
-									fg = "#c4b28a",
 								},
 								bg_gutter = "none",
 							},
@@ -47,12 +67,12 @@ return {
 				overrides = function(colors) -- add/modify highlights
 					local theme = colors.theme
 					return {
-            -- stylua: ignore start
-            Normal                = { fg = "#c6b7a0"},
+                        -- stylua: ignore start
+                        Normal                = { fg = "#c6b7a0"},
 						Comment               = { fg = colors.palette.dragonBlack6 },
 						CursorLine            = { bg = theme.ui.bg_p1 },
-            LineNr                = { fg = theme.ui.bg_p2 },
-            StatusLine            = { bg = theme.ui.bg },
+                        LineNr                = { fg = theme.ui.bg_p2 },
+                        StatusLine            = { bg = theme.ui.bg },
 						CursorLineNr          = { fg = colors.theme.syn.keyword },
 						Operator              = { fg = colors.palette.dragonGray3 },
 						MsgArea               = { fg = colors.theme.syn.keyword },
@@ -65,21 +85,20 @@ return {
 						PmenuSel              = { fg = "NONE", bg = theme.ui.bg_p2 },
 						PmenuSbar             = { bg = theme.ui.bg_m1 },
 						PmenuThumb            = { bg = theme.ui.bg_p2 },
-            ObsidianRefText       = { fg = colors.palette.dragonGray3 },
-
-            ["@markup.heading"]   = { fg = colors.palette.dragonOrange2, bold = true },
+                        ObsidianRefText       = { fg = colors.palette.dragonGray3 },
+                        ["@markup.heading"]   = { fg = colors.palette.dragonOrange2, bold = true },
 						-- stylua: ignore end
 					}
 				end,
-				theme = "dragon", -- Load "wave" theme
-				background = { -- map the value of 'background' option to a theme
-					dark = "dragon", -- try "dragon" !
-					light = "lotus",
-				},
+				-- theme = "dragon",
+				-- background = {
+				-- 	dark = "dragon",
+				-- 	light = "lotus",
+				-- },
 			})
 
 			-- setup must be called before loading
-			vim.cmd("colorscheme kanagawa")
+			vim.cmd("colorscheme kanagawa-dragon")
 		end,
 	},
 	{
