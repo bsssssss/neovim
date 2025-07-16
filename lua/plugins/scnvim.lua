@@ -1,7 +1,8 @@
 return {
 	{
-		"bsssssss/scnvim",
-        branch = "feature/sclang-lsp",
+		-- "bsssssss/scnvim",
+		dir = "/Users/bss/dev/github.com/bsssssss/scnvim",
+		-- branch = "feature/sclang-lsp",
 		dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
 		event = { "FileType supercollider" },
 		config = function()
@@ -19,8 +20,8 @@ return {
 					},
 					["<CR>"] = map("postwin.toggle"),
 					["<C-CR>"] = map("postwin.toggle", "i"),
-					["<D-l>"] = map("postwin.clear", { "n", "i" }),
-					["<C-k>"] = map("signature.show", { "n", "i" }),
+					["<C-x>"] = map("postwin.clear", { "n", "i" }),
+					-- ["<C-k>"] = map("signature.show", { "n", "i" }),
 					-- ["<F12>"] = map("sclang.hard_stop", { "n", "x", "i" }),
 					-- ["<leader>st"] = map("sclang.start"),
 					-- ["<leader>sk"] = map("sclang.recompile"),
