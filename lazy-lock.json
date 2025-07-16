@@ -1,5 +1,6 @@
 {
   "LuaSnip": { "branch": "master", "commit": "458560534a73f7f8d7a11a146c801db00b081df0" },
+  "auto-dark-mode.nvim": { "branch": "master", "commit": "97a86c9402c784a254e5465ca2c51481eea310e3" },
   "blink.cmp": { "branch": "main", "commit": "3536ce464e82843b00c76718d9bfe1994647d686" },
   "conform.nvim": { "branch": "master", "commit": "973f3cb73887d510321653044791d7937c7ec0fa" },
   "conjure": { "branch": "main", "commit": "36e3e51c1d62e6062d2934ddb7e5296d2aceef59" },
@@ -46,7 +47,6 @@
   "rose-pine": { "branch": "main", "commit": "491a0c77abc7ecb955c27a974091a5968232995f" },
   "rose-pine.nvim": { "branch": "neutral-grey", "commit": "5cba5c56d4e81375b1780cdf99229ed5e6189fc9" },
   "scheme2max.nvim": { "branch": "main", "commit": "330deec804004671a94a9a42cdc4b8819a0d02bd" },
-  "scnvim": { "branch": "feature/sclang-lsp", "commit": "5cd033f2dfc039fa8bb7885965e43f842e3ac407" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "strudel.nvim": { "branch": "main", "commit": "9ad3634c7c302f16db889a55c2ff13e66f56ded2" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "7bf55ed0ff5be182ad3301cff266581fc1c56cce" },
