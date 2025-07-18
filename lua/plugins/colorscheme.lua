@@ -1,14 +1,15 @@
 return {
 	{
 		"f-person/auto-dark-mode.nvim",
+        enabled = true,
 		opts = {
 			set_dark_mode = function()
 				vim.api.nvim_set_option_value("background", "dark", {})
-                vim.cmd("colorscheme kanagawa-dragon")
+				vim.cmd("colorscheme kanagawa-dragon")
 			end,
 			set_light_mode = function()
 				vim.api.nvim_set_option_value("background", "light", {})
-                vim.cmd("colorscheme kanagawa-lotus")
+				vim.cmd("colorscheme solarized")
 			end,
 			update_interval = 3000,
 			fallback = "dark",
@@ -71,8 +72,9 @@ return {
                         Normal                = { fg = "#c6b7a0"},
 						Comment               = { fg = colors.palette.dragonBlack6 },
 						CursorLine            = { bg = theme.ui.bg_p1 },
-                        LineNr                = { fg = theme.ui.bg_p2 },
-                        StatusLine            = { bg = theme.ui.bg },
+                        LineNr                = { fg = colors.palette.dragonBlack6 },
+                        StatusLine            = { bg = theme.ui.bg_m1, fg = "#c6b7a0" },
+                        StatusLineNC          = { bg = theme.ui.bg_m1 },
 						CursorLineNr          = { fg = colors.theme.syn.keyword },
 						Operator              = { fg = colors.palette.dragonGray3 },
 						MsgArea               = { fg = colors.theme.syn.keyword },
@@ -99,6 +101,20 @@ return {
 
 			-- setup must be called before loading
 			vim.cmd("colorscheme kanagawa-dragon")
+		end,
+	},
+	{
+		"maxmx03/solarized.nvim",
+		lazy = false,
+        -- enabled = false,
+		priority = 1000,
+		---@type solarized.config
+		opts = {},
+		config = function(_, opts)
+			vim.o.termguicolors = true
+			-- vim.o.background = "light"
+			require("solarized").setup(opts)
+			-- vim.cmd.colorscheme("solarized")
 		end,
 	},
 	{
