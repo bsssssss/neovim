@@ -1,7 +1,7 @@
 ---@diagnostic disable: undefined-field
 return {
 	"nvim-lualine/lualine.nvim",
-	enabled = true,
+	enabled = false,
 	config = function()
 		local kana = require("kanagawa.colors").setup()
 		local colors = {
