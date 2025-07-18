@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-field
 return {
 	"nvim-lualine/lualine.nvim",
 	enabled = false,
@@ -6,7 +5,7 @@ return {
 		local kana = require("kanagawa.colors").setup()
 		local colors = {
 			bg = kana.theme.ui.bg_p1,
-      fg = kana.theme.syn.keyword,
+			fg = kana.theme.syn.keyword,
 			-- warm = "#c4b28a",
 			warm = kana.theme.syn.identifier,
 			blue = kana.palette.dragonBlue2,
@@ -49,8 +48,8 @@ return {
 				section_separators = { left = "", right = "" },
 				theme = theme,
 				disabled_filetypes = {
-          "snacks_picker_list",
-        },
+					"snacks_picker_list",
+				},
 				refresh = {
 					statusline = 1000,
 					tabline = 1000,
