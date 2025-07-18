@@ -45,7 +45,7 @@ opt.undodir = vim.fn.expand("~/.undodir")
 opt.undofile = true
 
 opt.swapfile = false
-opt.laststatus = 2
+opt.laststatus = 3
 
 opt.autoread = true
 
