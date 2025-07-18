@@ -23,6 +23,16 @@ return {
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "luc-tielen/telescope_hoogle" },
 			{ "nvim-telescope/telescope-file-browser.nvim" },
+			{
+                "bsssssss/telescope-dirt-samples.nvim",
+				-- dir = "/Users/bss/dev/github.com/bsssssss/telescope-dirt-samples.nvim",
+				--             dev = false,
+				config = function()
+					require("dirt_samples").setup({
+						source_path = "/Users/bss/livecoding/supercollider/superdirt-setup/tmp/sounds.txt",
+					})
+				end,
+			},
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -90,6 +100,7 @@ return {
 			-- pcall(require("telescope").load_extension, "file_browser")
 			pcall(require("telescope").load_extension, "hoogle")
 			pcall(require("telescope").load_extension, "scdoc")
+			pcall(require("telescope").load_extension, "dirt_samples")
 
 			-- See `:help telescope.builtin`
 			-- local builtin = require("telescope.builtin")
@@ -137,4 +148,3 @@ return {
 		end,
 	},
 }
--- vim: ts=2 sts=2 sw=2 et
