@@ -1,8 +1,9 @@
 return {
 	{
-		-- "bsssssss/scnvim",
-		dir = "/Users/bss/dev/github.com/bsssssss/scnvim",
-		-- branch = "feature/sclang-lsp",
+		"bsssssss/scnvim",
+		-- dir = "/Users/bss/dev/github.com/bsssssss/scnvim",
+		-- branch = "topic/clean-annotations",
+		branch = "feature/sclang-lsp",
 		dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
 		event = { "FileType supercollider" },
 		config = function()
@@ -13,7 +14,7 @@ return {
 			-- Setup scnvim
 			scnvim.setup({
 				keymaps = {
-					-- ["<C-E>"] = map("editor.send_line", { "i", "n" }),
+					["<C-E>"] = map("editor.send_line", { "i", "n" }),
 					["<C-e>"] = {
 						map("editor.send_block", { "n" }),
 						map("editor.send_selection", "x"),
@@ -30,7 +31,6 @@ return {
 				},
 				editor = {
 					highlight = {
-						-- color = "IncSearch",
 						color = "LspReferenceText",
 						type = "flash",
 						flash = {
@@ -44,10 +44,11 @@ return {
 					auto_toggle_error = true,
 					horizontal = false,
 					direction = "right",
-					size = 70,
+					size = math.floor(vim.o.columns * (2/5)),
 				},
 				documentation = {
 					cmd = "/opt/homebrew/bin/pandoc",
+                    direction = "right"
 				},
 			})
 
