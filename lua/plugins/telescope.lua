@@ -29,7 +29,7 @@ return {
 				--             dev = false,
 				config = function()
 					require("dirt_samples").setup({
-						source_path = "/Users/bss/livecoding/supercollider/superdirt-setup/tmp/sounds.txt",
+						source_path = "/Users/bss/supercollider/superdirt-setup/tmp/sounds.txt",
 					})
 				end,
 			},
