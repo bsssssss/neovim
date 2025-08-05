@@ -23,6 +23,7 @@ vim.lsp.enable({
 	"lemminx",
 	"marksman",
 	"supercollider",
+    "tidal"
 })
 
 vim.diagnostic.config({
