@@ -1,6 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	enabled = false,
+	enabled = true,
 	config = function()
 		local kana = require("kanagawa.colors").setup()
 		local colors = {
@@ -22,24 +22,29 @@ return {
 				y = { bg = colors.bg, fg = colors.fg },
 				z = { bg = colors.fg, fg = colors.bg },
 			},
-			insert = {
-				a = { bg = colors.warm, fg = colors.black },
-			},
-			visual = {
-				a = { bg = colors.blue, fg = colors.black },
-			},
-			replace = {
-				a = { bg = colors.orange, fg = colors.black },
-			},
 		}
 
-		local function blendColor(color, blend)
-			local c = require("kanagawa.lib.color")
-			return {
-				fg = color,
-				bg = c(color):blend(colors.bg, blend):to_hex(),
-			}
+		-- local function blendColor(color, blend)
+		-- 	local c = require("kanagawa.lib.color")
+		-- 	return {
+		-- 		fg = color,
+		-- 		bg = c(color):blend(colors.bg, blend):to_hex(),
+		-- 	}
+		-- end
+
+		local function scstatus()
+			if vim.bo.filetype == "supercollider" or true then
+				local stat = require("scnvim.statusline").get_server_status()
+				stat = stat:gsub("%%", "%%%%")
+				return stat
+			else
+				return ""
+			end
 		end
+
+		-- local function hello()
+		-- 	return [[hello world]]
+		-- end
 
 		require("lualine").setup({
 			options = {
@@ -72,31 +77,31 @@ return {
 
 			sections = {
 				lualine_a = {
-					{
-						"mode",
-						fmt = function(str)
-							return str:sub(1, 1)
-						end,
-						color = { gui = "bold" },
-					},
-				},
-				lualine_b = {
+					-- {
+					-- 	"mode",
+					-- 	fmt = function(str)
+					-- 		return str:sub(1, 1)
+					-- 	end,
+					-- 	color = { gui = "bold" },
+					-- },
 					{
 						"branch",
 						icons_enabled = false,
-						color = blendColor(colors.fg, 0.91),
+						color = { gui = "bold" },
 						separator = { right = "" },
 					},
-					{
-						"diff",
-						color = { bg = blendColor(theme.normal.a.bg, 0.91).bg },
-						separator = { right = "" },
-					},
+				},
+				lualine_b = {
 					{ "filename" },
+					-- {
+					-- 	"diff",
+					-- 	separator = { left = ">" },
+					-- },
 				},
 				lualine_c = {},
 
 				lualine_x = {
+					{ scstatus },
 					{ "diagnostics", source = { "nvim" } },
 				},
 				lualine_y = {
