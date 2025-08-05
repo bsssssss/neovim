@@ -118,37 +118,37 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Tidal language server
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "tidal",
-	callback = function()
-		-- local logfile = "/tmp/tidal_ls.log"
-		local client_id = vim.lsp.start({
-			name = "tidal_ls",
-			cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
-			handlers = {
-				["window/showMessage"] = function(_, result, ctx)
-					vim.notify(
-						"LSP Message: " .. result.message,
-						vim.log.levels.INFO,
-						{ title = "Tidal LSP" }
-					)
-				end,
-				["window/logMessage"] = function(_, result, ctx)
-					vim.notify(
-						"LSP Log: " .. result.message,
-						vim.log.levels.DEBUG,
-						{ title = "Tidal LSP Log" }
-					)
-				end,
-			},
-		})
-		if not client_id then
-			vim.notify("Failed to start LSP client", vim.log.levels.ERROR)
-		else
-			vim.notify("LSP client started", vim.log.levels.INFO)
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "tidal",
+-- 	callback = function()
+-- 		-- local logfile = "/tmp/tidal_ls.log"
+-- 		local client_id = vim.lsp.start({
+-- 			name = "tidal_ls",
+-- 			cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
+-- 			handlers = {
+-- 				["window/showMessage"] = function(_, result, ctx)
+-- 					vim.notify(
+-- 						"LSP Message: " .. result.message,
+-- 						vim.log.levels.INFO,
+-- 						{ title = "Tidal LSP" }
+-- 					)
+-- 				end,
+-- 				["window/logMessage"] = function(_, result, ctx)
+-- 					vim.notify(
+-- 						"LSP Log: " .. result.message,
+-- 						vim.log.levels.DEBUG,
+-- 						{ title = "Tidal LSP Log" }
+-- 					)
+-- 				end,
+-- 			},
+-- 		})
+-- 		if not client_id then
+-- 			vim.notify("Failed to start LSP client", vim.log.levels.ERROR)
+-- 		else
+-- 			vim.notify("LSP client started", vim.log.levels.INFO)
+-- 		end
+-- 	end,
+-- })
 
 --------------------------------------------------------------------------------
 -- OTHER --
