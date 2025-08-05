@@ -2,6 +2,7 @@ return {
 	{
 		-- dir = "/Users/bss/Code/git/bsssssss/tidal.nvim",
 		"bsssssss/tidal.nvim",
+		branch = "topic/allow-post-win-config",
 		config = function()
 			require("tidal").setup({
 				tidal_boot = "/Users/bss/livecoding/tidal/setup/BootTidal.hs",
