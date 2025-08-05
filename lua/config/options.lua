@@ -10,6 +10,7 @@ opt.expandtab = true
 
 opt.breakindent = true
 opt.autoindent = true
+opt.smartindent = true
 opt.wrap = false
 
 opt.inccommand = "split"
@@ -45,22 +46,19 @@ opt.undodir = vim.fn.expand("~/.undodir")
 opt.undofile = true
 
 opt.swapfile = false
-opt.laststatus = 3
 
 opt.autoread = true
 
 vim.o.sessionoptions =
 	"blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
-vim.opt.syntax = "on"
-vim.opt.conceallevel = 0
-vim.g.vimtex_syntax_conceal_disable = 0
+opt.syntax = "on"
+opt.conceallevel = 0
 
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 10
 
+opt.laststatus = 3
 vim.opt.cmdheight = 1
-
 vim.opt.showmode = true
--- vim.opt.shortmess = "lfTtoOCFa"
 vim.opt.shortmess = "aOt"
