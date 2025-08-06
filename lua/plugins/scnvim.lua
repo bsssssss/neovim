@@ -5,7 +5,8 @@ return {
         -- dev = false,
 		-- branch = "topic/clean-annotations",
 		-- branch = "feature/sclang-lsp",
-		branch = "dev",
+		-- branch = "dev",
+		branch = "topic/sc-help-filetype",
 		dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
 		event = { "FileType supercollider" },
 		config = function()
