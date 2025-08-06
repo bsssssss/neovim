@@ -4,7 +4,7 @@ return {
 	config = function()
 		local kana = require("kanagawa.colors").setup()
 		local colors = {
-			bg = kana.theme.ui.bg_p1,
+			bg = kana.theme.ui.bg_m1,
 			fg = kana.theme.syn.keyword,
 			-- warm = "#c4b28a",
 			warm = kana.theme.syn.identifier,
@@ -24,13 +24,14 @@ return {
 			},
 		}
 
-		-- local function blendColor(color, blend)
-		-- 	local c = require("kanagawa.lib.color")
-		-- 	return {
-		-- 		fg = color,
-		-- 		bg = c(color):blend(colors.bg, blend):to_hex(),
-		-- 	}
-		-- end
+        local function encoding()
+            local fencoding = vim.o.fileencoding
+            if fencoding ~= "utf-8"  then
+                return fencoding
+            else
+                return ""
+            end
+        end
 
 		local function scstatus()
 			if vim.bo.filetype == "supercollider" or true then
@@ -42,10 +43,6 @@ return {
 			end
 		end
 
-		-- local function hello()
-		-- 	return [[hello world]]
-		-- end
-
 		require("lualine").setup({
 			options = {
 				globalstatus = true,
@@ -54,9 +51,10 @@ return {
 				theme = theme,
 				disabled_filetypes = {
 					"snacks_picker_list",
+					"snacks_dashboard",
 				},
 				refresh = {
-					statusline = 1000,
+					statusline = 500,
 					tabline = 1000,
 					winbar = 1000,
 					refresh_time = 16, -- ~60fps
@@ -77,13 +75,6 @@ return {
 
 			sections = {
 				lualine_a = {
-					-- {
-					-- 	"mode",
-					-- 	fmt = function(str)
-					-- 		return str:sub(1, 1)
-					-- 	end,
-					-- 	color = { gui = "bold" },
-					-- },
 					{
 						"branch",
 						icons_enabled = false,
@@ -93,10 +84,6 @@ return {
 				},
 				lualine_b = {
 					{ "filename" },
-					-- {
-					-- 	"diff",
-					-- 	separator = { left = ">" },
-					-- },
 				},
 				lualine_c = {},
 
@@ -106,7 +93,7 @@ return {
 				},
 				lualine_y = {
 					{ "filetype", icons_enabled = false },
-					"encoding",
+					{ encoding },
 				},
 				lualine_z = {
 					{ "location", color = { gui = "bold" } },
