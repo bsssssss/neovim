@@ -15,23 +15,23 @@ return {
 		}
 		local theme = {
 			normal = {
-				a = { bg = colors.fg, fg = colors.black },
+				a = { bg = colors.bg, fg = colors.fg },
 				b = { bg = colors.bg, fg = colors.fg },
 				c = { bg = colors.bg, fg = colors.fg },
 				x = { bg = colors.bg, fg = colors.fg },
 				y = { bg = colors.bg, fg = colors.fg },
-				z = { bg = colors.fg, fg = colors.bg },
+				z = { bg = colors.bg, fg = colors.fg },
 			},
 		}
 
-        local function encoding()
-            local fencoding = vim.o.fileencoding
-            if fencoding ~= "utf-8"  then
-                return fencoding
-            else
-                return ""
-            end
-        end
+		local function encoding()
+			local fencoding = vim.o.fileencoding
+			if fencoding ~= "utf-8" then
+				return fencoding
+			else
+				return ""
+			end
+		end
 
 		local function scstatus()
 			if vim.bo.filetype == "supercollider" or true then
@@ -46,7 +46,7 @@ return {
 		require("lualine").setup({
 			options = {
 				globalstatus = true,
-				component_separators = { left = "", right = "" },
+				component_separators = { left = "›", right = "" },
 				section_separators = { left = "", right = "" },
 				theme = theme,
 				disabled_filetypes = {
@@ -77,19 +77,17 @@ return {
 				lualine_a = {
 					{
 						"branch",
-						icons_enabled = false,
+						icons_enabled = true,
 						color = { gui = "bold" },
-						separator = { right = "" },
 					},
+					{ "filename", icons_enabled = true },
+					{ "diagnostics", source = { "nvim" } },
 				},
-				lualine_b = {
-					{ "filename" },
-				},
+				lualine_b = {},
 				lualine_c = {},
 
 				lualine_x = {
 					{ scstatus },
-					{ "diagnostics", source = { "nvim" } },
 				},
 				lualine_y = {
 					{ "filetype", icons_enabled = false },

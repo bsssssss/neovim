@@ -1,40 +1,33 @@
 return {
 	{
-		-- dir = "/Users/bss/Code/git/bsssssss/tidal.nvim",
 		"bsssssss/tidal.nvim",
-		branch = "topic/allow-post-win-config",
+		-- dir = "/Users/bss/dev/github.com/bsssssss/tidal.nvim",
+		-- branch = "dev",
+		ft = "tidal",
 		config = function()
 			require("tidal").setup({
 				tidal_boot = "/Users/bss/livecoding/tidal/setup/BootTidal.hs",
-				-- tidal_boot = "/Users/bss/dev/codeberg.org/uzu/tidal/BootTidal.hs",
 			})
-
-			vim.api.nvim_create_augroup("Tidal", { clear = true })
-			vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-				group = "Tidal",
-				pattern = "*.tidal",
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "tidal",
 				callback = function()
-					-- print("entering a tidal file..")
-					-- vim.bo.filetype = "haskell"
-					vim.bo.commentstring = "-- %s"
-					vim.bo.smartindent = true
 					vim.keymap.set(
 						{ "n", "i" },
 						"<C-e>",
-						"<cmd>TidalSend<CR>",
-						{ desc = "Send to tidal" }
+						"<cmd>TidalEval<CR>",
+						{ desc = "Send to Tidal" }
 					)
 					vim.keymap.set(
 						{ "n", "i" },
 						"<C-.>",
 						"<cmd>TidalHush<CR>",
-						{ desc = "Silence tidal" }
+						{ desc = "Hush Tidal" }
 					)
 					vim.keymap.set(
 						"n",
 						"<CR>",
-						"<cmd>TidalPost<CR>",
-						{ desc = "Toggle Postwindow" }
+						"<cmd>TidalPostWindowToggle<CR>",
+						{ desc = "Toggle Tidal post window" }
 					)
 				end,
 			})

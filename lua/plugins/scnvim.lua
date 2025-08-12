@@ -54,7 +54,7 @@ return {
 				},
 				documentation = {
 					cmd = "/opt/homebrew/bin/pandoc",
-					direction = "right",
+					direction = "left",
 				},
 			})
 
