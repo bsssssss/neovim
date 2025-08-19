@@ -4,7 +4,10 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
-		"nvim-treesitter/nvim-treesitter",
+        dir = "/Users/bss/dev/github.com/bsssssss/nvim-treesitter",
+		-- "nvim-treesitter/nvim-treesitter",
+		branch = "master",
+		lazy = false,
 		build = ":TSUpdate",
 		main = "nvim-treesitter.configs", -- Sets main module to use for opts
 		-- enable = false,
@@ -22,6 +25,10 @@ return {
 				"query",
 				"vim",
 				"vimdoc",
+				"javascript",
+				"typescript",
+                "json",
+                "jsonc"
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = false,
@@ -35,7 +42,7 @@ return {
 				disable = { "tex", "latex" },
 			},
 
-			indent = { enable = true, disable = { "ruby" } },
+			indent = { enable = true, disable = { "ruby", "supercollider" } },
 
 			textobjects = {
 				select = {
@@ -48,9 +55,16 @@ return {
 						["ac"] = "@class.outer",
 						-- You can optionally set descriptions to the mappings (used in the desc parameter of
 						-- nvim_buf_set_keymap) which plugins like which-key display
-						["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+						["ic"] = {
+							query = "@class.inner",
+							desc = "Select inner part of a class region",
+						},
 						-- You can also use captures from other query groups like `locals.scm`
-						["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
+						["as"] = {
+							query = "@local.scope",
+							query_group = "locals",
+							desc = "Select language scope",
+						},
 					},
 					-- You can choose the select mode (default is charwise 'v')
 					--
@@ -93,32 +107,36 @@ return {
 		},
 
 		config = function(_, opts)
-			require("nvim-treesitter.install").prefer_git = true
+			require("nvim-treesitter.install").prefer_git = false
 
-			-- [[genExpr]]
-			--
-			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-			---@diagnostic disable-next-line: inject-field
-			parser_config.genexpr = {
+			local parser_config =
+				require("nvim-treesitter.parsers").get_parser_configs()
+
+			-- parser_config.genexpr = {
+			-- 	install_info = {
+			-- 		url = "/Users/bss/Code/git/bsssssss/tree-sitter-genexpr",
+			-- 		-- url = "https://github.com/bsssssss/tree-sitter-genexpr",
+			-- 		-- branch = "dev",
+			-- 		-- files = { "src/parser.c", "src/scanner.c" },
+			-- 		files = { "src/parser.c" },
+			-- 		maintainer = "@bsssssss",
+			-- 	},
+			-- 	filetype = "genexpr", -- specify the filetype if it does not match the parser name
+			-- }
+
+			--          vim.opt.runtimepath:prepend("/users/bss/dev/github.com/bsssssss/tree-sitter-supercollider")
+			parser_config.supercollider = {
 				install_info = {
-					url = "/Users/bss/Code/git/bsssssss/tree-sitter-genexpr",
-					-- url = "https://github.com/bsssssss/tree-sitter-genexpr",
-					-- branch = "dev",
-					-- files = { "src/parser.c", "src/scanner.c" },
-					files = { "src/parser.c" },
+					url = "/Users/bss/dev/github.com/bsssssss/tree-sitter-supercollider",
+					-- url = "https://github.com/madskjeldgaard/tree-sitter-supercollider",
+					files = { "src/parser.c", "src/scanner.c" },
+					-- branch = "this-and-super",
 					maintainer = "@bsssssss",
 				},
-				filetype = "genexpr", -- specify the filetype if it does not match the parser name
+				filetype = "supercollider", -- if filetype does not agrees with parser name
 			}
 
-			---@diagnostic disable-next-line: missing-fields
 			require("nvim-treesitter.configs").setup(opts)
 		end,
-		-- There are additional nvim-treesitter modules that you can use to interact
-		-- with nvim-treesitter. You should go explore a few and see what interests you:
-		--
-		--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-		--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 	},
 }

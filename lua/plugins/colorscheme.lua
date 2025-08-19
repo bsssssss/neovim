@@ -1,7 +1,7 @@
 return {
 	{
 		"f-person/auto-dark-mode.nvim",
-        enabled = true,
+		enabled = true,
 		opts = {
 			set_dark_mode = function()
 				vim.api.nvim_set_option_value("background", "dark", {})
@@ -69,13 +69,13 @@ return {
 					local theme = colors.theme
 					return {
                         -- stylua: ignore start
-                        Normal                = { fg = "#c6b7a0"},
+                        Normal                = { fg = "#c6b7a0" },
 						Comment               = { fg = colors.palette.dragonBlack6 },
 						CursorLine            = { bg = theme.ui.bg_p1 },
+						CursorLineNr          = { fg = "#c6b7a0", bold = true },
                         LineNr                = { fg = colors.palette.dragonBlack6 },
                         StatusLine            = { bg = theme.ui.bg_m1, fg = "#c6b7a0" },
                         StatusLineNC          = { bg = theme.ui.bg_m1 },
-						CursorLineNr          = { fg = colors.theme.syn.keyword },
 						Operator              = { fg = colors.palette.dragonGray3 },
 						MsgArea               = { fg = colors.theme.syn.keyword },
 						IblIndent             = { fg = theme.ui.bg_p2 },
@@ -89,6 +89,9 @@ return {
 						PmenuThumb            = { bg = theme.ui.bg_p2 },
                         ObsidianRefText       = { fg = colors.palette.dragonGray3 },
                         ["@markup.heading"]   = { fg = colors.palette.dragonOrange2, bold = true },
+
+						-- Keyword = { bold = true },
+						["@variable"] = { link = "Normal" },
 						-- stylua: ignore end
 					}
 				end,
@@ -106,7 +109,7 @@ return {
 	{
 		"maxmx03/solarized.nvim",
 		lazy = false,
-        -- enabled = false,
+		-- enabled = false,
 		priority = 1000,
 		---@type solarized.config
 		opts = {},

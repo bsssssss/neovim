@@ -2,11 +2,7 @@ return {
 	{
 		"bsssssss/scnvim",
 		-- dir = "/Users/bss/dev/github.com/bsssssss/scnvim",
-        -- dev = false,
-		-- branch = "topic/clean-annotations",
-		-- branch = "feature/sclang-lsp",
-		-- branch = "dev",
-		branch = "topic/sc-help-filetype",
+		branch = "dev",
 		dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
 		event = { "FileType supercollider" },
 		config = function()
@@ -16,9 +12,9 @@ return {
 
 			-- Setup scnvim
 			scnvim.setup({
-                sclang = {
-                    startup_file = "/Users/bss/supercollider/boot.scd"
-                },
+				sclang = {
+					startup_file = "/Users/bss/supercollider/boot.scd",
+				},
 				keymaps = {
 					["<C-S-E>"] = map("editor.send_line", { "i", "n" }),
 					["<C-e>"] = {

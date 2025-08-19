@@ -16,6 +16,7 @@ return {
 				icons = { "•", "•", "•", "•" },
 			},
 			code = {
+                enabled = false,
 				language_name = false,
 				sign = false,
 				width = "block",

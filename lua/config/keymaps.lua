@@ -1,12 +1,27 @@
 vim.keymap.set({ "n", "x" }, "s", "<Nop>") -- Delete "s" mapping
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set(
+	"t",
+	"<Esc><Esc>",
+	"<C-\\><C-n>",
+	{ desc = "Exit terminal mode" }
+)
 
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open Quickfix list" })
+vim.keymap.set(
+	"n",
+	"<leader>q",
+	vim.diagnostic.setloclist,
+	{ desc = "Open Quickfix list" }
+)
 
 vim.keymap.set({ "n", "i" }, "<C-h>", "<C-w>h", { desc = "Switch left window" })
-vim.keymap.set({ "n", "i" }, "<C-l>", "<C-w>l", { desc = "Switch right window" })
+vim.keymap.set(
+	{ "n", "i" },
+	"<C-l>",
+	"<C-w>l",
+	{ desc = "Switch right window" }
+)
 vim.keymap.set({ "n", "i" }, "<C-j>", "<C-w>j", { desc = "Switch down window" })
 vim.keymap.set({ "n", "i" }, "<C-k>", "<C-w>k", { desc = "Switch up window" })
 
@@ -51,6 +66,8 @@ vim.keymap.set("n", "<leader>tm", function()
 		require("jdtls").test_nearest_method()
 	end
 end, { desc = "Java : Test Method" })
+
+vim.keymap.set({ "n" }, "<leader>e", ":Oil<CR>", { desc = "File Explorer" })
 
 -- vim.keymap.set({ "n", "t" }, "<leader>tt", function()
 -- 	require("floaterm").toggle()

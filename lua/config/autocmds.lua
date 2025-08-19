@@ -180,8 +180,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "gitcommit", "markdown", "md" },
 	callback = function()
 		vim.opt_local.textwidth = 80
-		vim.opt_local.wrap = false
-		vim.api.nvim_set_option_value("linebreak", true, { filetype = "markdown" })
+		vim.opt_local.wrap = true
+		vim.opt_local.linebreak = true
+		-- vim.api.nvim_set_option_value("linebreak", true, { filetype = "markdown" })
 		vim.opt_local.spell = false
 		vim.opt_local.tabstop = 2
 		vim.opt_local.softtabstop = 2
