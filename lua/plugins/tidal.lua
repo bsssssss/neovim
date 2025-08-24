@@ -1,7 +1,7 @@
 return {
 	{
 		-- "bsssssss/tidal.nvim",
-		dir = "/Users/bss/dev/github.com/bsssssss/tidal.nvim",
+		dir = "/Users/bss/dev/personal/tidal.nvim",
 		-- branch = "dev",
 		ft = "tidal",
 		config = function()

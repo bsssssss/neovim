@@ -1,8 +1,8 @@
 return {
 	{
 		"bsssssss/scnvim",
-		-- dir = "/Users/bss/dev/github.com/bsssssss/scnvim",
-		branch = "dev",
+		dir = "/Users/bss/dev/forks/scnvim",
+		-- branch = "dev",
 		dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
 		event = { "FileType supercollider" },
 		config = function()
@@ -12,6 +12,7 @@ return {
 
 			-- Setup scnvim
 			scnvim.setup({
+                auto_start = true,
 				sclang = {
 					startup_file = "/Users/bss/supercollider/boot.scd",
 				},

@@ -39,7 +39,7 @@ return {
 					"cmake-language-server",
 					"css-lsp",
 					"emmet-language-server",
-					"haskell-language-server",
+					-- "haskell-language-server", -- FIX ME
 					"texlab",
 					"typescript-language-server",
 					"lemminx",

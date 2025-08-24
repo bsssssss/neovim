@@ -4,7 +4,7 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
-        dir = "/Users/bss/dev/github.com/bsssssss/nvim-treesitter",
+        dir = "/Users/bss/dev/forks/nvim-treesitter",
 		-- "nvim-treesitter/nvim-treesitter",
 		branch = "master",
 		lazy = false,
@@ -127,7 +127,7 @@ return {
 			--          vim.opt.runtimepath:prepend("/users/bss/dev/github.com/bsssssss/tree-sitter-supercollider")
 			parser_config.supercollider = {
 				install_info = {
-					url = "/Users/bss/dev/github.com/bsssssss/tree-sitter-supercollider",
+					url = "/Users/bss/dev/forks/tree-sitter-supercollider",
 					-- url = "https://github.com/madskjeldgaard/tree-sitter-supercollider",
 					files = { "src/parser.c", "src/scanner.c" },
 					-- branch = "this-and-super",

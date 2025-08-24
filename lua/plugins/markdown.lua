@@ -16,11 +16,12 @@ return {
 				icons = { "•", "•", "•", "•" },
 			},
 			code = {
-                enabled = false,
+                enabled = true,
 				language_name = false,
 				sign = false,
 				width = "block",
 				border = "thick",
+                disable_background = true
 				-- left_pad = 1,
 				-- right_pad = 1,
 			},
