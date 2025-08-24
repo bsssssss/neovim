@@ -160,11 +160,19 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set(
 			"n",
 			"q",
-			"<C-w>c<CR>",
+			":bd<CR>",
 			{ buffer = true, desc = "Close help/qf split window" }
 		)
 	end,
 })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "help",
+--     desc = "Open help in a vertical split",
+--     callback = function ()
+--         vim.cmd("wincmd L")
+--     end
+-- })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
