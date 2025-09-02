@@ -41,6 +41,7 @@ return {
 							repeats = 1,
 						},
 					},
+                    force_ft_supercollider = false,
 				},
 				postwin = {
 					highlight = true,

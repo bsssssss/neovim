@@ -4,7 +4,7 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
-        dir = "/Users/bss/dev/forks/nvim-treesitter",
+		dir = "/Users/bss/dev/forks/nvim-treesitter",
 		-- "nvim-treesitter/nvim-treesitter",
 		branch = "master",
 		lazy = false,
@@ -27,8 +27,8 @@ return {
 				"vimdoc",
 				"javascript",
 				"typescript",
-                "json",
-                "jsonc"
+				"json",
+				"jsonc",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = false,
@@ -125,6 +125,7 @@ return {
 			-- }
 
 			--          vim.opt.runtimepath:prepend("/users/bss/dev/github.com/bsssssss/tree-sitter-supercollider")
+			---@diagnostic disable-next-line: inject-field
 			parser_config.supercollider = {
 				install_info = {
 					url = "/Users/bss/dev/forks/tree-sitter-supercollider",
@@ -134,6 +135,16 @@ return {
 					maintainer = "@bsssssss",
 				},
 				filetype = "supercollider", -- if filetype does not agrees with parser name
+			}
+
+			---@diagnostic disable-next-line: inject-field
+			parser_config.sapf = {
+				install_info = {
+					url = "/Users/bss/dev/forks/tree-sitter-sapf",
+					files = { "src/parser.c", "src/scanner.c" },
+					maintainer = "@maedoc",
+				},
+				filetype = "sapf",
 			}
 
 			require("nvim-treesitter.configs").setup(opts)
