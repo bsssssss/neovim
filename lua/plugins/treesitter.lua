@@ -4,8 +4,8 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
-		dir = "/Users/bss/dev/forks/nvim-treesitter",
-		-- "nvim-treesitter/nvim-treesitter",
+		-- dir = "/Users/bss/dev/forks/nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter",
 		branch = "master",
 		lazy = false,
 		build = ":TSUpdate",
