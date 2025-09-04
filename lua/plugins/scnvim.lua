@@ -12,7 +12,6 @@ return {
 
 			-- Setup scnvim
 			scnvim.setup({
-                auto_start = true,
 				sclang = {
 					startup_file = "/Users/bss/supercollider/boot.scd",
 				},
@@ -42,6 +41,7 @@ return {
 						},
 					},
                     force_ft_supercollider = false,
+                    auto_start = true,
 				},
 				postwin = {
 					highlight = true,
