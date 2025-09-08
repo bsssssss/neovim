@@ -12,8 +12,8 @@ return {
 		"-u",
 		"57300", -- e.g. custom UDP listening port for sclang
 		-- "57110", -- e.g. custom UDP listening port for sclang
-		-- "-l",
-		-- "/Users/bss/Library/Application Support/SuperCollider/sclang_conf.yaml", -- e.g. full path to config file
+		"-l",
+		"/Users/bss/.config/SuperCollider/sclang_lsp_conf.yaml", -- e.g. full path to config file
 	},
 	filetypes = { "supercollider" },
 	-- root_dir = function(fname)
