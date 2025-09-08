@@ -1,6 +1,6 @@
 return {
 	{
-		"bsssssss/scnvim",
+		-- "bsssssss/scnvim",
 		dir = "/Users/bss/dev/forks/scnvim",
 		-- branch = "dev",
 		dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
@@ -12,9 +12,6 @@ return {
 
 			-- Setup scnvim
 			scnvim.setup({
-				sclang = {
-					startup_file = "/Users/bss/supercollider/boot.scd",
-				},
 				keymaps = {
 					["<C-S-E>"] = map("editor.send_line", { "i", "n" }),
 					["<C-e>"] = {
@@ -48,7 +45,7 @@ return {
 					auto_toggle_error = true,
 					horizontal = false,
 					direction = "right",
-					size = math.floor(vim.o.columns * 0.4),
+					size = math.floor(vim.o.columns * 0.5),
 				},
 				documentation = {
 					cmd = "/opt/homebrew/bin/pandoc",

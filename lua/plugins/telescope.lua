@@ -24,12 +24,12 @@ return {
 			{ "luc-tielen/telescope_hoogle" },
 			{ "nvim-telescope/telescope-file-browser.nvim" },
 			{
-                "bsssssss/telescope-dirt-samples.nvim",
-				-- dir = "/Users/bss/dev/github.com/bsssssss/telescope-dirt-samples.nvim",
-				--             dev = false,
+                "bsssssss/telescope-superdirt.nvim",
+                branch = "feature/banks",
 				config = function()
-					require("dirt_samples").setup({
-						source_path = "/Users/bss/supercollider/superdirt-setup/tmp/sounds.txt",
+					require("superdirt").setup({
+						-- source_path = "/Users/bss/supercollider/superdirt-setup/tmp/sounds.txt",
+						source_dir = "/Users/bss/supercollider/superdirt-setup/tmp",
 					})
 				end,
 			},
@@ -100,7 +100,8 @@ return {
 			-- pcall(require("telescope").load_extension, "file_browser")
 			pcall(require("telescope").load_extension, "hoogle")
 			pcall(require("telescope").load_extension, "scdoc")
-			pcall(require("telescope").load_extension, "dirt_samples")
+			pcall(require("telescope").load_extension, "superdirt_samples")
+			pcall(require("telescope").load_extension, "superdirt_banks")
 
 			-- See `:help telescope.builtin`
 			-- local builtin = require("telescope.builtin")
