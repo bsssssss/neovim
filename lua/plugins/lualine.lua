@@ -4,7 +4,8 @@ return {
     config = function()
         local kana = require("kanagawa.colors").setup()
         local colors = {
-            bg = kana.theme.ui.bg_m1,
+            -- bg = kana.theme.ui.bg_m1,
+            bg = nil,
             fg = kana.theme.syn.keyword,
             -- warm = "#c4b28a",
             warm = kana.theme.syn.identifier,
