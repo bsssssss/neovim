@@ -29,7 +29,7 @@ return {
                 keywordStyle = { italic = false, bold = true },
                 statementStyle = { bold = true },
                 typeStyle = {},
-                transparent = false, -- do not set background color
+                transparent = true, -- do not set background color
                 dimInactive = false, -- dim inactive window `:h hl-NormalNC`
                 terminalColors = true, -- define vim.g.terminal_color_{0,17}
                 colors = { -- add/modify theme and palette colors
@@ -71,11 +71,14 @@ return {
                         -- stylua: ignore start
                         Normal                = { fg = "#c6b7a0" },
                         Comment               = { fg = colors.palette.dragonBlack6 },
-                        CursorLine            = { bg = theme.ui.bg_p1 },
+                        -- CursorLine            = { bg = theme.ui.bg_p1 },
+                        CursorLine            = { bg = "NONE" },
                         CursorLineNr          = { fg = colors.palette.dragonBlue2, bold = true },
                         LineNr                = { fg = colors.palette.dragonBlack6 },
-                        StatusLine            = { bg = theme.ui.bg_m1, fg = "#c6b7a0" },
-                        StatusLineNC          = { bg = theme.ui.bg_m1 },
+                        StatusLine            = { bg = theme.ui.bg_p1, fg = "#c6b7a0" },
+                        StatusLineNC          = { bg = theme.ui.bg_p1 },
+                        -- StatusLine            = { bg = "NONE", fg = "#c6b7a0" },
+                        -- StatusLineNC          = { bg = "NONE" },
                         Operator              = { fg = colors.palette.dragonGray3 },
                         MsgArea               = { fg = colors.theme.syn.keyword },
                         IblIndent             = { fg = theme.ui.bg_p2 },
