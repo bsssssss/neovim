@@ -1,6 +1,6 @@
 vim.filetype.add({
-	extension = {
-		scd = "supercollider",
-		sc = "supercollider",
-	},
+    extension = {
+        scd = "supercollider",
+        sc = "supercollider",
+    },
 })

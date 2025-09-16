@@ -1,101 +1,101 @@
 ---@diagnostic disable: undefined-global, undefined-doc-name
 return {
-	{
-		"folke/snacks.nvim",
-		enabled = true,
-		priority = 1000,
-		lazy = false,
+    {
+        "folke/snacks.nvim",
+        enabled = true,
+        priority = 1000,
+        lazy = false,
 
-		---@type snacks.Config
-		opts = {
-			bigfile = { enabled = true },
-			-- image = {
-			-- 	doc = {
-			-- 		max_width = 30,
-			-- 		max_height = 10,
-			-- 		inline = false,
-			-- 	},
-			-- },
+        ---@type snacks.Config
+        opts = {
+            bigfile = { enabled = true },
+            -- image = {
+            --  doc = {
+            --      max_width = 30,
+            --      max_height = 10,
+            --      inline = false,
+            --  },
+            -- },
 
-			dashboard = {
-				enabled = true,
-				width = 50,
-				preset = {
-					keys = {
+            dashboard = {
+                enabled = true,
+                width = 50,
+                preset = {
+                    keys = {
                         -- stylua: ignore start
-						{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')", },
-						{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-						{ icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')", },
-						{ icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')", },
-						-- { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
-						{ icon = " ", key = "c", desc = "Config", action = function() vim.cmd("cd " .. vim.fn.stdpath("config")) end, },
-						{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
-						{ icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil, },
-						{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
-						-- stylua: ignore end
-					},
-				},
-				formats = {
-					key = function(item)
-						return { { "[", hl = "Comment" }, { item.key, hl = "key" }, { "]", hl = "Comment" } }
-					end,
-				},
-				sections = {
-					{
-						section = "terminal",
-						cmd = "fortune -s | cowsay",
-						hl = "String",
-						indent = 0,
-						height = 16,
-					},
-					-- {
-					-- 	section = "terminal",
-					-- 	cmd = "astroterm -c -l 0.25 -t 2 -u -r 2.25",
-					-- 	hl = "Comment",
-					-- 	indent = 0,
-					-- 	height = 16,
-					-- 	padding = 2,
-					-- },
-					{ section = "keys", padding = 2, gap = 0, indent = 0 },
-					{ title = "MRU ", file = vim.fn.fnamemodify(".", ":~"), padding = 1 },
-					{ section = "recent_files", cwd = true, limit = 8, indent = 0, padding = 4 },
-					{ section = "startup" },
-				},
-			},
+                        { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')", },
+                        { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+                        { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')", },
+                        { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')", },
+                        -- { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+                        { icon = " ", key = "c", desc = "Config", action = function() vim.cmd("cd " .. vim.fn.stdpath("config")) end, },
+                        { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+                        { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil, },
+                        { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+                        -- stylua: ignore end
+                    },
+                },
+                formats = {
+                    key = function(item)
+                        return { { "[", hl = "Comment" }, { item.key, hl = "key" }, { "]", hl = "Comment" } }
+                    end,
+                },
+                sections = {
+                    {
+                        section = "terminal",
+                        cmd = "fortune -s | cowsay",
+                        hl = "String",
+                        indent = 0,
+                        height = 16,
+                    },
+                    -- {
+                    --  section = "terminal",
+                    --  cmd = "astroterm -c -l 0.25 -t 2 -u -r 2.25",
+                    --  hl = "Comment",
+                    --  indent = 0,
+                    --  height = 16,
+                    --  padding = 2,
+                    -- },
+                    { section = "keys", padding = 2, gap = 0, indent = 0 },
+                    { title = "MRU ", file = vim.fn.fnamemodify(".", ":~"), padding = 1 },
+                    { section = "recent_files", cwd = true, limit = 8, indent = 0, padding = 4 },
+                    { section = "startup" },
+                },
+            },
 
-			notifier = {
-				enabled = true,
-				timeout = 3000,
-			},
+            notifier = {
+                enabled = true,
+                timeout = 3000,
+            },
 
-			quickfile = { enabled = true },
-			statuscolumn = { enabled = true },
-			words = { enabled = true },
+            quickfile = { enabled = true },
+            statuscolumn = { enabled = true },
+            words = { enabled = true },
 
-			styles = {
-				notification = {
-					wo = { wrap = true }, -- Wrap notifications
-				},
-				float = {
-					backdrop = 100,
-					border = "rounded",
-				},
-			},
+            styles = {
+                notification = {
+                    wo = { wrap = true }, -- Wrap notifications
+                },
+                float = {
+                    backdrop = 100,
+                    border = "rounded",
+                },
+            },
 
-			picker = {
-				layout = {
-					preset = "ivy",
-					position = "bottom",
-				},
-			},
+            picker = {
+                layout = {
+                    preset = "ivy",
+                    position = "bottom",
+                },
+            },
 
-			-- terminal = {
-			-- 	enabled = true,
-			-- 	auto_insert = false,
-			-- },
-		},
+            -- terminal = {
+            --  enabled = true,
+            --  auto_insert = false,
+            -- },
+        },
 
-		keys = {
+        keys = {
       -- stylua: ignore start
       -- Top Pickers & Explorer
       { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
@@ -169,51 +169,51 @@ return {
       -- { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },
       { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
       { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
-			-- stylua: ignore end
-			{
-				"<leader>N",
-				desc = "Neovim News",
-				function()
-					Snacks.win({
-						file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-						width = 0.6,
-						height = 0.6,
-						wo = {
-							spell = false,
-							wrap = false,
-							signcolumn = "yes",
-							statuscolumn = " ",
-							conceallevel = 3,
-						},
-					})
-				end,
-			},
-		},
-		init = function()
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "VeryLazy",
-				callback = function()
-					-- Setup some globals for debugging (lazy-loaded)
-					_G.dd = function(...)
-						Snacks.debug.inspect(...)
-					end
-					_G.bt = function()
-						Snacks.debug.backtrace()
-					end
-					vim.print = _G.dd -- Override print to use snacks for `:=` command
+            -- stylua: ignore end
+            {
+                "<leader>N",
+                desc = "Neovim News",
+                function()
+                    Snacks.win({
+                        file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+                        width = 0.6,
+                        height = 0.6,
+                        wo = {
+                            spell = false,
+                            wrap = false,
+                            signcolumn = "yes",
+                            statuscolumn = " ",
+                            conceallevel = 3,
+                        },
+                    })
+                end,
+            },
+        },
+        init = function()
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "VeryLazy",
+                callback = function()
+                    -- Setup some globals for debugging (lazy-loaded)
+                    _G.dd = function(...)
+                        Snacks.debug.inspect(...)
+                    end
+                    _G.bt = function()
+                        Snacks.debug.backtrace()
+                    end
+                    vim.print = _G.dd -- Override print to use snacks for `:=` command
 
-					-- Create some toggle mappings
-					Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
-					Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-					Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-					Snacks.toggle.diagnostics():map("<leader>ud")
-					Snacks.toggle.line_number():map("<leader>ul")
-					Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
-					Snacks.toggle.treesitter():map("<leader>uT")
-					Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
-					Snacks.toggle.inlay_hints():map("<leader>uh")
-				end,
-			})
-		end,
-	},
+                    -- Create some toggle mappings
+                    Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
+                    Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+                    Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
+                    Snacks.toggle.diagnostics():map("<leader>ud")
+                    Snacks.toggle.line_number():map("<leader>ul")
+                    Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
+                    Snacks.toggle.treesitter():map("<leader>uT")
+                    Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
+                    Snacks.toggle.inlay_hints():map("<leader>uh")
+                end,
+            })
+        end,
+    },
 }

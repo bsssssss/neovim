@@ -50,7 +50,7 @@ opt.swapfile = false
 opt.autoread = true
 
 vim.o.sessionoptions =
-	"blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+    "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 opt.syntax = "on"
 opt.conceallevel = 0

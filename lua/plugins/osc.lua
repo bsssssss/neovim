@@ -1,4 +1,4 @@
 return {
-	"davidgranstrom/osc.nvim",
+    "davidgranstrom/osc.nvim",
   lazy = true,
 }

@@ -10,10 +10,10 @@
 ---
 --- ```lua
 ---   settings = {
---- 		ltex = {
---- 			language = "en-GB",
---- 		},
---- 	},
+---         ltex = {
+---             language = "en-GB",
+---         },
+---     },
 --- ```
 ---
 --- To support org files or R sweave, users can define a custom filetype autocommand (or use a plugin which defines these filetypes):
