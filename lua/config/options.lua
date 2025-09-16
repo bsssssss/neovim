@@ -28,6 +28,8 @@ opt.background = "dark"
 opt.signcolumn = "yes"
 opt.fillchars = vim.opt.fillchars + "eob: "
 
+opt.listchars = "tab:>-"
+
 opt.backspace = "indent,eol,start"
 
 opt.clipboard:append("unnamedplus")
