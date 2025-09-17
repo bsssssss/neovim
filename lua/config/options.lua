@@ -1,66 +1,66 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-local opt = vim.opt
+local o = vim.opt
 
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = true
+o.tabstop = 4
+o.softtabstop = 4
+o.shiftwidth = 4
+o.expandtab = true
 
-opt.breakindent = true
-opt.autoindent = true
-opt.smartindent = true
-opt.wrap = false
+o.breakindent = true
+o.autoindent = true
+o.smartindent = true
+o.wrap = false
 
-opt.inccommand = "split"
+o.inccommand = "split"
 
-opt.relativenumber = true
-opt.number = true
+o.relativenumber = true
+o.number = true
 
-opt.ignorecase = true
-opt.smartcase = true
+o.ignorecase = true
+o.smartcase = true
 
-opt.cursorline = true
+o.cursorline = true
 
-opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
-opt.fillchars = vim.opt.fillchars + "eob: "
+o.termguicolors = true
+o.background = "dark"
+o.signcolumn = "yes"
+o.fillchars = vim.opt.fillchars + "eob: "
 
-opt.listchars = "tab:>-"
+o.listchars = "tab:>-"
 
-opt.backspace = "indent,eol,start"
+o.backspace = "indent,eol,start"
 
-opt.clipboard:append("unnamedplus")
+o.clipboard:append("unnamedplus")
 
-opt.splitright = true
-opt.splitbelow = true
+o.splitright = true
+o.splitbelow = true
 
 -- Decrease update time
-opt.updatetime = 100
+o.updatetime = 100
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-opt.timeoutlen = 500
+o.timeoutlen = 500
 
-opt.undodir = vim.fn.expand("~/.undodir")
-opt.undofile = true
+o.undodir = vim.fn.expand("~/.undodir")
+o.undofile = true
 
-opt.swapfile = false
+o.swapfile = false
 
-opt.autoread = true
+o.autoread = true
 
 vim.o.sessionoptions =
     "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
-opt.syntax = "on"
-opt.conceallevel = 0
+o.syntax = "on"
+o.conceallevel = 0
 
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 10
 
-opt.laststatus = 3
-vim.opt.cmdheight = 1
-vim.opt.showmode = true
-vim.opt.shortmess = "aOt"
+o.laststatus = 3
+o.cmdheight = 1
+o.showmode = true
+o.shortmess = "aOt"
