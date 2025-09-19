@@ -38,7 +38,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
-vim.keymap.set("n", "<leader>cR", ":IncRename ", { desc = "Incremenal Rename" })
+vim.keymap.set("n", "<leader>cR", ":IncRename<CR>", { desc = "Incremenal Rename" })
 
 vim.keymap.set("n", "<leader>tc", function()
     if vim.bo.filetype == "java" then
