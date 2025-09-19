@@ -71,7 +71,7 @@ return {
                         -- stylua: ignore start
                         Normal                = { fg = "#c6b7a0" },
                         Comment               = { fg = colors.palette.dragonBlack6 },
-                        Visual                = { bg = theme.ui.bg_p2 },
+                        Visual                = { bg = "#353030" },
                         -- CursorLine            = { bg = theme.ui.bg_p1 },
                         CursorLine            = { bg = "NONE" },
                         CursorLineNr          = { fg = colors.palette.dragonBlue2, bold = true },
@@ -88,7 +88,7 @@ return {
                         MiniIndentscopeSymbol = { fg = colors.palette.dragonBlack6 },
                         -- Special               = { bold = true },
                         -- LspReferenceText      = { bg = "none", bold = true },
-                        LspReferenceText      = { bg = theme.ui.bg_p2 },
+                        LspReferenceText      = { bg = "#353030" },
                         LspReferenceWrite     = { bg = "none", underline = true },
                         Pmenu                 = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
                         PmenuSel              = { fg = "NONE", bg = theme.ui.bg_p2 },
