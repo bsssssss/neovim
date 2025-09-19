@@ -15,19 +15,14 @@ return {
             scnvim.setup({
                 keymaps = {
                     ["<C-S-E>"] = map("editor.send_line", { "i", "n" }),
-                    ["<M-CR>"] = {
+                    ["<C-E>"] = {
                         map("editor.send_block", { "n", "i" }),
                         map("editor.send_selection", "x"),
                     },
                     ["<CR>"] = map("postwin.toggle"),
                     ["<C-CR>"] = map("postwin.toggle", "i"),
                     ["<C-S-X>"] = map("postwin.clear", { "n", "i" }),
-                    -- ["<C-k>"] = map("signature.show", { "n", "i" }),
                     ["<C-.>"] = map("sclang.hard_stop", { "n", "x", "i" }),
-                    -- ["<leader>st"] = map("sclang.start"),
-                    -- ["<leader>sk"] = map("sclang.recompile"),
-                    -- ["<F1>"] = map_expr("s.boot"),
-                    -- ["<F2>"] = map_expr("s.meter"),
                 },
                 editor = {
                     highlight = {
@@ -50,7 +45,6 @@ return {
                 },
                 documentation = {
                     cmd = "/opt/homebrew/bin/pandoc",
-                    direction = "left",
                 },
             })
 

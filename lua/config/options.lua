@@ -32,7 +32,7 @@ o.listchars = "tab:>-"
 
 o.backspace = "indent,eol,start"
 
-o.clipboard:append("unnamedplus")
+-- o.clipboard:append("unnamedplus")
 
 o.splitright = true
 o.splitbelow = true
@@ -57,8 +57,8 @@ vim.o.sessionoptions =
 o.syntax = "on"
 o.conceallevel = 0
 
-vim.o.scrolloff = 10
-vim.o.sidescrolloff = 10
+vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
 
 o.laststatus = 3
 o.cmdheight = 1
