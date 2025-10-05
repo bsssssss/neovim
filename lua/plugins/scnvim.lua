@@ -1,8 +1,9 @@
 return {
     {
         "bsssssss/scnvim",
-        -- dir = "/Users/bss/dev/forks/scnvim",
+        dir = "/Users/bss/dev/forks/scnvim",
         branch = "dev",
+        dev = false,
         enabled = true,
         dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
         event = { "FileType supercollider" },

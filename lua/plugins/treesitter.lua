@@ -15,6 +15,7 @@ return {
         opts = {
             ensure_installed = {
                 "bash",
+                "make",
                 "c",
                 "diff",
                 "html",

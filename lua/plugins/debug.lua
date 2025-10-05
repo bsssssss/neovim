@@ -2,10 +2,13 @@ return {
     {
         "mfussenegger/nvim-dap",
         config = function()
-            vim.fn.sign_define("DapBreakpoint", { text = "〇", texthl = "Comment" })
+            vim.fn.sign_define(
+                "DapBreakpoint",
+                { text = "", texthl = "Error" }
+            )
             local dap = require("dap")
 
-      -- stylua: ignore start
+            -- stylua: ignore start
             vim.keymap.set("n", "<F5>", function() dap.continue() end, { desc = "DAP: Continue" })
             vim.keymap.set("n", "<F1>", function() dap.step_over() end, { desc = "DAP: Step Over" })
             vim.keymap.set("n", "<F2>", function() dap.step_into() end, { desc = "DAP: Step Into" })
@@ -20,8 +23,8 @@ return {
             vim.keymap.set({ "n", "v" }, "<Leader>dP", function() require("dap.ui.widgets").preview() end, { desc = "DAP: Preview" })
             vim.keymap.set("n", "<Leader>df", function() local widgets = require("dap.ui.widgets") widgets.centered_float(widgets.frames) end, { desc = "DAP: Frame" })
             vim.keymap.set("n", "<Leader>ds", function() local widgets = require("dap.ui.widgets") widgets.centered_float(widgets.scopes) end, { desc = "DAP: Scope" })
-      vim.keymap.set("n", "<leader>dc", function() require("dap").disconnect(); require("dapui").close(); end)
-      vim.keymap.set("n", "<leader>dt", function() require("dap").terminate(); require("dapui").close(); end)
+            vim.keymap.set("n", "<leader>dc", function() require("dap").disconnect(); require("dapui").close(); end)
+            vim.keymap.set("n", "<leader>dt", function() require("dap").terminate(); require("dapui").close(); end)
             -- stylua: ignore end
 
             dap.adapters.codelldb = {

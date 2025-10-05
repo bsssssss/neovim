@@ -36,9 +36,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set("v" , "<leader>d", [["_d]], { desc = "Delete to void register"})
 
-vim.keymap.set("n", "<leader>cR", ":IncRename<CR>", { desc = "Incremenal Rename" })
+vim.keymap.set( "n", "<leader>cR", ":IncRename<CR>", { desc = "Incremenal Rename" })
 
 vim.keymap.set("n", "<leader>tc", function()
     if vim.bo.filetype == "java" then
@@ -53,6 +53,11 @@ vim.keymap.set("n", "<leader>tm", function()
 end, { desc = "Java : Test Method" })
 
 vim.keymap.set({ "n" }, "<leader>e", ":Oil<CR>", { desc = "File Explorer" })
+
+vim.keymap.set("n", "<TAB>", "<cmd>tabnext<CR>")
+vim.keymap.set("n", "<S-TAB>", "<cmd>tabprevious<CR>")
+
+vim.keymap.set("n", "<leader>m", "<cmd>make<CR>", { desc = "Run make" })
 
 -- vim.keymap.set({ "n", "t" }, "<leader>tt", function()
 --  require("floaterm").toggle()

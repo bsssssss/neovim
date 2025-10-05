@@ -64,3 +64,5 @@ o.laststatus = 3
 o.cmdheight = 1
 o.showmode = true
 o.shortmess = "aOt"
+
+vim.g.c_syntax_for_h = true

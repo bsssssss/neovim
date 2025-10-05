@@ -29,11 +29,13 @@ return {
         -- C-k: Toggle signature help (if signature.enabled = true)
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        keymap = { preset = "default" },
+        keymap = {
+            preset = "default",
+        },
 
         signature = {
             enabled = true,
-            window = { border = "single" },
+            window = { border = "rounded" },
         },
 
         appearance = {
@@ -66,10 +68,11 @@ return {
                                 local icon = ctx.kind_icon
                                 -- if LSP source, check for color derived from documentation
                                 if ctx.item.source_name == "LSP" then
-                                    local color_item = require("nvim-highlight-colors").format(
-                                        ctx.item.documentation,
-                                        { kind = ctx.kind }
-                                    )
+                                    local color_item =
+                                        require("nvim-highlight-colors").format(
+                                            ctx.item.documentation,
+                                            { kind = ctx.kind }
+                                        )
                                     if color_item and color_item.abbr ~= "" then
                                         icon = color_item.abbr
                                     end
@@ -81,11 +84,14 @@ return {
                                 local highlight = "BlinkCmpKind" .. ctx.kind
                                 -- if LSP source, check for color derived from documentation
                                 if ctx.item.source_name == "LSP" then
-                                    local color_item = require("nvim-highlight-colors").format(
-                                        ctx.item.documentation,
-                                        { kind = ctx.kind }
-                                    )
-                                    if color_item and color_item.abbr_hl_group then
+                                    local color_item =
+                                        require("nvim-highlight-colors").format(
+                                            ctx.item.documentation,
+                                            { kind = ctx.kind }
+                                        )
+                                    if
+                                        color_item and color_item.abbr_hl_group
+                                    then
                                         highlight = color_item.abbr_hl_group
                                     end
                                 end
