@@ -6,21 +6,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         local map = function(keys, func, desc, mode)
             mode = mode or "n"
-            vim.keymap.set(
-                mode,
-                keys,
-                func,
-                { buffer = event.buf, desc = "LSP: " .. desc }
-            )
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
         end
 
         map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        if
-            client
-            and client:supports_method(vim.lsp.protocol.Methods.textDocument_hover)
-        then
+        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_hover) then
             map("K", function()
                 vim.lsp.buf.hover({
                     border = "single",
@@ -30,9 +22,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         if
             client
-            and client:supports_method(
-                vim.lsp.protocol.Methods.textDocument_documentHighlight
-            )
+            and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
         then
             local highlight_augroup =
                 vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
@@ -61,18 +51,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end
 
-        if
-            client
-            and client:supports_method(
-                vim.lsp.protocol.Methods.textDocument_inlayHint
-            )
-        then
+        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             map("<leader>th", function()
-                vim.lsp.inlay_hint.enable(
-                    not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
-                )
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
             end, "[T]oggle Inlay [H]ints")
         end
+
+        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
+            vim.lsp.document_color.enable(false)
+        end
+
     end,
 })
 
@@ -82,8 +70,7 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         vim.defer_fn(function()
             vim.cmd(":InspectTree")
-            local sendBottomKey =
-                vim.api.nvim_replace_termcodes("<C-w>J", true, false, true)
+            local sendBottomKey = vim.api.nvim_replace_termcodes("<C-w>J", true, false, true)
             vim.api.nvim_feedkeys(sendBottomKey, "n", false)
         end, 100)
         vim.defer_fn(function()
@@ -102,11 +89,7 @@ vim.api.nvim_create_autocmd("FileType", {
             },
             handlers = {
                 ["window/showMessage"] = function(_, result, ctx)
-                    vim.notify(
-                        result.message,
-                        vim.log.levels.INFO,
-                        { title = "GenExpr LSP" }
-                    )
+                    vim.notify(result.message, vim.log.levels.INFO, { title = "GenExpr LSP" })
                 end,
                 ["window/logMessage"] = function(_, result, ctx)
                     vim.notify("LSP log: " .. result.message, vim.log.levels.DEBUG, {})
@@ -157,12 +140,7 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "help", "qf" },
     desc = "Keymap to close help/qf window",
     callback = function()
-        vim.keymap.set(
-            "n",
-            "q",
-            ":bd<CR>",
-            { buffer = true, desc = "Close help/qf split window" }
-        )
+        vim.keymap.set("n", "q", ":bd<CR>", { buffer = true, desc = "Close help/qf split window" })
     end,
 })
 
