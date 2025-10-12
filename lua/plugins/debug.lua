@@ -88,18 +88,18 @@ return {
             end
         end,
     },
-    {
-        "jay-babu/mason-nvim-dap.nvim",
-        dependencies = {
-            "williamboman/mason.nvim",
-        },
-        opts = {
-            ensure_installed = {
-                "codelldb",
-                "java-debug-adapter",
-                "js-debug-adapter",
-            },
-            handlers = {},
-        },
-    },
+    -- {
+    --     "jay-babu/mason-nvim-dap.nvim",
+    --     dependencies = {
+    --         "williamboman/mason.nvim",
+    --     },
+    --     opts = {
+    --         ensure_installed = {
+    --             "codelldb",
+    --             "java-debug-adapter",
+    --             "js-debug-adapter",
+    --         },
+    --         handlers = {},
+    --     },
+    -- },
 }

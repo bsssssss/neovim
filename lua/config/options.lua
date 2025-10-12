@@ -26,7 +26,7 @@ o.cursorline = true
 o.termguicolors = true
 o.background = "dark"
 o.signcolumn = "yes"
-o.fillchars = vim.opt.fillchars + "eob: "
+o.fillchars = vim.opt.fillchars + "eob:~"
 
 o.listchars = "tab:>-"
 
