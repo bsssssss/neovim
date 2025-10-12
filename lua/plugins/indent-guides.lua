@@ -1,7 +1,7 @@
 return {
     {
         "lukas-reineke/indent-blankline.nvim",
-        enabled = true,
+        enabled = false,
         opts = {
             indent = {
                 char = "│",
