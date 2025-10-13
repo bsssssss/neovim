@@ -74,7 +74,7 @@ return {
                         LineNr = { fg = colors.palette.sumiInk6 },
                         StatusLine = { bg = "NONE", fg = "#c6b7a0" },
                         StatusLineNC = { bg = "NONE" },
-                        MsgArea = { fg = colors.palette.dragonAsh },
+                        MsgArea = { fg = colors.palette.dragonViolet },
                         TabLine = { bg = "NONE" },
                         TabLineFill = { link = "TabLine" },
                         IblIndent = { fg = colors.palette.sumiInk4 },
