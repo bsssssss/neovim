@@ -20,7 +20,7 @@ require("lazy").setup({
         { import = "plugins" },
     },
 
-    install = { colorscheme = { "rose-pine-moon" } },
+    install = { colorscheme = { "kanagawa" } },
     checker = {
         enabled = true,
         notify = false,
