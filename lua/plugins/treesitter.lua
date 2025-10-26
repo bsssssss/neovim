@@ -110,22 +110,21 @@ return {
         config = function(_, opts)
             require("nvim-treesitter.install").prefer_git = false
 
-            local parser_config =
-                require("nvim-treesitter.parsers").get_parser_configs()
+            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
-            -- parser_config.genexpr = {
-            --  install_info = {
-            --      url = "/Users/bss/Code/git/bsssssss/tree-sitter-genexpr",
-            --      -- url = "https://github.com/bsssssss/tree-sitter-genexpr",
-            --      -- branch = "dev",
-            --      -- files = { "src/parser.c", "src/scanner.c" },
-            --      files = { "src/parser.c" },
-            --      maintainer = "@bsssssss",
-            --  },
-            --  filetype = "genexpr", -- specify the filetype if it does not match the parser name
-            -- }
+            ---@diagnostic disable-next-line: inject-field
+            parser_config.genexpr = {
+                install_info = {
+                    url = "/Users/bss/dev/forks/tree-sitter-genexpr",
+                    -- url = "https://github.com/bsssssss/tree-sitter-genexpr",
+                    -- branch = "dev",
+                    -- files = { "src/parser.c", "src/scanner.c" },
+                    files = { "src/parser.c" },
+                    maintainer = "@bsssssss",
+                },
+                filetype = "genexpr", -- specify the filetype if it does not match the parser name
+            }
 
-            --          vim.opt.runtimepath:prepend("/users/bss/dev/github.com/bsssssss/tree-sitter-supercollider")
             ---@diagnostic disable-next-line: inject-field
             parser_config.supercollider = {
                 install_info = {

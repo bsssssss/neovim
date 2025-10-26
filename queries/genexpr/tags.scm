@@ -1,0 +1,1 @@
+/Users/bss/dev/forks/tree-sitter-genexpr/queries/tags.scm
