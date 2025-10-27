@@ -2,7 +2,7 @@
 return {
     {
         "folke/snacks.nvim",
-        enabled = false,
+        enabled = true,
         priority = 1000,
         lazy = false,
 
@@ -18,7 +18,7 @@ return {
             -- },
 
             dashboard = {
-                enabled = true,
+                enabled = false,
                 width = 50,
                 preset = {
                     keys = {
@@ -64,12 +64,12 @@ return {
             },
 
             notifier = {
-                enabled = true,
+                enabled = false,
                 timeout = 3000,
             },
 
             quickfile = { enabled = true },
-            statuscolumn = { enabled = true },
+            statuscolumn = { enabled = false },
             words = { enabled = true },
 
             styles = {
