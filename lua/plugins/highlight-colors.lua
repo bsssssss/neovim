@@ -1,6 +1,5 @@
 return {
-    "bsssssss/nvim-highlight-colors",
-  branch = "fix/hex-pattern-dash-boundary",
+    "brenoprata10/nvim-highlight-colors",
     config = function()
         require("nvim-highlight-colors").setup({
             render = "virtual",
