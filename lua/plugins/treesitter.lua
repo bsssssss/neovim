@@ -48,11 +48,14 @@ return {
                 "typescript",
                 "json",
                 "jsonc",
-                "genexpr",
-                "supercollider"
+                -- "genexpr",
+                -- "supercollider",
+                "zsh"
             }
 
             require("nvim-treesitter").install(languages)
+
+            vim.treesitter.language.register("bash", "zsh")
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = languages,
@@ -60,8 +63,6 @@ return {
                     vim.treesitter.start()
                 end,
             })
-
-            vim.treesitter.language.register("bash", "zsh")
         end,
     },
     {
