@@ -11,28 +11,30 @@ return {
             })
 
             -- parsers for GenExpr, Supercollider
-            vim.api.nvim_create_autocmd("User", {
-                pattern = "TSUpdate",
-                callback = function()
-                    ---@diagnostic disable-next-line: missing-fields
-                    require("nvim-treesitter.parsers").genexpr = {
-                        ---@diagnostic disable-next-line: missing-fields
-                        install_info = {
-                            path = "/Users/bss/dev/forks/tree-sitter-genexpr",
-                        },
-                    }
-                    ---@diagnostic disable-next-line: missing-fields
-                    require("nvim-treesitter.parsers").supercollider = {
-                        ---@diagnostic disable-next-line: missing-fields
-                        install_info = {
-                            path = "/Users/bss/dev/forks/tree-sitter-supercollider",
-                        },
-                    }
-                end,
-            })
+            -- vim.api.nvim_create_autocmd("User", {
+            --     pattern = "TSUpdate",
+            --     callback = function()
+            --         ---@diagnostic disable-next-line: missing-fields
+            --         require("nvim-treesitter.parsers").genexpr = {
+            --             ---@diagnostic disable-next-line: missing-fields
+            --             install_info = {
+            --                 path = "/Users/bss/dev/forks/tree-sitter-genexpr",
+            --             },
+            --         }
+            --         ---@diagnostic disable-next-line: missing-fields
+            --         require("nvim-treesitter.parsers").supercollider = {
+            --             ---@diagnostic disable-next-line: missing-fields
+            --             install_info = {
+            --                 path = "/Users/bss/dev/forks/tree-sitter-supercollider",
+            --             },
+            --         }
+            --     end,
+            -- })
 
             local languages = {
                 "bash",
+                "zsh",
+                "sh",
                 "make",
                 "c",
                 "diff",
@@ -50,12 +52,12 @@ return {
                 "jsonc",
                 -- "genexpr",
                 -- "supercollider",
-                "zsh"
             }
 
             require("nvim-treesitter").install(languages)
 
             vim.treesitter.language.register("bash", "zsh")
+            vim.treesitter.language.register("bash", "sh")
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = languages,

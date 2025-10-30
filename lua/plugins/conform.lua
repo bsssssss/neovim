@@ -15,14 +15,14 @@ return {
         notify_on_error = false,
         -- stylua: ignore start
         formatters_by_ft = {
-            lua        = { "stylua" },
-            haskell    = { "stylish-haskell" },
             c          = { "clang-format" },
+            lua        = { "stylua" },
+            html       = { "htmlbeautifier" },
             python     = { "black" },
+            haskell    = { "stylish-haskell" },
+            markdown   = { "mdformat" },
             javascript = { "prettierd" },
             typescript = { "prettierd" },
-            html       = { "htmlbeautifier" },
-            markdown   = { "mdformat" },
         },
         -- stylua: ignore end
     },

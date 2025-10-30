@@ -1,1 +1,1 @@
-vim.api.nvim_create_user_command("SketchybarReload", "! sketchybar --reload", {})
+vim.api.nvim_create_user_command("WaybarReload", "! killall waybar; waybar &", {})
