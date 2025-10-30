@@ -39,6 +39,7 @@ return {
         dir = "/Users/bss/dev/forks/tidal.nvim",
         dev = true,
         ft = "tidal",
+        enabled = false,
         opts = {
             --- Configure TidalLaunch command
             boot = {

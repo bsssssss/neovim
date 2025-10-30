@@ -1,6 +1,7 @@
 return {
     {
         dir = "/Users/bss/dev/personal/sapf.nvim",
+        enabled = false,
         opts = {},
         config = function(_, opts)
             require("sapf").setup(opts)

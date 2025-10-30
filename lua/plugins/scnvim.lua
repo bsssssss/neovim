@@ -4,7 +4,7 @@ return {
         dir = "/Users/bss/dev/forks/scnvim",
         branch = "dev",
         dev = false,
-        enabled = true,
+        enabled = false,
         dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
         event = { "FileType supercollider" },
         config = function()
