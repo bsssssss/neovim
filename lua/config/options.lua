@@ -46,9 +46,7 @@ o.timeoutlen = 500
 
 o.undodir = vim.fn.expand("~/.undodir")
 o.undofile = true
-
 o.swapfile = false
-
 o.autoread = true
 
 vim.o.sessionoptions =

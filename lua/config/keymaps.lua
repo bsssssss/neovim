@@ -1,16 +1,15 @@
 vim.keymap.set({ "n", "x" }, "s", "<Nop>") -- Delete "s" mapping
+vim.keymap.set("n", "<C-i>", "<C-I>") -- jump forward
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set( "t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
-vim.keymap.set( "n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open Quickfix list" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open Quickfix list" })
 
 vim.keymap.set({ "n", "i" }, "<C-h>", "<C-w>h", { desc = "Switch left window" })
-vim.keymap.set( { "n", "i" }, "<C-l>", "<C-w>l", { desc = "Switch right window" })
+vim.keymap.set({ "n", "i" }, "<C-l>", "<C-w>l", { desc = "Switch right window" })
 vim.keymap.set({ "n", "i" }, "<C-j>", "<C-w>j", { desc = "Switch down window" })
 vim.keymap.set({ "n", "i" }, "<C-k>", "<C-w>k", { desc = "Switch up window" })
-
--- vim.keymap.set("n", "<leader>fb", "<cmd>Neotree toggle float reveal_force_cwd<CR>", { desc = "Neotree: Toggle" })
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -35,22 +34,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set("v", "<leader>d", [["_d]], { desc = "Delete to void register" })
 
-vim.keymap.set("v" , "<leader>d", [["_d]], { desc = "Delete to void register"})
-
-vim.keymap.set( "n", "<leader>cR", ":IncRename<CR>", { desc = "Incremenal Rename" })
-
-vim.keymap.set("n", "<leader>tc", function()
-    if vim.bo.filetype == "java" then
-        require("jdtls").test_class()
-    end
-end, { desc = "Java : Test Class" })
-
-vim.keymap.set("n", "<leader>tm", function()
-    if vim.bo.filetype == "java" then
-        require("jdtls").test_nearest_method()
-    end
-end, { desc = "Java : Test Method" })
+vim.keymap.set("n", "<leader>cR", ":IncRename<CR>", { desc = "Incremenal Rename" })
 
 vim.keymap.set({ "n" }, "<leader>e", ":Oil<CR>", { desc = "File Explorer" })
 
@@ -58,7 +44,3 @@ vim.keymap.set("n", "<TAB>", "<cmd>tabnext<CR>")
 vim.keymap.set("n", "<S-TAB>", "<cmd>tabprevious<CR>")
 
 vim.keymap.set("n", "<leader>m", "<cmd>make<CR>", { desc = "Run make" })
-
--- vim.keymap.set({ "n", "t" }, "<leader>tt", function()
---  require("floaterm").toggle()
--- end, {})
