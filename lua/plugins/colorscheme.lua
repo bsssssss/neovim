@@ -96,7 +96,7 @@ return {
                         Normal = { fg = "#c6b7a0" },
                         LazyGitFloat = { fg = "#c6b7a0" },
                         LazyGitBorder = { link = "FloatBorder" },
-                        -- Comment = { fg = colors.palette.sumiInk6 },
+                        Comment = { fg = colors.palette.sumiInk6 },
                         Operator = { fg = colors.palette.dragonGray3 },
                         Special = { bold = true },
                         ["@markup.heading"] = { fg = colors.palette.dragonOrange2, bold = true },

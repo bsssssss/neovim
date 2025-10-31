@@ -24,7 +24,8 @@ vim.lsp.enable({
     "marksman",
     "supercollider",
     "tidal_language_server",
-    "vimls"
+    "vimls",
+    "hyprls"
 })
 
 vim.diagnostic.config({
