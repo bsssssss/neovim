@@ -50,7 +50,8 @@ return {
                 "typescript",
                 "json",
                 "jsonc",
-                "hyprlang"
+                "hyprlang",
+                "css"
                 -- "genexpr",
                 -- "supercollider",
             }

@@ -25,7 +25,8 @@ vim.lsp.enable({
     "supercollider",
     "tidal_language_server",
     "vimls",
-    "hyprls"
+    "hyprls",
+    -- "tailwindcss"
 })
 
 vim.diagnostic.config({

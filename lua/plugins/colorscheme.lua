@@ -26,6 +26,7 @@ return {
                 p2 = "#23201e",
                 p3 = "#282523",
                 p4 = "#49443f",
+                p5 = "#655e57",
                 fg = "#c6b7a0"
             }
             -- Default options:
@@ -103,11 +104,11 @@ return {
                         TelescopePreviewBorder = { link = "FloatBorder" },
 
                         Normal = { fg = ui.fg },
-                        Visual = { bg = ui.p1 },
+                        Visual = { bg = ui.p2 },
                         FloatBorder = { fg = ui.p4 },
                         LazyGitFloat = { fg = "#c6b7a0" },
                         LazyGitBorder = { link = "FloatBorder" },
-                        Comment = { fg = ui.p4 },
+                        Comment = { fg = ui.p5 },
                         Operator = { fg = colors.palette.dragonGray3 },
                         Special = { bold = true },
                         ["@markup.heading"] = { fg = colors.palette.dragonOrange2, bold = true },
