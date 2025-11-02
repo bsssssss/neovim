@@ -1,11 +1,11 @@
 return {
     {
         "bsssssss/scnvim",
-        dir = "/Users/bss/dev/forks/scnvim",
+        -- dir = vim.fn.expand("~/dev/forks/scnvim"),
         branch = "dev",
-        dev = false,
-        enabled = false,
-        dependencies = { "davidgranstrom/telescope-scdoc.nvim" },
+        -- dev = false,
+        enabled = true,
+        dependencies = { "davidgranstrom/telescope-scdoc.nvim", "L3MON4D3/LuaSnip" },
         event = { "FileType supercollider" },
         config = function()
             local scnvim = require("scnvim")
@@ -45,7 +45,7 @@ return {
                     size = math.floor(vim.o.columns * 0.5),
                 },
                 documentation = {
-                    cmd = "/opt/homebrew/bin/pandoc",
+                    cmd = "/usr/sbin/pandoc",
                 },
             })
 

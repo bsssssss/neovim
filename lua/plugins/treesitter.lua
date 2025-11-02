@@ -11,25 +11,26 @@ return {
             })
 
             -- parsers for GenExpr, Supercollider
-            -- vim.api.nvim_create_autocmd("User", {
-            --     pattern = "TSUpdate",
-            --     callback = function()
-            --         ---@diagnostic disable-next-line: missing-fields
-            --         require("nvim-treesitter.parsers").genexpr = {
-            --             ---@diagnostic disable-next-line: missing-fields
-            --             install_info = {
-            --                 path = "/Users/bss/dev/forks/tree-sitter-genexpr",
-            --             },
-            --         }
-            --         ---@diagnostic disable-next-line: missing-fields
-            --         require("nvim-treesitter.parsers").supercollider = {
-            --             ---@diagnostic disable-next-line: missing-fields
-            --             install_info = {
-            --                 path = "/Users/bss/dev/forks/tree-sitter-supercollider",
-            --             },
-            --         }
-            --     end,
-            -- })
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "TSUpdate",
+                callback = function()
+                    -- ---@diagnostic disable-next-line: missing-fields
+                    -- require("nvim-treesitter.parsers").genexpr = {
+                    --     ---@diagnostic disable-next-line: missing-fields
+                    --     install_info = {
+                    --         path = "/Users/bss/dev/forks/tree-sitter-genexpr",
+                    --     },
+                    -- }
+                    ---@diagnostic disable-next-line: missing-fields
+                    require("nvim-treesitter.parsers").supercollider = {
+                        ---@diagnostic disable-next-line: missing-fields
+                        install_info = {
+                            path = vim.fn.expand("~/dev/forks/tree-sitter-supercollider"),
+                            queries = 'queries/supercollider'
+                        },
+                    }
+                end,
+            })
 
             local languages = {
                 "bash",
@@ -51,9 +52,10 @@ return {
                 "json",
                 "jsonc",
                 "hyprlang",
-                "css"
+                "css",
+
                 -- "genexpr",
-                -- "supercollider",
+                "supercollider",
             }
 
             require("nvim-treesitter").install(languages)
