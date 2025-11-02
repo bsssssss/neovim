@@ -92,8 +92,8 @@ return {
             --- @type table | nil
             mappings = {
                 send_line = { mode = { "i", "n" }, key = "<S-CR>" },
-                send_visual = { mode = { "x" }, key = "<M-CR>" },
-                send_block = { mode = { "i", "n" }, key = "<M-CR>" },
+                send_visual = { mode = { "x" }, key = "<C-CR>" },
+                send_block = { mode = { "i", "n" }, key = "<C-CR>" },
                 -- send_node = { mode = "n", key = "<leader><CR>" },
                 send_silence = { mode = "n", key = "<leader>d" },
                 send_hush = { mode = "n", key = "<C-.>" },

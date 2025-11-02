@@ -54,6 +54,8 @@ return {
 
             require("nvim-treesitter").install(languages)
 
+            vim.treesitter.language.register("bash", "zsh")
+
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = languages,
                 callback = function()
@@ -61,7 +63,6 @@ return {
                 end,
             })
 
-            vim.treesitter.language.register("bash", "zsh")
         end,
     },
     {
