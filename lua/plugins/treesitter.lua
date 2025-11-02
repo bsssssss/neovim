@@ -26,7 +26,6 @@ return {
                         ---@diagnostic disable-next-line: missing-fields
                         install_info = {
                             path = vim.fn.expand("~/dev/forks/tree-sitter-supercollider"),
-                            queries = 'queries/supercollider'
                         },
                     }
                 end,

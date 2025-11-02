@@ -1,1 +1,1 @@
-/Users/bss/dev/forks/tree-sitter-supercollider/queries/indents.scm
+/home/bss/dev/forks/tree-sitter-supercollider/queries/indents.scm
