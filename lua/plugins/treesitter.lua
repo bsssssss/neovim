@@ -52,6 +52,7 @@ return {
                 "jsonc",
                 "hyprlang",
                 "css",
+                "regex",
 
                 -- "genexpr",
                 "supercollider",
