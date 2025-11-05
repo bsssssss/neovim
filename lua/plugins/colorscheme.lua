@@ -86,6 +86,7 @@ return {
                         StatusLine = { bg = "NONE", fg = "#c6b7a0" },
                         StatusLineNC = { bg = "NONE" },
                         MsgArea = { fg = colors.palette.dragonViolet },
+                        WinSeparator = {fg = ui.p2 },
 
                         IblIndent = { fg = colors.palette.sumiInk4 },
                         MiniIndentscopeSymbol = { fg = colors.palette.sumiInk6 },
