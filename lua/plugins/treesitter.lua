@@ -53,6 +53,7 @@ return {
                 "hyprlang",
                 "css",
                 "regex",
+                "java",
 
                 -- "genexpr",
                 "supercollider",
@@ -62,6 +63,7 @@ return {
 
             vim.treesitter.language.register("bash", "zsh")
             vim.treesitter.language.register("bash", "sh")
+            vim.treesitter.language.register("java", "processing")
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = languages,
