@@ -1,20 +1,4 @@
 return {
-    -- {
-    --  "f-person/auto-dark-mode.nvim",
-    --  enabled = false,
-    --  opts = {
-    --      set_dark_mode = function()
-    --          vim.api.nvim_set_option_value("background", "dark", {})
-    --          vim.cmd("colorscheme kanagawa-dragon")
-    --      end,
-    --      set_light_mode = function()
-    --          vim.api.nvim_set_option_value("background", "light", {})
-    --          vim.cmd("colorscheme solarized")
-    --      end,
-    --      update_interval = 3000,
-    --      fallback = "dark",
-    --  },
-    -- },
     {
         "rebelot/kanagawa.nvim",
         lazy = false,
@@ -74,7 +58,7 @@ return {
                         LineNr = { fg = colors.palette.sumiInk6 },
                         StatusLine = { bg = "NONE", fg = "#c6b7a0" },
                         StatusLineNC = { bg = "NONE" },
-                        MsgArea = { fg = colors.palette.dragonViolet },
+                        MsgArea = { fg = colors.palette.dragonPink },
                         TabLine = { bg = "NONE" },
                         TabLineFill = { link = "TabLine" },
                         IblIndent = { fg = colors.palette.sumiInk4 },
@@ -89,14 +73,16 @@ return {
                         PmenuThumb = { bg = colors.palette.sumiInk6 },
                         PmenuExtra = { bg = "NONE" },
 
+
                         TelescopeResultsBorder = { link = "FloatBorder" },
                         TelescopePromptBorder = { link = "FloatBorder" },
                         TelescopePreviewBorder = { link = "FloatBorder" },
 
                         Normal = { fg = "#c6b7a0" },
+                        Visual = { bg = colors.palette.sumiInk4 },
                         LazyGitFloat = { fg = "#c6b7a0" },
                         LazyGitBorder = { link = "FloatBorder" },
-                        -- Comment = { fg = colors.palette.sumiInk6 },
+                        Comment = { fg = colors.palette.sumiInk6 },
                         Operator = { fg = colors.palette.dragonGray3 },
                         Special = { bold = true },
                         ["@markup.heading"] = { fg = colors.palette.dragonOrange2, bold = true },
@@ -113,12 +99,5 @@ return {
             -- setup must be called before loading
             vim.cmd("colorscheme kanagawa-dragon")
         end,
-    },
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        -- config = function()
-        --     vim.cmd("colorscheme rose-pine")
-        -- end
     },
 }
