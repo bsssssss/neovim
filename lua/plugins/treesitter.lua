@@ -26,7 +26,7 @@ return {
                         ---@diagnostic disable-next-line: missing-fields
                         install_info = {
                             path = "/Users/bss/dev/forks/tree-sitter-supercollider",
-                            queries = "/Users/bss/dev/forks/tree-sitter-supercollider/queries"
+                            queries = "/Users/bss/dev/forks/tree-sitter-supercollider/queries",
                         },
                     }
                 end,
@@ -51,7 +51,7 @@ return {
                 "json",
                 "jsonc",
                 "genexpr",
-                "supercollider"
+                "supercollider",
             }
 
             require("nvim-treesitter").install(languages)
@@ -64,7 +64,6 @@ return {
                     vim.treesitter.start()
                 end,
             })
-
         end,
     },
     {
@@ -135,6 +134,24 @@ return {
                     "locals"
                 )
             end)
+        end,
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        lazy = false,
+        config = function()
+            require("nvim-ts-autotag").setup({
+                opts = {
+                    enable_close = true,
+                    enable_rename = true,
+                    enable_close_on_slash = false,
+                },
+                per_filetype = {
+                    ["html"] = {
+                        enable_close = true,
+                    },
+                },
+            })
         end,
     },
 }
