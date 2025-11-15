@@ -6,7 +6,8 @@ return {
         local colors = {
             -- bg = kana.theme.ui.bg_m1,
             bg = nil,
-            fg = kana.theme.syn.keyword,
+            fg = kana.palette.dragonViolet,
+            dim = kana.palette.dragonAsh,
             -- warm = "#c4b28a",
             warm = kana.theme.syn.identifier,
             blue = kana.palette.dragonBlue2,
@@ -35,8 +36,9 @@ return {
         end
 
         local function scstatus()
-            if vim.bo.filetype == "supercollider" or true then
+            if vim.bo.filetype == "supercollider" then
                 local stat = require("scnvim.statusline").get_server_status()
+                ---@diagnostic disable-next-line: undefined-field
                 stat = stat:gsub("%%", "%%%%")
                 return stat
             else
@@ -88,7 +90,7 @@ return {
                 lualine_c = {},
 
                 lualine_x = {
-                    { scstatus },
+                    { scstatus, color = { fg = colors.dim } },
                 },
                 lualine_y = {
                     { "filetype", icons_enabled = false },

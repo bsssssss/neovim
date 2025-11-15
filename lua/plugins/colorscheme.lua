@@ -17,6 +17,7 @@ return {
                 dimInactive = false,
                 terminalColors = true,
                 colors = {
+                    ---@type PaletteColors
                     palette = {},
                     theme = {
                         wave = {},
@@ -24,6 +25,7 @@ return {
                         dragon = {
                             ui = {
                                 bg = "#222222",
+                                fg = "#c6b7a0",
                                 float = {
                                     fg = "#c6b7a0",
                                 },
@@ -49,43 +51,48 @@ return {
                         },
                     },
                 },
+                ---@param colors KanagawaColorsSpec
                 overrides = function(colors) -- add/modify highlights
+                    ---@type ThemeColors
                     local theme = colors.theme
+                    ---@type PaletteColors
+                    local palette = colors.palette
                     return {
                         EndOfBuffer = { link = "LineNr" },
                         CursorLine = { bg = "NONE" },
-                        CursorLineNr = { fg = colors.palette.dragonTeal, bold = true },
-                        LineNr = { fg = colors.palette.sumiInk6 },
+                        CursorLineNr = { fg = palette.dragonViolet, bold = true },
+                        LineNr = { fg = palette.sumiInk6 },
                         StatusLine = { bg = "NONE", fg = "#c6b7a0" },
                         StatusLineNC = { bg = "NONE" },
-                        MsgArea = { fg = colors.palette.dragonPink },
+                        MsgArea = { fg = palette.dragonAsh },
                         TabLine = { bg = "NONE" },
                         TabLineFill = { link = "TabLine" },
-                        IblIndent = { fg = colors.palette.sumiInk4 },
-                        MiniIndentscopeSymbol = { fg = colors.palette.sumiInk6 },
+                        -- IblIndent = { fg = palette.sumiInk4 },
+                        -- MiniIndentscopeSymbol = { fg = palette.sumiInk6 },
+                        SnacksIndentScope = { fg = palette.sumiInk6 },
+                        SnacksIndent = { fg = palette.sumiInk4 },
 
-                        LspReferenceText = { bg = colors.palette.sumiInk5 },
+                        LspReferenceText = { bg = palette.sumiInk5 },
                         LspReferenceWrite = { bg = "none", underline = true },
 
-                        Pmenu = { fg = theme.ui.shade0, bg = colors.palette.sumiInk4 }, -- add `blend = vim.o.pumblend` to enable transparency
-                        PmenuSel = { fg = "NONE", bg = colors.palette.sumiInk5 },
-                        PmenuSbar = { bg = colors.palette.sumiInk4 },
-                        PmenuThumb = { bg = colors.palette.sumiInk6 },
+                        Pmenu = { bg = palette.sumiInk4 }, -- add `blend = vim.o.pumblend` to enable transparency
+                        PmenuSel = { fg = "NONE", bg = palette.sumiInk5, bold = true },
+                        PmenuSbar = { bg = palette.sumiInk4 },
+                        PmenuThumb = { bg = palette.sumiInk6 },
                         PmenuExtra = { bg = "NONE" },
-
 
                         TelescopeResultsBorder = { link = "FloatBorder" },
                         TelescopePromptBorder = { link = "FloatBorder" },
                         TelescopePreviewBorder = { link = "FloatBorder" },
 
-                        Normal = { fg = "#c6b7a0" },
-                        Visual = { bg = colors.palette.sumiInk4 },
+                        -- Normal = { fg = "#c6b7a0" },
+                        Visual = { bg = palette.sumiInk5 },
                         LazyGitFloat = { fg = "#c6b7a0" },
                         LazyGitBorder = { link = "FloatBorder" },
-                        Comment = { fg = colors.palette.sumiInk6 },
-                        Operator = { fg = colors.palette.dragonGray3 },
+                        Comment = { fg = palette.dragonAsh },
+                        Operator = { fg = palette.dragonGray3 },
                         Special = { bold = true },
-                        ["@markup.heading"] = { fg = colors.palette.dragonOrange2, bold = true },
+                        ["@markup.heading"] = { fg = palette.dragonOrange2, bold = true },
                         ["@method"] = { link = "Function" },
                     }
                 end,

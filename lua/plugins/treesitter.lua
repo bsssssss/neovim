@@ -26,6 +26,7 @@ return {
                         ---@diagnostic disable-next-line: missing-fields
                         install_info = {
                             path = "/Users/bss/dev/forks/tree-sitter-supercollider",
+                            queries = "/Users/bss/dev/forks/tree-sitter-supercollider/queries"
                         },
                     }
                 end,
