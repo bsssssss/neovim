@@ -64,7 +64,7 @@ return {
                         LineNr = { fg = palette.sumiInk6 },
                         StatusLine = { bg = "NONE", fg = "#c6b7a0" },
                         StatusLineNC = { bg = "NONE" },
-                        MsgArea = { fg = palette.dragonAsh },
+                        MsgArea = { fg = palette.lotusGray3 },
                         TabLine = { bg = "NONE" },
                         TabLineFill = { link = "TabLine" },
                         -- IblIndent = { fg = palette.sumiInk4 },
@@ -94,6 +94,7 @@ return {
                         Special = { bold = true },
                         ["@markup.heading"] = { fg = palette.dragonOrange2, bold = true },
                         ["@method"] = { link = "Function" },
+                        ["@variable"] = { fg = palette.dragonWhite },
                     }
                 end,
                 -- theme = "dragon",
