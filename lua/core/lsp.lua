@@ -27,6 +27,7 @@ vim.lsp.enable({
     "tidal_language_server",
     "vimls",
     "hyprls",
+    "racket_langserver",
     -- "tailwindcss"
 })
 

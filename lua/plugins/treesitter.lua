@@ -54,6 +54,7 @@ return {
                 "css",
                 "regex",
                 "java",
+                "racket",
 
                 -- "genexpr",
                 "supercollider",
@@ -61,7 +62,7 @@ return {
 
             require("nvim-treesitter").install(languages)
 
-            vim.treesitter.language.register("bash", "zsh")
+            -- vim.treesitter.language.register("bash", "zsh")
             vim.treesitter.language.register("bash", "sh")
             vim.treesitter.language.register("java", "processing")
 
