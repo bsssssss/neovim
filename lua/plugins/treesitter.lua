@@ -14,13 +14,6 @@ return {
             vim.api.nvim_create_autocmd("User", {
                 pattern = "TSUpdate",
                 callback = function()
-                    -- ---@diagnostic disable-next-line: missing-fields
-                    -- require("nvim-treesitter.parsers").genexpr = {
-                    --     ---@diagnostic disable-next-line: missing-fields
-                    --     install_info = {
-                    --         path = "/Users/bss/dev/forks/tree-sitter-genexpr",
-                    --     },
-                    -- }
                     ---@diagnostic disable-next-line: missing-fields
                     require("nvim-treesitter.parsers").supercollider = {
                         ---@diagnostic disable-next-line: missing-fields
@@ -55,8 +48,6 @@ return {
                 "regex",
                 "java",
                 "racket",
-
-                -- "genexpr",
                 "supercollider",
             }
 
