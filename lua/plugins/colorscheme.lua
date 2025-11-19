@@ -1,20 +1,4 @@
 return {
-    -- {
-    --  "f-person/auto-dark-mode.nvim",
-    --  enabled = false,
-    --  opts = {
-    --      set_dark_mode = function()
-    --          vim.api.nvim_set_option_value("background", "dark", {})
-    --          vim.cmd("colorscheme kanagawa-dragon")
-    --      end,
-    --      set_light_mode = function()
-    --          vim.api.nvim_set_option_value("background", "light", {})
-    --          vim.cmd("colorscheme solarized")
-    --      end,
-    --      update_interval = 3000,
-    --      fallback = "dark",
-    --  },
-    -- },
     {
         "rebelot/kanagawa.nvim",
         lazy = false,
@@ -27,7 +11,7 @@ return {
                 p3 = "#282523",
                 p4 = "#49443f",
                 p5 = "#655e57",
-                fg = "#c6b7a0"
+                fg = "#c6b7a0",
             }
             -- Default options:
             require("kanagawa").setup({
@@ -69,7 +53,7 @@ return {
                             vcs = {
                                 removed = "#c4746e",
                                 added = "#8a9a7b",
-                                changed = ui.p4,
+                                changed = ui.p5,
                             },
                         },
                     },
@@ -86,12 +70,12 @@ return {
                         StatusLine = { bg = "NONE", fg = "#c6b7a0" },
                         StatusLineNC = { bg = "NONE" },
                         MsgArea = { fg = colors.palette.dragonViolet },
-                        WinSeparator = {fg = ui.p2 },
+                        WinSeparator = { fg = ui.p2 },
 
                         IblIndent = { fg = colors.palette.sumiInk4 },
                         MiniIndentscopeSymbol = { fg = colors.palette.sumiInk6 },
 
-                        LspReferenceText = { bg = ui.p1 },
+                        LspReferenceText = { bg = ui.p2 },
                         LspReferenceWrite = { bg = "none", underline = true },
 
                         Pmenu = { fg = theme.ui.shade0, bg = ui.p1, blend = 50 }, -- add `blend = vim.o.pumblend` to enable transparency
@@ -105,7 +89,7 @@ return {
                         TelescopePreviewBorder = { link = "FloatBorder" },
 
                         Normal = { fg = ui.fg },
-                        Visual = { bg = ui.p2 },
+                        Visual = { bg = ui.p3 },
                         FloatBorder = { fg = ui.p4 },
                         LazyGitFloat = { fg = "#c6b7a0" },
                         LazyGitBorder = { link = "FloatBorder" },
@@ -126,12 +110,5 @@ return {
             -- setup must be called before loading
             vim.cmd("colorscheme kanagawa-dragon")
         end,
-    },
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        -- config = function()
-        --     vim.cmd("colorscheme rose-pine")
-        -- end
     },
 }
