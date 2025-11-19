@@ -16,6 +16,7 @@ vim.lsp.enable({
     "clangd",
     "cmake",
     "html",
+    "tailwindcss",
     "cssls",
     -- "emmet_language_server",
     -- "hls",
@@ -28,7 +29,6 @@ vim.lsp.enable({
     "vimls",
     "hyprls",
     "racket_langserver",
-    -- "tailwindcss"
 })
 
 vim.diagnostic.config({

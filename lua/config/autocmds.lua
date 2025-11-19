@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_hover) then
             map("K", function()
                 vim.lsp.buf.hover({
@@ -66,76 +67,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
--- GenExpr language server
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "genexpr",
---     callback = function()
---         vim.defer_fn(function()
---             vim.cmd(":InspectTree")
---             local sendBottomKey = vim.api.nvim_replace_termcodes("<C-w>J", true, false, true)
---             vim.api.nvim_feedkeys(sendBottomKey, "n", false)
---         end, 100)
---         vim.defer_fn(function()
---             local goBack = vim.api.nvim_replace_termcodes("<C-w>k", true, false, true)
---             vim.api.nvim_feedkeys(goBack, "n", false)
---         end, 100)
---
---         vim.lsp.start({
---             name = "genexpr-language-server",
---             cmd = {
---                 "node",
---                 vim.fn.expand(
---                     "~/dev/github.com/bsssssss/genexpr-language-server/out/server/server.js"
---                 ),
---                 "--stdio",
---             },
---             handlers = {
---                 ["window/showMessage"] = function(_, result, ctx)
---                     vim.notify(result.message, vim.log.levels.INFO, { title = "GenExpr LSP" })
---                 end,
---                 ["window/logMessage"] = function(_, result, ctx)
---                     vim.notify("LSP log: " .. result.message, vim.log.levels.DEBUG, {})
---                 end,
---             },
---             root_dir = vim.fn.getcwd(),
---         })
---     end,
--- })
-
--- Tidal language server
--- vim.api.nvim_create_autocmd("FileType", {
---  pattern = "tidal",
---  callback = function()
---      -- local logfile = "/tmp/tidal_ls.log"
---      local client_id = vim.lsp.start({
---          name = "tidal_ls",
---          cmd = { vim.fn.expand("~/.local/bin/tidal-ls") },
---          handlers = {
---              ["window/showMessage"] = function(_, result, ctx)
---                  vim.notify(
---                      "LSP Message: " .. result.message,
---                      vim.log.levels.INFO,
---                      { title = "Tidal LSP" }
---                  )
---              end,
---              ["window/logMessage"] = function(_, result, ctx)
---                  vim.notify(
---                      "LSP Log: " .. result.message,
---                      vim.log.levels.DEBUG,
---                      { title = "Tidal LSP Log" }
---                  )
---              end,
---          },
---      })
---      if not client_id then
---          vim.notify("Failed to start LSP client", vim.log.levels.ERROR)
---      else
---          vim.notify("LSP client started", vim.log.levels.INFO)
---      end
---  end,
--- })
-
---------------------------------------------------------------------------------
 -- OTHER --
 
 vim.api.nvim_create_autocmd("FileType", {
