@@ -69,7 +69,7 @@ return {
                         TabLineFill = { link = "TabLine" },
                         StatusLine = { bg = "NONE", fg = "#c6b7a0" },
                         StatusLineNC = { bg = "NONE" },
-                        MsgArea = { fg = colors.palette.dragonViolet },
+                        MsgArea = { fg = ui.p5 },
                         WinSeparator = { fg = ui.p2 },
 
                         IblIndent = { fg = colors.palette.sumiInk4 },
