@@ -67,8 +67,6 @@ return {
                         MsgArea = { fg = palette.lotusGray3 },
                         TabLine = { bg = "NONE" },
                         TabLineFill = { link = "TabLine" },
-                        -- IblIndent = { fg = palette.sumiInk4 },
-                        -- MiniIndentscopeSymbol = { fg = palette.sumiInk6 },
                         SnacksIndentScope = { fg = palette.sumiInk6 },
                         SnacksIndent = { fg = palette.sumiInk4 },
 

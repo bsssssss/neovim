@@ -5,7 +5,8 @@ return {
         local kana = require("kanagawa.colors").setup()
         local colors = {
             -- bg = kana.theme.ui.bg_m1,
-            bg = nil,
+            -- bg = nil,
+            bg = "#25252e",
             fg = kana.palette.dragonViolet,
             dim = kana.palette.dragonAsh,
             -- warm = "#c4b28a",
@@ -49,8 +50,8 @@ return {
         require("lualine").setup({
             options = {
                 globalstatus = true,
-                component_separators = { left = "›", right = "" },
-                section_separators = { left = "", right = "" },
+                component_separators = { left = "›", right = "" },
+                section_separators = { left = "", right = "" },
                 theme = theme,
                 disabled_filetypes = {
                     "snacks_picker_list",
@@ -60,7 +61,7 @@ return {
                     statusline = 500,
                     tabline = 1000,
                     winbar = 1000,
-                    refresh_time = 16, -- ~60fps
+                    refresh_time = 8, -- ~60fps
                     events = {
                         "WinEnter",
                         "BufEnter",
@@ -84,15 +85,15 @@ return {
                         color = { gui = "bold" },
                     },
                     { "filename", icons_enabled = true },
-                    { "diagnostics", source = { "nvim" } },
                 },
                 lualine_b = {},
                 lualine_c = {},
 
                 lualine_x = {
-                    { scstatus, color = { fg = colors.dim } },
                 },
                 lualine_y = {
+                    { scstatus, color = { fg = colors.dim } },
+                    { "diagnostics", source = { "nvim" } },
                     { "filetype", icons_enabled = false },
                     { encoding },
                 },
