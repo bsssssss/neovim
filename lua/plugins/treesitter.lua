@@ -35,6 +35,7 @@ return {
             local languages = {
                 "bash",
                 "zsh",
+                "sh",
                 "make",
                 "c",
                 "diff",
