@@ -5,8 +5,8 @@ return {
         local kana = require("kanagawa.colors").setup()
         local colors = {
             -- bg = kana.theme.ui.bg_m1,
-            -- bg = nil,
-            bg = "#25252e",
+            bg = nil,
+            -- bg = "#25252e",
             fg = kana.palette.dragonViolet,
             dim = kana.palette.dragonAsh,
             -- warm = "#c4b28a",
