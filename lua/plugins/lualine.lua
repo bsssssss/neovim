@@ -61,7 +61,7 @@ return {
                     statusline = 500,
                     tabline = 1000,
                     winbar = 1000,
-                    refresh_time = 8, -- ~60fps
+                    refresh_time = 33, -- ~60fps
                     events = {
                         "WinEnter",
                         "BufEnter",
