@@ -49,6 +49,7 @@ return {
                 "java",
                 "racket",
                 "supercollider",
+                "yaml",
             }
 
             require("nvim-treesitter").install(languages)

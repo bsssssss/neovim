@@ -2,10 +2,7 @@ return {
     {
         "mfussenegger/nvim-dap",
         config = function()
-            vim.fn.sign_define(
-                "DapBreakpoint",
-                { text = "", texthl = "Error" }
-            )
+            vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "Error" })
             local dap = require("dap")
 
             -- stylua: ignore start
@@ -32,14 +29,51 @@ return {
                 command = "codelldb",
             }
 
-            dap.configurations.java = {
+            dap.configurations.c = {
                 {
-                    name = "Debug launch (2GB)",
-                    type = "java",
+                    type = "codelldb",
                     request = "launch",
-                    vmArgs = "" .. "-Xmx2g",
+                    name = "Run executable",
+                    program = function()
+                        local path = vim.fn.input({
+                            prompt = "Path to executable: ",
+                            default = vim.fn.getcwd() .. "/",
+                            completion = "file",
+                        })
+
+                        return (path and path ~= "") and path or dap.ABORT
+                    end,
+                },
+                {
+                    type = "codelldb",
+                    request = "launch",
+                    name = "Run executable (with arguments)",
+                    program = function()
+                        local path = vim.fn.input({
+                            prompt = "Path to executable: ",
+                            default = vim.fn.getcwd() .. "/",
+                            completion = "file",
+                        })
+
+                        return (path and path ~= "") and path or dap.ABORT
+                    end,
+                    args = function ()
+                        local args_str = vim.fn.input({
+                            prompt = "Arguments: ",
+                        })
+                        return vim.split(args_str, ' ')
+                    end
                 },
             }
+
+            -- dap.configurations.java = {
+            --     {
+            --         name = "Debug launch (2GB)",
+            --         type = "java",
+            --         request = "launch",
+            --         vmArgs = "" .. "-Xmx2g",
+            --     },
+            -- }
         end,
     },
     {

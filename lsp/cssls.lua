@@ -25,12 +25,12 @@ return {
     cmd = { "vscode-css-language-server", "--stdio" },
     filetypes = { "css", "scss", "less" },
     init_options = { provideFormatter = true }, -- needed to enable formatting capabilities
-    root_dir = function(bufnr, on_dir)
-        local bufname = vim.api.nvim_buf_get_name(bufnr)
-        if not bufname:match("%.config/walker") then
-            on_dir(vim.fn.getcwd())
-        end
-    end,
+    -- root_dir = function(bufnr, on_dir)
+    --     local bufname = vim.api.nvim_buf_get_name(bufnr)
+    --     if not bufname:match("%.config/walker") then
+    --         on_dir(vim.fn.getcwd())
+    --     end
+    -- end,
     root_markers = { "package.json", ".git" },
     settings = {
         css = { validate = true },

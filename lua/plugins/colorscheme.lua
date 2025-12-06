@@ -11,6 +11,7 @@ return {
                 p3 = "#282523",
                 p4 = "#49443f",
                 p5 = "#655e57",
+                p6 = "#8d847b",
                 fg = "#c6b7a0",
             }
             -- Default options:
@@ -69,7 +70,7 @@ return {
                         TabLineFill = { link = "TabLine" },
                         StatusLine = { bg = "NONE", fg = "#c6b7a0" },
                         StatusLineNC = { bg = "NONE" },
-                        MsgArea = { fg = ui.p5 },
+                        MsgArea = { fg = ui.p6 },
                         WinSeparator = { fg = ui.p2 },
 
                         IblIndent = { fg = colors.palette.sumiInk4 },
@@ -81,7 +82,7 @@ return {
                         Pmenu = { fg = theme.ui.shade0, bg = ui.p1, blend = 50 }, -- add `blend = vim.o.pumblend` to enable transparency
                         PmenuSel = { fg = "NONE", bg = ui.p3 },
                         PmenuSbar = { bg = ui.p1 },
-                        PmenuThumb = { bg = ui.p3 },
+                        PmenuThumb = { bg = ui.p4 },
                         PmenuExtra = { bg = "NONE" },
 
                         TelescopeResultsBorder = { link = "FloatBorder" },
