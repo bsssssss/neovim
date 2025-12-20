@@ -8,7 +8,7 @@ return {
 
         ---@type snacks.Config
         opts = {
-            bigfile = { enabled = true },
+            bigfile = { enabled = false },
             -- image = {
             --  doc = {
             --      max_width = 30,
@@ -88,7 +88,6 @@ return {
             },
 
             picker = {
-                enabled = true,
                 layout = {
                     preset = "ivy",
                     position = "bottom",

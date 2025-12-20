@@ -2,10 +2,7 @@ return {
     {
         "mfussenegger/nvim-dap",
         config = function()
-            vim.fn.sign_define(
-                "DapBreakpoint",
-                { text = "", texthl = "Error" }
-            )
+            vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "Error" })
             local dap = require("dap")
 
             -- stylua: ignore start
@@ -27,9 +24,10 @@ return {
             vim.keymap.set("n", "<leader>dt", function() require("dap").terminate(); require("dapui").close(); end)
             -- stylua: ignore end
 
-            dap.adapters.codelldb = {
+            dap.adapters.lldb = {
                 type = "executable",
-                command = "codelldb",
+                command = "/opt/homebrew/opt/llvm/bin/lldb-dap",
+                name = "lldb",
             }
 
             dap.configurations.java = {
@@ -38,6 +36,34 @@ return {
                     type = "java",
                     request = "launch",
                     vmArgs = "" .. "-Xmx2g",
+                },
+            }
+
+            dap.configurations.c = {
+                {
+                    name = "Launch",
+                    type = "lldb",
+                    request = "launch",
+                    program = function()
+                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                    args = {},
+                },
+                {
+                    name = "Launch (with arguments)",
+                    type = "lldb",
+                    request = "launch",
+                    program = function()
+                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                    args = function()
+                        local arg_str = vim.fn.input("Arguments: ")
+                        return vim.split(arg_str, " ")
+                    end,
                 },
             }
         end,
@@ -80,12 +106,18 @@ return {
             end
 
             dap.listeners.before.event_terminated.dapui_config = function()
-                -- dapui.close()
+                dapui.close()
             end
 
             dap.listeners.before.event_exited.dapui_config = function()
                 -- dapui.close()
             end
+        end,
+    },
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        config = function()
+            require("nvim-dap-virtual-text").setup({})
         end,
     },
     -- {

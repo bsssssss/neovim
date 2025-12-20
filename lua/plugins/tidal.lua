@@ -1,44 +1,9 @@
 return {
-    -- {
-    --  -- "bsssssss/tidal.nvim",
-    --  dir = "/Users/bss/dev/personal/tidal.nvim",
-    --  -- branch = "dev",
-    --  ft = "tidal",
-    --  enabled = true,
-    --  config = function()
-    --      require("tidal").setup({
-    --          tidal_boot = "/Users/bss/livecoding/tidal/setup/BootTidal.hs",
-    --      })
-    --      vim.api.nvim_create_autocmd("FileType", {
-    --          pattern = "tidal",
-    --          callback = function()
-    --              vim.keymap.set(
-    --                  { "n", "i" },
-    --                  "<C-e>",
-    --                  "<cmd>TidalEval<CR>",
-    --                  { desc = "Send to Tidal" }
-    --              )
-    --              vim.keymap.set(
-    --                  { "n", "i" },
-    --                  "<C-.>",
-    --                  "<cmd>TidalHush<CR>",
-    --                  { desc = "Hush Tidal" }
-    --              )
-    --              vim.keymap.set(
-    --                  "n",
-    --                  "<CR>",
-    --                  "<cmd>TidalPostWindowToggle<CR>",
-    --                  { desc = "Toggle Tidal post window" }
-    --              )
-    --          end,
-    --      })
-    --  end,
-    -- },
     {
         -- "thgrund/tidal.nvim",
         dir = "/Users/bss/dev/forks/tidal.nvim",
         dev = true,
-        ft = "tidal",
+        -- ft = "tidal",
         opts = {
             --- Configure TidalLaunch command
             boot = {
@@ -60,15 +25,15 @@ return {
                                 ip = "127.0.0.1",
                                 port = 3335,
                             },
-                               global = {
-                                   baseName = "TidalPattern",
-                                   --- @type vim.api.keyset.highlight
-                                   style = {
-                                       bg = "NONE",
-                                       foreground = "NONE",
-                                       underline = true,
-                                   },
-                               },
+                            global = {
+                                baseName = "TidalPattern",
+                                --- @type vim.api.keyset.highlight
+                                style = {
+                                    bg = "NONE",
+                                    foreground = "NONE",
+                                    underline = true,
+                                },
+                            },
                         },
                         fps = 30,
                     },
@@ -77,11 +42,6 @@ return {
                     --- Command to launch SuperCollider
                     cmd = "sclang",
                     args = {},
-                    -- SuperCollider boot file
-                    -- file = vim.api.nvim_get_runtime_file(
-                    --  "bootfiles/BootSuperDirt.scd",
-                    --  false
-                    -- )[1],
                     file = "/Users/bss/supercollider/superdirt-setup/superdirt-startup.scd",
                     enabled = true,
                 },
@@ -111,7 +71,6 @@ return {
         -- Recommended: Install TreeSitter parsers for Haskell and SuperCollider
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
-            opts = { ensure_installed = { "haskell", "supercollider" } },
         },
         -- config = function(_, opts)
         --  require("tidal").setup(opts)

@@ -65,6 +65,8 @@ return {
                         StatusLine = { bg = "NONE", fg = "#c6b7a0" },
                         StatusLineNC = { bg = "NONE" },
                         MsgArea = { fg = palette.lotusGray3 },
+                        Msg = { bg = "NONE" },
+                        MsgSeparator = { bg = "NONE" },
                         TabLine = { bg = "NONE" },
                         TabLineFill = { link = "TabLine" },
                         SnacksIndentScope = { fg = palette.sumiInk6 },
@@ -72,6 +74,8 @@ return {
 
                         LspReferenceText = { bg = palette.sumiInk5 },
                         LspReferenceWrite = { bg = "none", underline = true },
+
+                        Folded = { link = "LineNr" },
 
                         Pmenu = { bg = palette.sumiInk4 }, -- add `blend = vim.o.pumblend` to enable transparency
                         PmenuSel = { fg = "NONE", bg = palette.sumiInk5, bold = true },

@@ -37,6 +37,7 @@ return {
                 "zsh",
                 "sh",
                 "make",
+                "cmake",
                 "c",
                 "diff",
                 "html",

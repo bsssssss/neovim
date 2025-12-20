@@ -85,6 +85,7 @@ return {
                         color = { gui = "bold" },
                     },
                     { "filename", icons_enabled = true },
+                    { "diagnostics", source = { "nvim" } },
                 },
                 lualine_b = {},
                 lualine_c = {},
@@ -93,7 +94,6 @@ return {
                 },
                 lualine_y = {
                     { scstatus, color = { fg = colors.dim } },
-                    { "diagnostics", source = { "nvim" } },
                     { "filetype", icons_enabled = false },
                     { encoding },
                 },

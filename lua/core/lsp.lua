@@ -17,13 +17,13 @@ vim.lsp.enable({
     "cmake",
     "cssls",
     "emmet_language_server",
-    -- "hls",
+    "hls",
     "texlab",
     "ts_ls",
     "lemminx",
     "marksman",
     "supercollider",
-    "tidal_language_server",
+    -- "tidal_language_server",
     "vimls"
 })
 
