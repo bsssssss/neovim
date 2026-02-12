@@ -16,7 +16,7 @@ vim.lsp.enable({
     "clangd",
     "cmake",
     "cssls",
-    "emmet_language_server",
+    "emmet_ls",
     "hls",
     "texlab",
     "ts_ls",

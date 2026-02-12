@@ -31,6 +31,19 @@ return {
             ["g."] = { "actions.toggle_hidden", mode = "n" },
             ["g\\"] = { "actions.toggle_trash", mode = "n" },
         },
+        -- Configuration for the floating action confirmation window
+        confirmation = {
+            max_width = 0.9,
+            min_width = { 40, 0.4 },
+            width = nil,
+            max_height = 0.9,
+            min_height = { 5, 0.1 },
+            height = nil,
+            border = "rounded",
+            win_options = {
+                winblend = 0,
+            },
+        },
     },
     -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },

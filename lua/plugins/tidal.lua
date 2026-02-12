@@ -43,7 +43,7 @@ return {
                     cmd = "sclang",
                     args = {},
                     file = "/Users/bss/supercollider/superdirt-setup/superdirt-startup.scd",
-                    enabled = true,
+                    enabled = false,
                 },
                 split = "v",
             },

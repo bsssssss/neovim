@@ -143,3 +143,15 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.expandtab = false
     end,
 })
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TidalLaunch",
+  callback = function()
+    require("scnvim").start()
+
+    local bootfile = "/Users/bss/supercollider/superdirt-setup/superdirt-startup.scd"
+    local file = assert(io.open(bootfile, "r"), "bootfile not found")
+    require("scnvim").send(file:read("*a"))
+  end
+})
+

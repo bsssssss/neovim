@@ -35,7 +35,7 @@ return {
             local languages = {
                 "bash",
                 "zsh",
-                "sh",
+                -- "sh",
                 "make",
                 "cmake",
                 "c",
@@ -51,9 +51,11 @@ return {
                 "javascript",
                 "typescript",
                 "json",
-                "jsonc",
+                -- "jsonc",
                 "genexpr",
                 "supercollider",
+                "toml",
+                "haskell",
             }
 
             require("nvim-treesitter").install(languages)
