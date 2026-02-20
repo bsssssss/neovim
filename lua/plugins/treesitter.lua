@@ -35,7 +35,7 @@ return {
             local languages = {
                 "bash",
                 "zsh",
-                -- "sh",
+                "sh",
                 "make",
                 "cmake",
                 "c",
@@ -61,6 +61,7 @@ return {
             require("nvim-treesitter").install(languages)
 
             vim.treesitter.language.register("bash", "zsh")
+            vim.treesitter.language.register("bash", "sh")
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = languages,
