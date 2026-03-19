@@ -4,6 +4,9 @@ vim.lsp.config("*", {
             semanticTokens = {
                 multilineTokenSupport = true,
             },
+            foldingRange = {
+                lineFoldingOnly = true,
+            },
         },
     },
     -- root_markers = { ".git" },
@@ -24,7 +27,7 @@ vim.lsp.enable({
     "marksman",
     "supercollider",
     -- "tidal_language_server",
-    "vimls"
+    "vimls",
 })
 
 vim.diagnostic.config({

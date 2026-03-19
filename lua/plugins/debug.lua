@@ -30,6 +30,13 @@ return {
                 name = "lldb",
             }
 
+            dap.adapters.gdb = {
+                id = "gdb",
+                type = "executable",
+                command = "gdb",
+                args = { "--quiet", "--interpreter=dap" },
+            }
+
             dap.configurations.java = {
                 {
                     name = "Debug launch (2GB)",
@@ -41,7 +48,7 @@ return {
 
             dap.configurations.c = {
                 {
-                    name = "Launch",
+                    name = "Run executable (LLDB)",
                     type = "lldb",
                     request = "launch",
                     program = function()
@@ -52,7 +59,7 @@ return {
                     args = {},
                 },
                 {
-                    name = "Launch (with arguments)",
+                    name = "Run executable with arguments (LLDB)",
                     type = "lldb",
                     request = "launch",
                     program = function()
@@ -63,6 +70,20 @@ return {
                     args = function()
                         local arg_str = vim.fn.input("Arguments: ")
                         return vim.split(arg_str, " ")
+                    end,
+                },
+                {
+                    name = "Run executable (GDB)",
+                    type = "gdb",
+                    request = "launch",
+                    program = function()
+                        local path = vim.fn.input({
+                            prompt = "Path to executable: ",
+                            default = vim.fn.getcwd() .. "/",
+                            completion = "file",
+                        })
+
+                        return (path and path ~= "") and path or dap.ABORT
                     end,
                 },
             }

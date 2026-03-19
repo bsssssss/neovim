@@ -67,3 +67,5 @@ o.shortmess = "aOt"
 o.showcmd = false
 
 vim.g.c_syntax_for_h = true
+
+o.foldlevel = 999

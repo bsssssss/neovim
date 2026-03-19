@@ -72,9 +72,9 @@ return {
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
-        -- config = function(_, opts)
-        --  require("tidal").setup(opts)
-        --  vim.api.nvim_set_hl(0, "CodeHighlight", { fg = "NONE", underline = true })
-        -- end,
+        config = function(_, opts)
+         require("tidal").setup(opts)
+         -- vim.api.nvim_set_hl(0, "CodeHighlight", { fg = "NONE", underline = true })
+        end,
     },
 }
