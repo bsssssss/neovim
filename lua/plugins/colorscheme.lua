@@ -1,16 +1,9 @@
+---@diagnostic disable: need-check-nil
 -- Detect system appearance (macOS only)
 local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
 local result = handle:read("*a")
 handle:close()
-
 local is_dark = result:match("Dark") ~= nil
-
--- Decide flavour and background based on appearance
-local flavour = is_dark and "dragon" or "lotus"
-local background = {
-    light = "latte",
-    dark = "mocha",
-}
 
 local theme = {}
 
@@ -79,7 +72,7 @@ if is_dark then
                             CursorLine = { bg = "NONE" },
                             CursorLineNr = { fg = palette.dragonViolet, bold = true },
                             LineNr = { fg = palette.sumiInk6 },
-                            StatusLine = { bg = "NONE", fg = "#c6b7a0" },
+                            StatusLine = { bg = "NONE", fg = palette.dragonGray2 },
                             StatusLineNC = { bg = "NONE" },
                             MsgArea = { fg = palette.lotusGray3 },
                             Msg = { bg = "NONE" },
@@ -108,15 +101,19 @@ if is_dark then
                             Visual = { bg = palette.sumiInk5 },
                             LazyGitFloat = { fg = "#c6b7a0" },
                             LazyGitBorder = { link = "FloatBorder" },
+                            Type = { bold = true },
                             Comment = { fg = palette.dragonAsh },
                             Operator = { fg = palette.dragonGray3 },
-                            Special = { bold = true },
+                            Special = { bold = true, fg = palette.lotusBlue3 },
+
                             ["@markup.heading"] = { fg = palette.dragonOrange2, bold = true },
                             ["@method"] = { link = "Function" },
                             ["@variable"] = { fg = palette.dragonWhite },
+                            ["@keyword.operator"] = { bold = true, fg = palette.dragonGray3 },
+                            ["@lsp.type.macro.c"] = { bold = false, fg = palette.dragonRed },
                         }
                     end,
-                    theme = flavour,
+                    theme = "dragon",
                     -- background = {
                     --  dark = "dragon",
                     --  light = "lotus",
@@ -191,34 +188,48 @@ else
                         --     base = '#18191a',
                         --     overlay = '#363738',
                         -- },
+                        dawn = {
+                            gold = "#d58516",
+                        },
                     },
 
                     -- NOTE: Highlight groups are extended (merged) by default. Disable this
                     -- per group via `inherit = false`
                     highlight_groups = {
-                        -- Comment = { fg = "foam" },
+                        Comment = { fg = "muted" },
                         -- StatusLine = { fg = "love", bg = "love", blend = 15 },
                         -- VertSplit = { fg = "muted", bg = "muted" },
                         -- Visual = { fg = "base", bg = "text", inherit = false },
+                        Keyword = { bold = true },
+                        Boolean = { bold = true },
+                        String = { fg = "leaf" },
+                        StatusLine = { bold = true },
+
+                        ["@type"] = { bold = true },
+
+                        ["@constant"] = { fg = "love" },
+                        ["@constant.macro"] = { fg = "love", bold = true },
+
                         ["@keyword.return"] = { bold = true },
                         ["@keyword.repeat"] = { bold = true },
                         ["@keyword.conditional"] = { bold = true },
                         ["@keyword.import"] = { bold = true },
-                        ["@type"] = { bold = true },
-                        Keyword = { bold = true },
+                        ["@keyword.operator"] = { bold = true, fg = "muted" },
+
+                        ["@string.escape"] = { bold = true },
                     },
 
-                    before_highlight = function(group, highlight, palette)
-                        -- Disable all undercurls
-                        -- if highlight.undercurl then
-                        --     highlight.undercurl = false
-                        -- end
-                        --
-                        -- Change palette colour
-                        -- if highlight.fg == palette.pine then
-                        --     highlight.fg = palette.foam
-                        -- end
-                    end,
+                    -- before_highlight = function(group, highlight, palette)
+                    --     -- Disable all undercurls
+                    --     -- if highlight.undercurl then
+                    --     --     highlight.undercurl = false
+                    --     -- end
+                    --     --
+                    --     -- Change palette colour
+                    --     -- if highlight.fg == palette.pine then
+                    --     --     highlight.fg = palette.foam
+                    --     -- end
+                    -- end,
                 })
                 vim.cmd("colorscheme rose-pine")
             end,

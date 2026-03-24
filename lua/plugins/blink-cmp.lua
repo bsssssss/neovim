@@ -58,7 +58,7 @@ return {
                 },
             },
             menu = {
-                auto_show = true,
+                auto_show = false,
                 draw = {
                     components = {
                         -- customize the drawing of kind icons

@@ -10,7 +10,7 @@ o.expandtab = true
 
 o.breakindent = true
 o.autoindent = true
-o.smartindent = true
+o.smartindent = false
 o.wrap = false
 
 o.inccommand = "split"

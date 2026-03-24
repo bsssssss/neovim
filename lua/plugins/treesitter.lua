@@ -45,6 +45,7 @@ return {
                 "luadoc",
                 "markdown",
                 "markdown_inline",
+                "mermaid",
                 "query",
                 "vim",
                 "vimdoc",
@@ -67,6 +68,7 @@ return {
                 pattern = languages,
                 callback = function()
                     vim.treesitter.start()
+                    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
                 end,
             })
         end,
