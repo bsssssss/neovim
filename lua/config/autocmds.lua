@@ -59,7 +59,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
-            vim.lsp.document_color.enable(true, 0, {
+            vim.lsp.document_color.enable(true, {}, {
                 style = "virtual"
             })
         end

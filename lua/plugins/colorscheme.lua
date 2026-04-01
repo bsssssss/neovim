@@ -101,10 +101,12 @@ if is_dark then
                             Visual = { bg = palette.sumiInk5 },
                             LazyGitFloat = { fg = "#c6b7a0" },
                             LazyGitBorder = { link = "FloatBorder" },
-                            Type = { bold = true },
-                            Comment = { fg = palette.dragonAsh },
+                            Type = { bold = false, fg = palette.dragonTeal },
+                            Comment = { fg = palette.dragonGray3 },
                             Operator = { fg = palette.dragonGray3 },
                             Special = { bold = true, fg = palette.lotusBlue3 },
+                            Keyword = { bold = true, fg = palette.dragonBlue },
+                            Boolean = { bold = false },
 
                             ["@markup.heading"] = { fg = palette.dragonOrange2, bold = true },
                             ["@method"] = { link = "Function" },
@@ -205,15 +207,17 @@ else
                         String = { fg = "leaf" },
                         StatusLine = { bold = true },
 
+                        -- Type = { bold = false },
                         ["@type"] = { bold = true },
+                        ["@type.builtin"] = { bold = true },
 
-                        ["@constant"] = { fg = "love" },
+                        ["@constant"] = { fg = "gold" },
                         ["@constant.macro"] = { fg = "love", bold = true },
 
                         ["@keyword.return"] = { bold = true },
                         ["@keyword.repeat"] = { bold = true },
                         ["@keyword.conditional"] = { bold = true },
-                        ["@keyword.import"] = { bold = true },
+                        -- ["@keyword.import"] = { bold = true },
                         ["@keyword.operator"] = { bold = true, fg = "muted" },
 
                         ["@string.escape"] = { bold = true },
