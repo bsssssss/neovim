@@ -27,6 +27,7 @@ vim.lsp.enable({
     "marksman",
     "supercollider",
     -- "tidal_language_server",
+    "genexpr_language_server",
     "vimls",
 })
 
