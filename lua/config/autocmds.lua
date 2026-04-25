@@ -1,3 +1,4 @@
+-- ****************************************************************************
 -- LSP --
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -67,7 +68,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
---------------------------------------------------------------------------------------------------
+-- ****************************************************************************
 -- OTHER --
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -83,7 +84,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Hightlight selection on yank",
     pattern = "*",
     callback = function()
-        vim.highlight.on_yank({ higroup = "LspReferenceText", timeout = 150 })
+        vim.highlight.on_yank({ higroup = "Comment", timeout = 150 })
     end,
 })
 
@@ -99,7 +100,7 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.softtabstop = 2
         vim.opt_local.shiftwidth = 2
         vim.opt_local.expandtab = true
-        vim.opt_local.conceallevel = 2
+        vim.opt_local.conceallevel = 0
     end,
 })
 

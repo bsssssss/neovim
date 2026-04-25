@@ -88,9 +88,13 @@ return {
             },
 
             picker = {
+                -- layout = {
+                --     preset = "ivy",
+                --     position = "bottom",
+                -- },
                 layout = {
-                    preset = "ivy",
-                    position = "bottom",
+                    preset = "sidebar",
+                    position = "right",
                 },
             },
 
