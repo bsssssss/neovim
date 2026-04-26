@@ -29,6 +29,7 @@ vim.lsp.enable({
     -- "tidal_language_server",
     "genexpr_language_server",
     "vimls",
+    "jdtls",
 })
 
 vim.diagnostic.config({

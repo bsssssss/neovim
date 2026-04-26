@@ -109,6 +109,11 @@ local function on_language_status(_, result)
   command 'echohl None'
 end
 
+local bundles = {
+  vim.fn.glob(
+    "/Users/bss/dev/clones/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", true)
+}
+
 ---@type vim.lsp.Config
 return {
   cmd = {
@@ -135,6 +140,7 @@ return {
     workspace = get_jdtls_workspace_dir(),
     jvm_args = {},
     os_config = nil,
+    bundles = bundles
   },
   handlers = {
     -- Due to an invalid protocol implementation in the jdtls we have to conform these to be spec compliant.

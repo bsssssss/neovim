@@ -57,6 +57,7 @@ return {
                 "supercollider",
                 "toml",
                 "haskell",
+                "xml",
             }
 
             require("nvim-treesitter").install(languages)
