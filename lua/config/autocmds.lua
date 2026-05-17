@@ -72,10 +72,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- OTHER --
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "help", "qf" },
+    pattern = { "help*", "qf" },
     desc = "Keymap to close help/qf window",
     callback = function()
         vim.keymap.set("n", "q", ":bd<CR>", { buffer = true, desc = "Close help/qf split window" })
+        vim.opt_local.number = false
+        vim.opt_local.relativenumber = false
+        vim.opt_local.wrap = true
     end,
 })
 

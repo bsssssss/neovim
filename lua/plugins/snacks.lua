@@ -8,7 +8,9 @@ return {
 
         ---@type snacks.Config
         opts = {
-            bigfile = { enabled = false },
+
+            bigfile = { enabled = true },
+
             -- image = {
             --  doc = {
             --      max_width = 30,
@@ -73,7 +75,7 @@ return {
             },
 
             quickfile = { enabled = true },
-            statuscolumn = { enabled = false },
+            statuscolumn = { enabled = true },
             words = { enabled = true },
             indent = {},
 
@@ -88,15 +90,12 @@ return {
             },
 
             picker = {
-                -- layout = {
-                --     preset = "ivy",
-                --     position = "bottom",
-                -- },
                 layout = {
                     preset = "sidebar",
                     position = "right",
                 },
             },
+
 
             -- terminal = {
             --  enabled = true,
@@ -112,7 +111,7 @@ return {
             { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
             { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
             { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
-            -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+            { "<leader>E", function() Snacks.explorer() end, desc = "File Explorer" },
             -- find
             { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
             { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
@@ -214,21 +213,12 @@ return {
                     -- Create some toggle mappings
                     Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
                     Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-                    Snacks.toggle
-                        .option("relativenumber", { name = "Relative Number" })
-                        :map("<leader>uL")
+                    Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
                     Snacks.toggle.diagnostics():map("<leader>ud")
                     Snacks.toggle.line_number():map("<leader>ul")
-                    Snacks.toggle
-                        .option(
-                            "conceallevel",
-                            { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }
-                        )
-                        :map("<leader>uc")
+                    Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
                     Snacks.toggle.treesitter():map("<leader>uT")
-                    Snacks.toggle
-                        .option("background", { off = "light", on = "dark", name = "Dark Background" })
-                        :map("<leader>ub")
+                    Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
                     Snacks.toggle.inlay_hints():map("<leader>uh")
                 end,
             })

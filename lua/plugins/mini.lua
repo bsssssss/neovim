@@ -46,6 +46,9 @@ return {
             },
         })
 
+        local f = function(args) vim.b[args.buf].minipairs_disable = true end
+        vim.api.nvim_create_autocmd('FileType', { pattern = 'md', callback = f })
+
         require("mini.align").setup()
         require("mini.extra").setup()
     end,
