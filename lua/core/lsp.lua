@@ -9,7 +9,7 @@ vim.lsp.config("*", {
             },
         },
     },
-    -- root_markers = { ".git" },
+    root_markers = { ".git" },
 })
 
 vim.lsp.enable({
@@ -30,6 +30,8 @@ vim.lsp.enable({
     "genexpr_language_server",
     "vimls",
     "jdtls",
+    "ruff",
+    "pyright"
 })
 
 vim.diagnostic.config({
