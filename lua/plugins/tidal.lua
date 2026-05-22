@@ -16,15 +16,9 @@ return {
                     enabled = true,
                     highlight = {
                         autostart = true,
-                        osc = {
-                            ip = "127.0.0.1",
-                            port = 6013,
-                        },
+                        osc = { ip = "127.0.0.1", port = 6013 },
                         styles = {
-                            osc = {
-                                ip = "127.0.0.1",
-                                port = 3335,
-                            },
+                            osc = { ip = "127.0.0.1", port = 3335 },
                             global = {
                                 baseName = "TidalPattern",
                                 --- @type vim.api.keyset.highlight
@@ -68,13 +62,18 @@ return {
                 timeout = 150,
             },
         },
-        -- Recommended: Install TreeSitter parsers for Haskell and SuperCollider
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
         config = function(_, opts)
-         require("tidal").setup(opts)
-         -- vim.api.nvim_set_hl(0, "CodeHighlight", { fg = "NONE", underline = true })
+            require("tidal").setup(opts)
+            vim.api.nvim_create_user_command("TidalSuperDirtLaunch", function()
+                local startup_file = "~/supercollider/superdirt-setup/superdirt-startup.scd"
+                vim.cmd("tabnew " .. startup_file)
+                vim.cmd("SCNvimStart")
+                require("scnvim.sclang").load(startup_file)
+                vim.cmd("tabprevious ")
+            end, { desc = "Launch SuperDirt in a new tab" })
         end,
     },
 }

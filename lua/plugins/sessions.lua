@@ -5,7 +5,7 @@ return {
             local config = require("session_manager.config")
             local sm = require("session_manager")
             sm.setup({
-                autosave_ignore_dirs = { "~/", "~/Code", "~/Downloads", "/" },
+                autosave_ignore_dirs = { "/", "~/", "~/Downloads" },
                 autoload_mode = { config.AutoloadMode.Disabled },
             })
             -- Auto save session

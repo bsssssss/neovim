@@ -9,7 +9,7 @@ return {
             vim.api.nvim_set_option_value("background", "light", {})
             vim.cmd("colorscheme nvim_colorscheme_light")
         end,
-        update_interval = 3000,
+        update_interval = 500,
         fallback = "dark",
     },
 }

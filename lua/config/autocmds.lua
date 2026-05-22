@@ -22,12 +22,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
             end, "Hover")
         end
 
-        if
-            client
-            and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
-        then
-            local highlight_augroup =
-                vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+            local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
                 buffer = event.buf,
@@ -60,11 +56,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
-            vim.lsp.document_color.enable(true, {}, {
-                style = "virtual"
-            })
+            vim.lsp.document_color.enable(true, {}, { style = "virtual" })
+            vim.cmd("HighlightColors Off")
         end
-
     end,
 })
 
@@ -150,14 +144,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("User", {
-  pattern = "TidalLaunch",
-  callback = function()
-    -- require("scnvim").start()
-    --
-    -- local bootfile = "/Users/bss/supercollider/superdirt-setup/superdirt-startup.scd"
-    -- local file = assert(io.open(bootfile, "r"), "bootfile not found")
-    -- require("scnvim").send(file:read("*a"))
-    vim.cmd("TidalNotification")
-  end
+    pattern = "TidalLaunch",
+    callback = function()
+        -- require("scnvim").start()
+        --
+        -- local bootfile = "/Users/bss/supercollider/superdirt-setup/superdirt-startup.scd"
+        -- local file = assert(io.open(bootfile, "r"), "bootfile not found")
+        -- require("scnvim").send(file:read("*a"))
+        vim.cmd("TidalNotification")
+    end,
 })
-

@@ -17,7 +17,7 @@ return {
         enabled = true,
         dependencies = {
             { dir = "/Users/bss/dev/forks/telescope-scdoc.nvim" },
-            { "madskjeldgaard/fzf-sc" },
+            -- { "madskjeldgaard/fzf-sc" },
             -- "davidgranstrom/telescope-scdoc.nvim"
         },
         event = { "FileType supercollider" },
@@ -97,12 +97,10 @@ return {
             vim.api.nvim_create_user_command("SChelp", "SCNvimExt fzf-sc.fuzz help", { desc = "Supercollider: Open help (fzf-sc)" })
 
             vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "supercollider" },
+                pattern = { "supercollider", "scnvim.postwindow" },
                 callback = function()
-                    -- vim.opt_local.statusline =
-                    --     "%<%f %h%w%m%r %24.24{scnvim#statusline#server_status()}%=%{% luaeval('(package.loaded[''vim.diagnostic''] and next(vim.diagnostic.count()) and vim.diagnostic.status() .. '' '') or '''' ') %}%-14.(%l,%c%V%) %P"
                     vim.opt_local.statusline =
-                        "%f %h%w%m%r %=%-40.32{scnvim#statusline#server_status()}%-14(%l,%c%V%) %P"
+                        "%f %h%w%m%r %=%-40{scnvim#statusline#server_status()}%-14(%l,%c%V%) %P"
                 end,
             })
 

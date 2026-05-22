@@ -35,7 +35,6 @@ return {
             local languages = {
                 "bash",
                 "zsh",
-                "sh",
                 "make",
                 "cmake",
                 "c",
@@ -54,7 +53,6 @@ return {
                 "javascript",
                 "typescript",
                 "json",
-                -- "jsonc",
                 "genexpr",
                 "supercollider",
                 "toml",
@@ -65,7 +63,6 @@ return {
             require("nvim-treesitter").install(languages)
 
             vim.treesitter.language.register("bash", "zsh")
-            vim.treesitter.language.register("bash", "sh")
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = languages,
@@ -155,10 +152,7 @@ return {
 
             -- You can use the capture groups defined in `textobjects.scm`
             vim.keymap.set({ "n", "x", "o" }, "]m", function()
-                require("nvim-treesitter-textobjects.move").goto_next_start(
-                    "@function.outer",
-                    "textobjects"
-                )
+                require("nvim-treesitter-textobjects.move").goto_next_start( "@function.outer", "textobjects")
             end)
             vim.keymap.set({ "n", "x", "o" }, "]]", function()
                 require("nvim-treesitter-textobjects.move").goto_next_start(
