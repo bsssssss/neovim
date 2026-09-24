@@ -5,6 +5,7 @@ vim.filetype.add({
     pattern = {
         [".*%.[sS]"] = "asm6502",
         [".*/kitty/.*%.conf"] = "kitty",
+        [".*%.kitty%-session"] = "kitty",
     },
 })
 
