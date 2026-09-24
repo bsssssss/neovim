@@ -29,16 +29,21 @@ return {
 
             -- Setup scnvim
             scnvim.setup({
+                sclang = {
+                    -- cmd = "sclang-latest",
+                    cmd = "/Users/bss/dev/forks/supercollider/build/Install/SuperCollider/SuperCollider.app/Contents/MacOS/sclang",
+                },
                 keymaps = {
-                    ["<C-S-E>"] = map("editor.send_line", { "i", "n" }),
-                    ["<C-E>"] = {
+                    ["<C-S-CR>"] = map("editor.send_line", { "i", "n" }),
+                    ["<C-CR>"] = {
                         map("editor.send_block", { "n", "i" }),
                         map("editor.send_selection", "x"),
                     },
                     ["<CR>"] = map("postwin.toggle"),
-                    ["<C-CR>"] = map("postwin.toggle", "i"),
+                    -- ["<C-CR>"] = map("postwin.toggle", "i"),
                     ["<C-S-X>"] = map("postwin.clear", { "n", "i" }),
-                    ["<C-x>"] = map("sclang.hard_stop", { "n", "x", "i" }),
+                    ["<C-.>"] = map("sclang.hard_stop", { "n", "x", "i" }),
+                    ["<leader>R"] = map("sclang.recompile", { "n" })
                 },
                 editor = {
                     highlight = {
@@ -51,13 +56,16 @@ return {
                     },
                     force_ft_supercollider = false,
                     auto_start = false,
+                    signature = {
+                        show = false,
+                    },
                 },
                 postwin = {
                     highlight = true,
                     auto_toggle_error = true,
-                    horizontal = false,
-                    direction = "right",
-                    size = math.floor(vim.o.columns * 0.4),
+                    horizontal = true,
+                    -- direction = "right",
+                    size = 10,
                 },
                 documentation = {
                     cmd = "/opt/homebrew/bin/pandoc",
@@ -78,7 +86,7 @@ return {
                 },
 
                 statusline = {
-                    poll_interval = 0.2,
+                    poll_interval = 0.1,
                 },
             })
 
@@ -94,13 +102,15 @@ return {
                 vim.opt_local.wrap = true
             end)
 
-            vim.api.nvim_create_user_command("SChelp", "SCNvimExt fzf-sc.fuzz help", { desc = "Supercollider: Open help (fzf-sc)" })
 
             vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "supercollider", "scnvim.postwindow" },
+                pattern = { "supercollider", "scnvim", "help.supercollider" },
                 callback = function()
-                    vim.opt_local.statusline =
-                        "%f %h%w%m%r %=%-40{scnvim#statusline#server_status()}%-14(%l,%c%V%) %P"
+                    -- %<%f %h%w%m%r %{% v:lua.require('vim._core.util').term_exitcode() %}%=%{% luaeval('(package.loaded[''vim.ui''] and vim.api.nvim_get_current_win() == tonumber(vim. g.actual_curwin or -1) and vim.ui.progress_status()) or '''' ')%}%{% &showcmdloc == 'statusline' ? '%-10.S ' : '' %}%{% exists('b:keymap_name') ? '<'..b:keymap_na me..'> ' : '' %}%{% &busy > 0 ? '◐ ' : '' %}%{% luaeval('(package.loaded[''vim.diagnostic''] and next(vim.diagnostic.count()) and vim.diagnostic.status() .. '' '') or '''' ') %}%{% &ruler ? ( &rulerformat == '' ? '%-14.(%l,%c%V%) %P' : &rulerformat ) : '' %}
+                    vim.opt_local.statusline = "%<%f %h%w%m%r %{% v:lua.require('vim._core.util').term_exitcode() %}%=%-40{scnvim#statusline#server_status()}%{% luaeval('(package.loaded[''vim.diagnostic''] and next(vim.diagnostic.count()) and vim.diagnostic.status() .. '' '') or '''' ') %}%{% &ruler ? ( &rulerformat == '' ? '%-14.(%l,%c%V%) %P' : &rulerformat ) : '' %}"
+                    vim.keymap.set("n", "<leader>sh", "<cmd>SCNvimExt fzf-sc.fuzz help<CR>", { desc = "Supercollider: Fuzzy find help" })
+                    vim.api.nvim_create_user_command("SChelp", "SCNvimExt fzf-sc.fuzz help", { desc = "Supercollider: Fuzzy find help" })
+                    -- vim.opt_local.statusline = "%f %h%w%m%r %=%-40{scnvim#statusline#server_status()}%-14(%l,%c%V%) %P"
                 end,
             })
 

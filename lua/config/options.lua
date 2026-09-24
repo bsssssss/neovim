@@ -46,9 +46,7 @@ o.timeoutlen = 500
 
 o.undodir = vim.fn.expand("~/.undodir")
 o.undofile = true
-
 o.swapfile = false
-
 o.autoread = true
 
 vim.o.sessionoptions =
@@ -57,7 +55,7 @@ vim.o.sessionoptions =
 o.syntax = "on"
 o.conceallevel = 0
 
-vim.o.scrolloff = 8
+vim.o.scrolloff = 0
 vim.o.sidescrolloff = 8
 
 o.laststatus = 3
@@ -68,4 +66,4 @@ o.showcmd = false
 
 vim.g.c_syntax_for_h = true
 
-o.foldlevel = 999
+o.foldlevel = 99999

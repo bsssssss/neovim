@@ -1,10 +1,9 @@
 return {
     "stevearc/oil.nvim",
-    enabled = true,
     lazy = false,
-    ---@module 'oil'
-    ---@type oil.SetupOpts
+
     opts = {
+        watch_for_changes = true,
         columns = {
             "icon",
             -- "permissions",
@@ -46,6 +45,7 @@ return {
         },
     },
     -- Optional dependencies
+
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 }

@@ -1,1 +1,0 @@
-/Users/bss/dev/forks/tree-sitter-supercollider/queries/highlights.scm

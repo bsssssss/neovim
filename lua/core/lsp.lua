@@ -25,13 +25,14 @@ vim.lsp.enable({
     "ts_ls",
     "lemminx",
     "marksman",
-    "supercollider",
-    -- "tidal_language_server",
+    "sclang_language_server",
     "genexpr_language_server",
     "vimls",
     "jdtls",
     "ruff",
     "pyright"
+    -- "sclang_lint",
+    -- "tidal_language_server",
 })
 
 vim.diagnostic.config({

@@ -29,15 +29,26 @@ return {
                             queries = "/Users/bss/dev/forks/tree-sitter-supercollider/queries",
                         },
                     }
+                    ---@diagnostic disable-next-line: missing-fields
+                    require("nvim-treesitter.parsers").tzpl = {
+                        ---@diagnostic disable-next-line: missing-fields
+                        install_info = {
+                            path = "/Users/bss/dev/forks/tzpl/lang/editors/tree-sitter-tzpl",
+                            queries = "/Users/bss/dev/forks/tzpl/lang/editors/tree-sitter-tzpl/queries",
+                        },
+                    }
                 end,
             })
 
             local languages = {
                 "bash",
                 "zsh",
+                "sh",
                 "make",
                 "cmake",
                 "c",
+                "cpp",
+                "css",
                 "diff",
                 "html",
                 "lua",
@@ -55,14 +66,17 @@ return {
                 "json",
                 "genexpr",
                 "supercollider",
+                "tzpl",
                 "toml",
                 "haskell",
+                "yaml",
                 "xml",
             }
 
             require("nvim-treesitter").install(languages)
 
             vim.treesitter.language.register("bash", "zsh")
+            vim.treesitter.language.register("bash", "sh")
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = languages,
@@ -121,56 +135,56 @@ return {
                     "@function.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "Function (outer)" })
             vim.keymap.set({ "x", "o" }, "if", function()
                 require("nvim-treesitter-textobjects.select").select_textobject(
                     "@function.inner",
                     "textobjects"
                 )
-            end)
+            end, { desc = "Function (inner)" })
             vim.keymap.set({ "x", "o" }, "ac", function()
                 require("nvim-treesitter-textobjects.select").select_textobject(
                     "@class.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "Class (outer)" })
             vim.keymap.set({ "x", "o" }, "ic", function()
                 require("nvim-treesitter-textobjects.select").select_textobject(
                     "@class.inner",
                     "textobjects"
                 )
-            end)
+            end, { desc = "Class (inner)" })
             -- You can also use captures from other query groups like `locals.scm`
             vim.keymap.set({ "x", "o" }, "as", function()
                 require("nvim-treesitter-textobjects.select").select_textobject(
                     "@local.scope",
                     "locals"
                 )
-            end)
+            end, { desc = "Scope" })
 
             -- Moving
 
             -- You can use the capture groups defined in `textobjects.scm`
             vim.keymap.set({ "n", "x", "o" }, "]m", function()
                 require("nvim-treesitter-textobjects.move").goto_next_start( "@function.outer", "textobjects")
-            end)
+            end, { desc = "next function" })
             vim.keymap.set({ "n", "x", "o" }, "]]", function()
                 require("nvim-treesitter-textobjects.move").goto_next_start(
                     "@class.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "next class" })
             -- You can also pass a list to group multiple queries.
             vim.keymap.set({ "n", "x", "o" }, "]o", function()
                 move.goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects")
-            end)
+            end, { desc = "next loop" })
             -- You can also use captures from other query groups like `locals.scm` or `folds.scm`
             vim.keymap.set({ "n", "x", "o" }, "]s", function()
                 require("nvim-treesitter-textobjects.move").goto_next_start(
                     "@local.scope",
                     "locals"
                 )
-            end)
+            end, { desc = "next scope" })
             vim.keymap.set({ "n", "x", "o" }, "]z", function()
                 require("nvim-treesitter-textobjects.move").goto_next_start("@fold", "folds")
             end)
@@ -179,37 +193,37 @@ return {
                     "@function.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "next function end" })
             vim.keymap.set({ "n", "x", "o" }, "][", function()
                 require("nvim-treesitter-textobjects.move").goto_next_end(
                     "@class.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "next class end" })
             vim.keymap.set({ "n", "x", "o" }, "[m", function()
                 require("nvim-treesitter-textobjects.move").goto_previous_start(
                     "@function.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "previous function" })
             vim.keymap.set({ "n", "x", "o" }, "[[", function()
                 require("nvim-treesitter-textobjects.move").goto_previous_start(
                     "@class.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "previous class" })
             vim.keymap.set({ "n", "x", "o" }, "[M", function()
                 require("nvim-treesitter-textobjects.move").goto_previous_end(
                     "@function.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "previous function end" })
             vim.keymap.set({ "n", "x", "o" }, "[]", function()
                 require("nvim-treesitter-textobjects.move").goto_previous_end(
                     "@class.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "previous class end" })
 
             -- Go to either the start or the end, whichever is closer.
             -- Use if you want more granular movements
@@ -218,13 +232,13 @@ return {
                     "@conditional.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "next conditional" })
             vim.keymap.set({ "n", "x", "o" }, "[c", function()
                 require("nvim-treesitter-textobjects.move").goto_previous(
                     "@conditional.outer",
                     "textobjects"
                 )
-            end)
+            end, { desc = "previous conditional" })
         end,
     },
     {

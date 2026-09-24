@@ -35,10 +35,13 @@ map("n", "N", "Nzzzv")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "<C-d>", "<C-d>zz")
 
-map("v", "<leader>p", [["_dP]]) -- greatest remap ever
-map({ "n", "v" }, "<leader>y", [["+y]]) -- next greatest remap ever : asbjornHaland
-map({ "n", "v" }, "<leader>Y", [["+Y]])
+map("n", "<C-d>", "<C-d>zz")
+
+map("v", "<leader>p", [["_dP]])
+map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
+map({ "n", "v" }, "<leader>Y", [["+Y]], { desc = "Yank line to clipboard" })
 map({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to void register" })
+
 
 map("n", "<leader>cR", ":IncRename<CR>", { desc = "Incremenal Rename" })
 
@@ -47,9 +50,19 @@ map("n", "<leader>tc", function() if vim.bo.filetype == "java" then require("jdt
 map("n", "<leader>tm", function() if vim.bo.filetype == "java" then require("jdtls").test_nearest_method() end end, { desc = "Java : Test Method" })
 -- stylua: ignore end
 
-map({ "n" }, "<leader>e", ":Oil<CR>", { desc = "File Explorer" })
+map("n", "<leader>e", ":Oil<CR>", { desc = "File Explorer" })
 map("n", "<TAB>", "<cmd>tabnext<CR>")
 map("n", "<S-TAB>", "<cmd>tabprevious<CR>")
 
 map("n", "<leader>m", "<cmd>make<CR>", { desc = "Run make" })
 map("n", "<leader>S", "<cmd>source %<CR>", { desc = "Source lua file" })
+
+if os.getenv("TERM") == "xterm-kitty" then
+    vim.g.kitty_navigator_no_mappings = 1
+    vim.g.tmux_navigator_no_mappings = 1
+
+    vim.api.nvim_set_keymap("n", "<C-h>", ":KittyNavigateLeft <CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<C-j>", ":KittyNavigateDown <CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<C-k>", ":KittyNavigateUp <CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<C-l>", ":KittyNavigateRight <CR>", { noremap = true, silent = true })
+end

@@ -58,7 +58,7 @@ return {
                 },
             },
             menu = {
-                auto_show = false,
+                auto_show = true,
                 draw = {
                     components = {
                         -- customize the drawing of kind icons
@@ -67,6 +67,7 @@ return {
             },
             list = { selection = { preselect = false, auto_insert = true } },
         },
+        snippets = { preset = "luasnip" },
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {

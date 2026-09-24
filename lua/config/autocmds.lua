@@ -140,8 +140,18 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "supercollider",
     callback = function()
         vim.opt_local.expandtab = false
+        vim.opt_local.comments = "sr:/*,mb:*,ex:*/,://"
+        vim.opt_local.formatoptions = "qclorj"
+        vim.opt_local.commentstring = "// %s"
     end,
 })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "tzpl",
+--     callback = function()
+--         vim.opt_local.commentstring = "-- %s"
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd("User", {
     pattern = "TidalLaunch",

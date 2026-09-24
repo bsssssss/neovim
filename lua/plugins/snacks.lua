@@ -87,6 +87,21 @@ return {
                     backdrop = 100,
                     border = "rounded",
                 },
+                zen = {
+                    enter = true,
+                    fixbuf = false,
+                    minimal = false,
+                    width = 120,
+                    height = 0,
+                    keys = { q = false },
+                    zindex = 40,
+                    wo = {
+                        winhighlight = "NormalFloat:Normal",
+                    },
+                    w = {
+                        snacks_main = true,
+                    },
+                },
             },
 
             picker = {
@@ -96,11 +111,7 @@ return {
                 },
             },
 
-
-            -- terminal = {
-            --  enabled = true,
-            --  auto_insert = false,
-            -- },
+            zen = {},
         },
 
         keys = {

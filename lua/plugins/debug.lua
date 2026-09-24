@@ -87,13 +87,19 @@ return {
                     end,
                 },
             }
+            dap.configurations.cpp = dap.configurations.c
+
         end,
     },
     {
+        "mfussenegger/nvim-dap-python",
+        config = function()
+            require("dap-python").setup("/Users/bss/.local/bin/debugpy-adapter")
+        end
+    },
+    {
         "rcarriga/nvim-dap-ui",
-        dependencies = {
-            "nvim-neotest/nvim-nio",
-        },
+        dependencies = { "nvim-neotest/nvim-nio" },
         -- opts = {},
         config = function()
             ---@diagnostic disable-next-line: missing-fields
@@ -141,18 +147,4 @@ return {
             require("nvim-dap-virtual-text").setup({})
         end,
     },
-    -- {
-    --     "jay-babu/mason-nvim-dap.nvim",
-    --     dependencies = {
-    --         "williamboman/mason.nvim",
-    --     },
-    --     opts = {
-    --         ensure_installed = {
-    --             "codelldb",
-    --             "java-debug-adapter",
-    --             "js-debug-adapter",
-    --         },
-    --         handlers = {},
-    --     },
-    -- },
 }
